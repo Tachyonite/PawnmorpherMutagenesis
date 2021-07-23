@@ -1,0 +1,35 @@
+<ModMetaData>
+	<name>Pawnmorpher: Mutagenesis</name>
+	<author>Mic, Iron Wolf, The Pheonix</author>
+	<supportedVersions>
+		<li>1.3</li>
+	</supportedVersions>
+	<description>Cult stuff and mutagens woo
+
+	</description>
+	<packageId>tachyonite.pawnmorpher.mutagenesis</packageId>
+	<modDependencies>
+		<li>
+			<packageId>erdelf.HumanoidAlienRaces</packageId>
+			<displayName>Humanoid Alien Races 2.0</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=839005762</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>Ludeon.RimWorld.Ideology</packageId>
+			<displayName>Ideology</displayName>
+		</li>
+		<li>
+			<packageId>UnlimitedHugs.HugsLib</packageId>
+			<displayName>HugsLib</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=818773962</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<loadBefore>
+	</loadBefore>
+	<loadAfter>
+		<li>Ludeon.RimWorld.Ideology</li>
+		<li>erdelf.HumanoidAlienRaces</li>
+		<li>PeteTimesSix.CompactHediffs</li>
+		<li>UnlimitedHugs.HugsLib</li>
+	</loadAfter>
+</ModMetaData>
