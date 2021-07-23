@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Issues -->
+  
+  <IssueDef>
+    <defName>PM_Mutagenic_Passport</defName>
+    <label>mutagenic passport</label>
+    <iconPath>UI/Issues/MutagenicPassport</iconPath>
+  </IssueDef>
+  
+  <!-- Precept -->
+  
+  <PreceptDef>
+    <defName>PM_Mutagenic_Passport_Indifferent</defName>
+    <issue>PM_Mutagenic_Passport</issue>
+    <label>indifferent</label>
+    <description>TODO no need</description>
+    <impact>Low</impact>
+    <classic>true</classic>
+    <displayOrderInIssue>10</displayOrderInIssue>
+    <defaultSelectionWeight>1</defaultSelectionWeight>
+  </PreceptDef>
+  
+  <PreceptDef>
+    <defName>PM_Mutagenic_Passport_Desired</defName>
+    <issue>PM_Mutagenic_Passport</issue>
+    <label>desired</label>
+    <description>TODO priority.</description>
+    <impact>High</impact>
+    <displayOrderInIssue>100</displayOrderInIssue>
+    <displayOrderInImpact>750</displayOrderInImpact>
+    <comps>
+      <li Class="PreceptComp_SituationalThought">
+        <thought>PM_Mutagenic_Passport_MorphDesired</thought>
+      </li>
+	  <li Class="PreceptComp_SituationalThought">
+        <thought>PM_Mutagenic_Passport_MorphDesired_Social</thought>
+      </li>
+    </comps>
+  </PreceptDef>
+  
+  <PreceptDef>
+    <defName>PM_Mutagenic_Passport_Mandatory</defName>
+    <issue>PM_Mutagenic_Passport</issue>
+    <label>required</label>
+    <description>TODO required.</description>
+    <impact>High</impact>
+    <displayOrderInIssue>100</displayOrderInIssue>
+    <displayOrderInImpact>750</displayOrderInImpact>
+    <comps>
+      <li Class="PreceptComp_SituationalThought">
+        <thought>PM_Mutagenic_Passport_MorphRequired</thought>
+      </li>
+	  <li Class="PreceptComp_SituationalThought">
+        <thought>PM_Mutagenic_Passport_MorphRequired_Social</thought>
+      </li>
+    </comps>
+  </PreceptDef>
+  
+  
+  
+  <ThoughtDef>
+    <defName>PM_Mutagenic_Passport_MorphDesired</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+    <workerClass>PawnmorpherMutagenesis.Thoughts.Precept.ThoughtWorker_Precept_IsNotMorph</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+	<stages>
+      <li>
+        <label>not morph (desired)</label>
+        <description>TODO</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+	</stages>
+  </ThoughtDef>
+  
+  <ThoughtDef>
+    <defName>PM_Mutagenic_Passport_MorphDesired_Social</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>PawnmorpherMutagenesis.Thoughts.Precept.ThoughtWorker_Precept_IsNotMorph_Social</workerClass>
+    <stages>
+      <li>
+        <label>not morph (desired)</label>
+        <baseOpinionOffset>-5</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <ThoughtDef>
+    <defName>PM_Mutagenic_Passport_MorphRequired</defName>
+	<thoughtClass>Thought_Situational</thoughtClass>
+    <workerClass>PawnmorpherMutagenesis.Thoughts.Precept.ThoughtWorker_Precept_IsNotMorph</workerClass>
+    <validWhileDespawned>true</validWhileDespawned>
+	<stages>
+      <li>
+        <label>not morph (required)</label>
+        <description>TODO</description>
+        <baseMoodEffect>-10</baseMoodEffect>
+      </li>
+	</stages>
+  </ThoughtDef>
+  
+  <ThoughtDef>
+    <defName>PM_Mutagenic_Passport_MorphRequired_Social</defName>
+    <thoughtClass>Thought_SituationalSocial</thoughtClass>
+    <workerClass>PawnmorpherMutagenesis.Thoughts.Precept.ThoughtWorker_Precept_IsNotMorph_Social</workerClass>
+    <stages>
+      <li>
+        <label>not morph (required)</label>
+        <baseOpinionOffset>-10</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>
