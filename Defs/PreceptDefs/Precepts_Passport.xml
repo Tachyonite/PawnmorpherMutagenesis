@@ -6,7 +6,7 @@
   <IssueDef>
     <defName>PM_Mutagenic_Passport</defName>
     <label>mutagenic passport</label>
-    <iconPath>UI/Issues/MutagenicPassport</iconPath>
+    <iconPath>UI/Precepts/MutagenicPassport</iconPath>
   </IssueDef>
   
   <!-- Precept -->
