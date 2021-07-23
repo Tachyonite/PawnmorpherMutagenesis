@@ -3,7 +3,7 @@
 	<version>0.1</version>
 	<dependencies>
 		<li>erdelf.humanoidalienraces</li>
-		<li>Ludeon.Rimworld.Ideologyq</li>
+		<li>Ludeon.Rimworld.Ideology</li>
 	</dependencies>
 	<incompatibleWith>
 		<li>killface.facialstuff</li>
