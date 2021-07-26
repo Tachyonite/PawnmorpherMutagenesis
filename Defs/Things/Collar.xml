@@ -55,6 +55,9 @@
             <li>
                 <compClass>PawnmorpherMutagenesis.ThingComps.AutoLocker</compClass>
             </li>
+            <li>
+                <compClass>PawnmorpherMutagenesis.ThingComps.SapienceLevelPickerComp</compClass>
+            </li>
         </comps>
     </ThingDef>
 </Defs>

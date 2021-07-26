@@ -18,7 +18,6 @@
                 <statOffsets>
                     <SapienceLimit>-0.2</SapienceLimit>
                 </statOffsets>
-                <minSeverity>0.1</minSeverity>
             </li>
             <li>
 				<minSeverity>0.4</minSeverity>
@@ -26,7 +25,6 @@
                 <statOffsets>
                     <SapienceLimit>-0.4</SapienceLimit>
                 </statOffsets>
-                <minSeverity>0.2</minSeverity>
             </li>
             <li>
 				<minSeverity>0.6</minSeverity>
@@ -34,7 +32,6 @@
                 <statOffsets>
                     <SapienceLimit>-0.6</SapienceLimit>
                 </statOffsets>
-                <minSeverity>0.3</minSeverity>
             </li>
             <li>
 				<minSeverity>1</minSeverity>
@@ -42,7 +39,6 @@
                 <statOffsets>
                     <SapienceLimit>-1</SapienceLimit>
                 </statOffsets>
-                <minSeverity>0.4</minSeverity>
             </li>
         </stages>
     </HediffDef>
