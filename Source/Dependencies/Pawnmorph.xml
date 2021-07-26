@@ -2073,6 +2073,41 @@
               <c>true</c> if the specified race is chaomorph; otherwise, <c>false</c>.
             </returns>
         </member>
+        <member name="T:Pawnmorph.ColonyRelation">
+            <summary>
+            enum for how a pawn relates to the colony 
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.ColonyRelation.Wild">
+            <summary>
+            'wild' pawns. ie they have no special relation to the colony 
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.ColonyRelation.Colonist">
+            <summary>
+            a colonist 
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.ColonyRelation.Prisoner">
+            <summary>
+            a prisoner of the colony 
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.ColonyRelation.Ally">
+            <summary>
+            an ally/guest of the colony 
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.ColonyRelation.Slave">
+            <summary>
+            a slave of the colony 
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.ColonyRelation.PrisonerGuilty">
+            <summary>
+            a guilty prisoner of the colony 
+            </summary>
+        </member>
         <member name="T:Pawnmorph.ColorGenerator_HSV">
             <summary>
             Color generator that generates colors in a given Hue-Saturation-Value range
@@ -2587,6 +2622,42 @@
         <member name="M:Pawnmorph.DebugUtils.Pawnmorpher_InteractionWeightLogDialogue.DoListingItems">
             <summary>
             Does the listing items.
+            </summary>
+        </member>
+        <member name="T:Pawnmorph.DefExtensions.AdditionalPlantInfo">
+            <summary>
+            def extension for giving plants additional variability 
+            </summary>
+            <seealso cref="T:Verse.DefModExtension" />
+        </member>
+        <member name="F:Pawnmorph.DefExtensions.AdditionalPlantInfo.minGrowthTemperature">
+            <summary>
+            The minimum growth temperature
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.DefExtensions.AdditionalPlantInfo.minOptimalGrowthTemperature">
+            <summary>
+            The minimum optimal growth temperature
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.DefExtensions.AdditionalPlantInfo.maxOptimalGrowthTemperature">
+            <summary>
+            The maximum optimal growth temperature
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.DefExtensions.AdditionalPlantInfo.maxGrowthTemperature">
+            <summary>
+            The maximum growth temperature
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.DefExtensions.AdditionalPlantInfo.minLeaflessTemperature">
+            <summary>
+            The minimum leafless temperature
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.DefExtensions.AdditionalPlantInfo.maxLeaflessTemperature">
+            <summary>
+            The maximum leafless temperature
             </summary>
         </member>
         <member name="T:Pawnmorph.DefExtensions.AspectGiverExtension">
@@ -3435,9 +3506,14 @@
                 The related sold former human letter label
             </summary>
         </member>
+        <member name="F:Pawnmorph.FormerHumanUtilities.MANHUNTER_EPSILON">
+            <summary>
+                manhunter chances below this means that manhunter tf is disabled
+            </summary>
+        </member>
         <member name="F:Pawnmorph.FormerHumanUtilities._sapienceThresholds">
             <summary>
-            these are the minimum sapience levels needed to fall withing a given enum level 
+                these are the minimum sapience levels needed to fall withing a given enum level
             </summary>
         </member>
         <member name="P:Pawnmorph.FormerHumanUtilities.BaseManhunterTfChance">
@@ -3455,10 +3531,13 @@
                 the chance for a friendly pawn to go manhunter when transformed
             </summary>
         </member>
-        <member name="F:Pawnmorph.FormerHumanUtilities.MANHUNTER_EPSILON">
+        <member name="P:Pawnmorph.FormerHumanUtilities.AllSapienceLevels">
             <summary>
-            manhunter chances below this means that manhunter tf is disabled 
+                Gets all sapience levels.
             </summary>
+            <value>
+                All sapience levels.
+            </value>
         </member>
         <member name="P:Pawnmorph.FormerHumanUtilities.SapienceLevelThresholds">
             <summary>
@@ -3540,6 +3619,15 @@
                 The mutation traits.
             </value>
         </member>
+        <member name="M:Pawnmorph.FormerHumanUtilities.CanPassFences(Verse.Pawn)">
+            <summary>
+                Determines whether this pawn can pass through fences
+            </summary>
+            <param name="pawn">The pawn.</param>
+            <returns>
+                <c>true</c> if this this pawn can pass through fences otherwise, <c>false</c>.
+            </returns>
+        </member>
         <member name="M:Pawnmorph.FormerHumanUtilities.CreateMergedAnimalRequest(Verse.PawnKindDef,System.Collections.Generic.IEnumerable{Verse.Pawn},RimWorld.Faction,RimWorld.PawnGenerationContext,System.Nullable{Verse.Gender})">
             <summary>
                 Creates the merged animal request.
@@ -3574,19 +3662,43 @@
             <param name="predator">The predator.</param>
             <returns></returns>
         </member>
-        <member name="M:Pawnmorph.FormerHumanUtilities.TamenessCanDecay(Verse.Pawn)">
+        <member name="M:Pawnmorph.FormerHumanUtilities.GenerateRandomHumanForm(Verse.Pawn,System.String,System.String,System.Nullable{Verse.Gender})">
             <summary>
-            checks if Tameness the can decay on the given pawn.
+                Generates the random human form of the given animal
+            </summary>
+            <param name="animal">The animal.</param>
+            <param name="fixedFirstName">First name of the fixed.</param>
+            <param name="fixedLastName">Last name of the fixed.</param>
+            <param name="fixedOriginalGender">The fixed original gender.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.FormerHumanUtilities.GenerateRandomUnmergedHuman(Verse.Pawn)">
+            <summary>
+                Generates the random unmerged humans for the given merged animal
+            </summary>
+            <param name="mergedAnimal">The animal.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.FormerHumanUtilities.GetFilthStat(Verse.Pawn)">
+            <summary>
+                Gets the filth stat, taking sapience into account.
+            </summary>
+            <param name="pawn">The pawn.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.FormerHumanUtilities.GetIntelligence(Verse.Pawn)">
+            <summary>
+                Gets the intelligence of this pawn
             </summary>
             <param name="pawn">The pawn.</param>
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">pawn</exception>
         </member>
-        <member name="M:Pawnmorph.FormerHumanUtilities.GetSapienceTracker(Verse.Pawn)">
+        <member name="M:Pawnmorph.FormerHumanUtilities.GetMidLevel(Pawnmorph.SapienceLevel)">
             <summary>
-                Gets the former human tracker.
+                Gets the mid level.
             </summary>
-            <param name="pawn">The pawn.</param>
+            <param name="sapienceLevel">The sapience level.</param>
             <returns></returns>
         </member>
         <member name="M:Pawnmorph.FormerHumanUtilities.GetOriginalPawnOfFormerHuman(Verse.Pawn)">
@@ -3601,6 +3713,11 @@
             <param name="pawn">The pawn.</param>
             <returns>returns null if the pawn isn't a former human</returns>
         </member>
+        <member name="M:Pawnmorph.FormerHumanUtilities.GetSapienceLevel(Verse.Pawn)">
+            <summary>Gets the quantized sapience level.</summary>
+            <param name="pawn">The pawn.</param>
+            <returns>returns null if the pawn isn't a former human</returns>
+        </member>
         <member name="M:Pawnmorph.FormerHumanUtilities.GetQuantizedSapienceLevel(System.Single)">
             <summary>
                 Gets the quantized sapience level.
@@ -3608,23 +3725,31 @@
             <param name="sapienceLevel">The raw sapience level.</param>
             <returns></returns>
         </member>
-        <member name="M:Pawnmorph.FormerHumanUtilities.GetThreshold(Pawnmorph.SapienceLevel)">
+        <member name="M:Pawnmorph.FormerHumanUtilities.GetSapienceState(Verse.Pawn)">
             <summary>
-            Gets the threshold.
+                Gets the current sapience state the pawn is in
             </summary>
-            <param name="sapienceLevel">The sapience level.</param>
+            <param name="pawn">The pawn.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">pawn</exception>
+        </member>
+        <member name="M:Pawnmorph.FormerHumanUtilities.GetSapienceTracker(Verse.Pawn)">
+            <summary>
+                Gets the former human tracker.
+            </summary>
+            <param name="pawn">The pawn.</param>
             <returns></returns>
         </member>
-        <member name="M:Pawnmorph.FormerHumanUtilities.GetMidLevel(Pawnmorph.SapienceLevel)">
+        <member name="M:Pawnmorph.FormerHumanUtilities.GetSapienceWillDebuff(Pawnmorph.SapienceLevel)">
             <summary>
-            Gets the mid level.
+                Gets the sapience will debuff.
             </summary>
-            <param name="sapienceLevel">The sapience level.</param>
+            <param name="sapienceLevel">The q sapience.</param>
             <returns></returns>
         </member>
-        <member name="M:Pawnmorph.FormerHumanUtilities.GetUpperThreshold(Pawnmorph.SapienceLevel)">
+        <member name="M:Pawnmorph.FormerHumanUtilities.GetSapienceWillDebuff(System.Single)">
             <summary>
-            Gets the upper threshold.
+            Gets the sapience will debuff.
             </summary>
             <param name="sapienceLevel">The sapience level.</param>
             <returns></returns>
@@ -3636,12 +3761,54 @@
             <param name="pawn">The pawn.</param>
             <returns></returns>
         </member>
+        <member name="M:Pawnmorph.FormerHumanUtilities.GetThreshold(Pawnmorph.SapienceLevel)">
+            <summary>
+                Gets the threshold.
+            </summary>
+            <param name="sapienceLevel">The sapience level.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.FormerHumanUtilities.GetUpperThreshold(Pawnmorph.SapienceLevel)">
+            <summary>
+                Gets the upper threshold.
+            </summary>
+            <param name="sapienceLevel">The sapience level.</param>
+            <returns></returns>
+        </member>
         <member name="M:Pawnmorph.FormerHumanUtilities.GiveSapientAnimalHuntingThought(Verse.Pawn,Verse.Pawn)">
             <summary>
                 Gives the sapient animal the hunting thought.
             </summary>
             <param name="sapientAnimal">The sapient animal.</param>
             <param name="prey">The prey.</param>
+        </member>
+        <member name="M:Pawnmorph.FormerHumanUtilities.HasSapienceState(Verse.Pawn)">
+            <summary>
+                Determines this pawn's sapience is in a special state like FormerHuman or Animalistic
+            </summary>
+            <param name="pawn">The pawn.</param>
+            <returns>
+                <c>true</c> if this pawn's sapience is in a special state like FormerHuman or Animalistic; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Pawnmorph.FormerHumanUtilities.InitializeTransformedPawn(Verse.Pawn,Verse.Pawn,System.Single,AlienRace.BackstoryDef)">
+            <summary>
+                Initializes the transformed pawn with the given original pawn and sapience level
+            </summary>
+            <param name="original">The original.</param>
+            <param name="animal">The animal.</param>
+            <param name="sapienceLevel">The sapience level.</param>
+            <param name="backstoryOverride">The backstory override.</param>
+            <exception cref="T:System.ArgumentNullException">
+                original
+                or
+                animal
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+                original
+                or
+                animal
+            </exception>
         </member>
         <member name="M:Pawnmorph.FormerHumanUtilities.InitializeWorkSettingsFor(Verse.Pawn,RimWorld.Pawn_WorkSettings)">
             <summary>
@@ -3654,6 +3821,15 @@
                 or
                 workSettings
             </exception>
+        </member>
+        <member name="M:Pawnmorph.FormerHumanUtilities.IsAnimal(Verse.Pawn)">
+            <summary>
+                Determines whether this instance is an animal.
+            </summary>
+            <param name="pawn">The pawn.</param>
+            <returns>
+                <c>true</c> if the specified pawn is an animal; otherwise, <c>false</c>.
+            </returns>
         </member>
         <member name="M:Pawnmorph.FormerHumanUtilities.IsColonistAnimal(Verse.Pawn)">
             <summary>
@@ -3674,6 +3850,15 @@
             </returns>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
+        <member name="M:Pawnmorph.FormerHumanUtilities.IsFenceBlocked(Verse.Pawn)">
+            <summary>
+                Determines whether this pawn is blocked by fences
+            </summary>
+            <param name="pawn">The pawn.</param>
+            <returns>
+                <c>true</c> if this pawn is blocked by fences; otherwise, <c>false</c>.
+            </returns>
+        </member>
         <member name="M:Pawnmorph.FormerHumanUtilities.IsFormerHuman(Verse.Pawn)">
             <summary>
                 Determines whether the given pawn is a former human.
@@ -3683,73 +3868,15 @@
                 <c>true</c> if the given pawn is former human; otherwise, <c>false</c>.
             </returns>
         </member>
-        <member name="M:Pawnmorph.FormerHumanUtilities.GetSapienceState(Verse.Pawn)">
-            <summary>
-            Gets the current sapience state the pawn is in 
-            </summary>
-            <param name="pawn">The pawn.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">pawn</exception>
-        </member>
-        <member name="M:Pawnmorph.FormerHumanUtilities.HasSapienceState(Verse.Pawn)">
-            <summary>
-            Determines this pawn's sapience is in a special state like FormerHuman or Animalistic
-            </summary>
-            <param name="pawn">The pawn.</param>
-            <returns>
-              <c>true</c> if this pawn's sapience is in a special state like FormerHuman or Animalistic; otherwise, <c>false</c>.
-            </returns>
-        </member>
         <member name="M:Pawnmorph.FormerHumanUtilities.IsHumanlike(Verse.Pawn)">
             <summary>
-            Determines whether this instance is humanlike.
+                Determines whether this instance is humanlike.
             </summary>
             <param name="pawn">The pawn.</param>
             <returns>
-              <c>true</c> if the specified pawn is humanlike; otherwise, <c>false</c>.
+                <c>true</c> if the specified pawn is humanlike; otherwise, <c>false</c>.
             </returns>
             <exception cref="T:System.ArgumentNullException">pawn</exception>
-        </member>
-        <member name="M:Pawnmorph.FormerHumanUtilities.IsFenceBlocked(Verse.Pawn)">
-            <summary>
-            Determines whether this pawn is blocked by fences
-            </summary>
-            <param name="pawn">The pawn.</param>
-            <returns>
-              <c>true</c> if this pawn is blocked by fences; otherwise, <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:Pawnmorph.FormerHumanUtilities.IsRoamer(Verse.Pawn)">
-            <summary>
-            If this pawn is a roamer or not.
-            </summary>
-            <param name="pawn">The pawn.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Pawnmorph.FormerHumanUtilities.GetFilthStat(Verse.Pawn)">
-            <summary>
-            Gets the filth stat, taking sapience into account.
-            </summary>
-            <param name="pawn">The pawn.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Pawnmorph.FormerHumanUtilities.CanPassFences(Verse.Pawn)">
-            <summary>
-            Determines whether this pawn can pass through fences 
-            </summary>
-            <param name="pawn">The pawn.</param>
-            <returns>
-              <c>true</c> if this this pawn can pass through fences otherwise, <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:Pawnmorph.FormerHumanUtilities.IsAnimal(Verse.Pawn)">
-            <summary>
-            Determines whether this instance is an animal.
-            </summary>
-            <param name="pawn">The pawn.</param>
-            <returns>
-              <c>true</c> if the specified pawn is an animal; otherwise, <c>false</c>.
-            </returns>
         </member>
         <member name="M:Pawnmorph.FormerHumanUtilities.IsManhunter(Verse.Pawn)">
             <summary>
@@ -3760,6 +3887,13 @@
                 <c>true</c> if the specified pawn is a manhunter; otherwise, <c>false</c>.
             </returns>
             <exception cref="T:System.ArgumentNullException">pawn</exception>
+        </member>
+        <member name="M:Pawnmorph.FormerHumanUtilities.IsRoamer(Verse.Pawn)">
+            <summary>
+                If this pawn is a roamer or not.
+            </summary>
+            <param name="pawn">The pawn.</param>
+            <returns></returns>
         </member>
         <member name="M:Pawnmorph.FormerHumanUtilities.IsSapientFormerHuman(Verse.Pawn)">
             <summary>
@@ -3790,66 +3924,26 @@
                 <c>true</c> if the given pawn is a tool user ; otherwise, <c>false</c>.
             </returns>
         </member>
-        <member name="M:Pawnmorph.FormerHumanUtilities.GetIntelligence(Verse.Pawn)">
-            <summary>
-            Gets the intelligence of this pawn
-            </summary>
-            <param name="pawn">The pawn.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">pawn</exception>
-        </member>
         <member name="M:Pawnmorph.FormerHumanUtilities.MakeAnimalSapient(Verse.Pawn,Verse.Pawn,System.Single)">
             <summary>Makes the animal sapient. including adding necessary comps, need, training, etc  </summary>
             <param name="original">The original.</param>
             <param name="animal">The animal.</param>
             <param name="sapienceLevel">The sapience level.</param>
         </member>
-        <member name="M:Pawnmorph.FormerHumanUtilities.InitializeTransformedPawn(Verse.Pawn,Verse.Pawn,System.Single,AlienRace.BackstoryDef)">
-            <summary>
-            Initializes the transformed pawn with the given original pawn and sapience level
-            </summary>
-            <param name="original">The original.</param>
-            <param name="animal">The animal.</param>
-            <param name="sapienceLevel">The sapience level.</param>
-            <param name="backstoryOverride">The backstory override.</param>
-            <exception cref="T:System.ArgumentNullException">
-            original
-            or
-            animal
-            </exception>
-            <exception cref="T:System.ArgumentNullException">original
-            or
-            animal</exception>
-        </member>
         <member name="M:Pawnmorph.FormerHumanUtilities.MakeAnimalSapient(Verse.Pawn,System.Single,System.Boolean,AlienRace.BackstoryDef,System.String,System.String,System.Nullable{Verse.Gender})">
             <summary>
-            Makes the animal sapient.
+                Makes the animal sapient.
             </summary>
             <param name="animal">The animal.</param>
             <param name="sapienceLevel">The sapience level.</param>
-            <param name="joinIfRelated">if set to <c>true</c> and the resulting pawn is related to a colonist have the animal join
-            the colony.</param>
+            <param name="joinIfRelated">
+                if set to <c>true</c> and the resulting pawn is related to a colonist have the animal join
+                the colony.
+            </param>
             <param name="backstoryOverride">The backstory override.</param>
             <param name="fixedFirstName">First name of the fixed.</param>
             <param name="fixedLastName">Last name of the fixed.</param>
             <param name="fixedOriginalGender">The fixed original gender.</param>
-        </member>
-        <member name="M:Pawnmorph.FormerHumanUtilities.GenerateRandomHumanForm(Verse.Pawn,System.String,System.String,System.Nullable{Verse.Gender})">
-            <summary>
-            Generates the random human form of the given animal
-            </summary>
-            <param name="animal">The animal.</param>
-            <param name="fixedFirstName">First name of the fixed.</param>
-            <param name="fixedLastName">Last name of the fixed.</param>
-            <param name="fixedOriginalGender">The fixed original gender.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Pawnmorph.FormerHumanUtilities.GenerateRandomUnmergedHuman(Verse.Pawn)">
-            <summary>
-            Generates the random unmerged humans for the given merged animal 
-            </summary>
-            <param name="mergedAnimal">The animal.</param>
-            <returns></returns>
         </member>
         <member name="M:Pawnmorph.FormerHumanUtilities.MakePermanentlyFeral(Verse.Pawn)">
             <summary>
@@ -3866,9 +3960,17 @@
             <param name="letterContentID">The letter content identifier.</param>
             <param name="letterLabelID">The letter label identifier.</param>
         </member>
+        <member name="M:Pawnmorph.FormerHumanUtilities.TamenessCanDecay(Verse.Pawn)">
+            <summary>
+                checks if Tameness the can decay on the given pawn.
+            </summary>
+            <param name="pawn">The pawn.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">pawn</exception>
+        </member>
         <member name="M:Pawnmorph.FormerHumanUtilities.TransferEverything(Verse.Pawn,Verse.Pawn,Pawnmorph.PawnTransferUtilities.SkillTransferMode,Pawnmorph.PawnTransferUtilities.SkillPassionTransferMode)">
             <summary>
-            transfers all relevant information from the original pawn to the transformed pawn
+                transfers all relevant information from the original pawn to the transformed pawn
             </summary>
             <param name="original">The original.</param>
             <param name="transformedPawn">The pawn the original pawn was transformed into.</param>
@@ -3877,14 +3979,26 @@
         </member>
         <member name="M:Pawnmorph.FormerHumanUtilities.TransferHediffs(Verse.Pawn,Verse.Pawn)">
             <summary>
-            Transfers the hediffs from the original pawn onto the transformed pawn by checking for the TFTransferable 
+                Transfers the hediffs from the original pawn onto the transformed pawn by checking for the TFTransferable
             </summary>
             <param name="original">The original.</param>
             <param name="transformedPawn">The transformed pawn.</param>
         </member>
+        <member name="M:Pawnmorph.FormerHumanUtilities.TransferRelationsToOriginal(Verse.Pawn,Verse.Pawn)">
+            <summary>
+                Transfers the relations back to the original pawn after they've been transformed into the transformedPawn
+            </summary>
+            <param name="original">The original.</param>
+            <param name="transformedPawn">The transformed pawn.</param>
+            <exception cref="T:System.ArgumentNullException">
+                original
+                or
+                transformedPawn
+            </exception>
+        </member>
         <member name="M:Pawnmorph.FormerHumanUtilities.TryAssignBackstoryToTransformedPawn(Verse.Pawn,Verse.Pawn,AlienRace.BackstoryDef)">
             <summary>
-            Tries the assign the correct backstory to transformed pawn.
+                Tries the assign the correct backstory to transformed pawn.
             </summary>
             <param name="pawn">The pawn.</param>
             <param name="originalPawn">The original pawn.</param>
@@ -3930,18 +4044,6 @@
                 sourceDef
                 or
                 formerHuman
-            </exception>
-        </member>
-        <member name="M:Pawnmorph.FormerHumanUtilities.TransferRelationsToOriginal(Verse.Pawn,Verse.Pawn)">
-            <summary>
-            Transfers the relations back to the original pawn after they've been transformed into the transformedPawn
-            </summary>
-            <param name="original">The original.</param>
-            <param name="transformedPawn">The transformed pawn.</param>
-            <exception cref="T:System.ArgumentNullException">
-            original
-            or
-            transformedPawn
             </exception>
         </member>
         <member name="M:Pawnmorph.Hediffs.Comp_ImmunizableMutation.SeverityChangePerDay">
@@ -5856,6 +5958,14 @@
             
             </summary>
         </member>
+        <member name="P:Pawnmorph.HistoryEventUtilities.AllCustomEvents">
+            <summary>
+            Gets all custom events in this mod 
+            </summary>
+            <value>
+            All custom events.
+            </value>
+        </member>
         <member name="M:Pawnmorph.HistoryEventUtilities.ToNamedArgument``1(``0)">
             <summary>
             Converts an enum to named argument .
@@ -6002,6 +6112,17 @@
         <member name="M:Pawnmorph.HPatches.PawnObserverPatches.PreformPatches(HarmonyLib.Harmony)">
             <summary>
             Preforms the patches.
+            </summary>
+            <param name="harInstance">The har instance.</param>
+        </member>
+        <member name="T:Pawnmorph.HPatches.ThoughtWorkerPatches">
+            <summary>
+            patches thought workers 
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.HPatches.ThoughtWorkerPatches.DoPatches(HarmonyLib.Harmony)">
+            <summary>
+            patches thought worker.
             </summary>
             <param name="harInstance">The har instance.</param>
         </member>
@@ -8118,84 +8239,25 @@
                 target skill's level should be the max of the original and that of the source skill
             </summary>
         </member>
+        <member name="M:Pawnmorph.PawnTransferUtilities.GetRecord(Verse.BodyPartRecord,Verse.BodyDef)">
+            <summary>
+                tries to get the equivalent body part record in the other body def
+            </summary>
+            <param name="record">The record.</param>
+            <param name="otherDef">The other definition.</param>
+            <returns>the equivalent body part record in the other body def if it exists, null otherwise</returns>
+            <exception cref="T:System.ArgumentNullException">
+                record
+                or
+                otherDef
+            </exception>
+        </member>
         <member name="M:Pawnmorph.PawnTransferUtilities.MergeSkills(System.Collections.Generic.IEnumerable{Verse.Pawn},Verse.Pawn)">
             <summary>
                 Merges the skills from the given original pawns into the given meld
             </summary>
             <param name="originals">The originals.</param>
             <param name="meld">The meld.</param>
-        </member>
-        <member name="M:Pawnmorph.PawnTransferUtilities.TransferQuestRelations(Verse.Pawn,Verse.Pawn)">
-            <summary>
-            Transfers the quest relations from the original pawn onto the transfer pawn 
-            </summary>
-            <param name="original">The original.</param>
-            <param name="transferPawn">The transfer pawn.</param>
-            <exception cref="T:System.ArgumentNullException">
-            original
-            or
-            transferPawn
-            </exception>
-        </member>
-        <member name="M:Pawnmorph.PawnTransferUtilities.TransferIdeo(Verse.Pawn,Verse.Pawn)">
-            <summary>
-            Transfers the ideo from the original pawn onto the transfer pawn
-            </summary>
-            <param name="original">The original.</param>
-            <param name="transferPawn">The transfer pawn.</param>
-            <exception cref="T:System.ArgumentNullException">
-            original
-            or
-            transferPawn
-            </exception>
-        </member>
-        <member name="M:Pawnmorph.PawnTransferUtilities.GetRecord(Verse.BodyPartRecord,Verse.BodyDef)">
-            <summary>
-            tries to get the equivalent body part record in the other body def 
-            </summary>
-            <param name="record">The record.</param>
-            <param name="otherDef">The other definition.</param>
-            <returns>the equivalent body part record in the other body def if it exists, null otherwise</returns>
-            <exception cref="T:System.ArgumentNullException">
-            record
-            or
-            otherDef
-            </exception>
-        </member>
-        <member name="M:Pawnmorph.PawnTransferUtilities.TransferHediffs(Verse.Pawn,Verse.Pawn,System.Func{Verse.Hediff,System.Boolean},System.Func{Verse.BodyPartRecord,Verse.BodyPartRecord})">
-            <summary>
-            Transfers the hediffs from pawn1 onto pawn2 
-            </summary>
-            <param name="pawn1">The pawn1.</param>
-            <param name="pawn2">The pawn2.</param>
-            <param name="selector">The selector.</param>
-            <param name="transferFunc">The transfer function.</param>
-        </member>
-        <member name="M:Pawnmorph.PawnTransferUtilities.TransferHediffs(Verse.Pawn,Verse.Pawn,System.Func{Verse.Hediff,System.Boolean})">
-            <summary>
-            Transfers the hediffs from pawn1 onto pawn2 
-            </summary>
-            <param name="pawn1">The pawn1.</param>
-            <param name="pawn2">The pawn2.</param>
-            <param name="selector">The selector.</param>
-            <exception cref="T:System.ArgumentNullException">
-            pawn1
-            or
-            pawn2
-            </exception>
-        </member>
-        <member name="M:Pawnmorph.PawnTransferUtilities.TransferThoughts(Verse.Pawn,Verse.Pawn,System.Func{RimWorld.Thought_Memory,System.Boolean})">
-            <summary>
-            Transfers thoughts from pawn1 onto pawn2.
-            </summary>
-            <param name="pawn1">The pawn to transfer thoughts from.</param>
-            <param name="pawn2">The pawn to transfer thoughts onto.</param>
-            <param name="selector">The selector function. default just checks that the memory is valid for pawn2</param>
-            <exception cref="T:System.ArgumentNullException">
-            pawn1
-            or
-            pawn2
-            </exception>
         </member>
         <member name="M:Pawnmorph.PawnTransferUtilities.TransferAspects(Verse.Pawn,Verse.Pawn)">
             <summary>
@@ -8214,6 +8276,62 @@
                 pawn1
                 or
                 pawn2
+            </exception>
+        </member>
+        <member name="M:Pawnmorph.PawnTransferUtilities.TransferHediffs(Verse.Pawn,Verse.Pawn,System.Func{Verse.Hediff,System.Boolean},System.Func{Verse.BodyPartRecord,Verse.BodyPartRecord})">
+            <summary>
+                Transfers the hediffs from pawn1 onto pawn2
+            </summary>
+            <param name="pawn1">The pawn1.</param>
+            <param name="pawn2">The pawn2.</param>
+            <param name="selector">The selector.</param>
+            <param name="transferFunc">The transfer function.</param>
+        </member>
+        <member name="M:Pawnmorph.PawnTransferUtilities.TransferHediffs(Verse.Pawn,Verse.Pawn,System.Func{Verse.Hediff,System.Boolean})">
+            <summary>
+                Transfers the hediffs from pawn1 onto pawn2
+            </summary>
+            <param name="pawn1">The pawn1.</param>
+            <param name="pawn2">The pawn2.</param>
+            <param name="selector">The selector.</param>
+            <exception cref="T:System.ArgumentNullException">
+                pawn1
+                or
+                pawn2
+            </exception>
+        </member>
+        <member name="M:Pawnmorph.PawnTransferUtilities.TransferIdeo(Verse.Pawn,Verse.Pawn,System.Boolean)">
+            <summary>
+                Transfers the ideo from the original pawn onto the transfer pawn
+            </summary>
+            <param name="original">The original.</param>
+            <param name="transferPawn">The transfer pawn.</param>
+            <param name="transferRoles">if set to <c>true</c> [transfer roles].</param>
+            <exception cref="T:System.ArgumentNullException">
+                original
+                or
+                transferPawn
+            </exception>
+        </member>
+        <member name="M:Pawnmorph.PawnTransferUtilities.TransferIdeoRoles(Verse.Pawn,Verse.Pawn)">
+            <summary>
+                Transfers the ideo roles from the original pawn and transfer pawn
+            </summary>
+            transfers ideology roles from the original pawn onto the transfer pawn 
+            they must have the same ideology to begin with 
+            <param name="original">The original.</param>
+            <param name="transferPawn">The transfer pawn.</param>
+        </member>
+        <member name="M:Pawnmorph.PawnTransferUtilities.TransferQuestRelations(Verse.Pawn,Verse.Pawn)">
+            <summary>
+                Transfers the quest relations from the original pawn onto the transfer pawn
+            </summary>
+            <param name="original">The original.</param>
+            <param name="transferPawn">The transfer pawn.</param>
+            <exception cref="T:System.ArgumentNullException">
+                original
+                or
+                transferPawn
             </exception>
         </member>
         <member name="M:Pawnmorph.PawnTransferUtilities.TransferRelations(Verse.Pawn,Verse.Pawn,System.Predicate{RimWorld.PawnRelationDef})">
@@ -8253,6 +8371,19 @@
             <param name="pawn2">The pawn2.</param>
             <param name="mode">The transfer mode.</param>
             <param name="passionTransferMode">The passion transfer mode.</param>
+        </member>
+        <member name="M:Pawnmorph.PawnTransferUtilities.TransferThoughts(Verse.Pawn,Verse.Pawn,System.Func{RimWorld.Thought_Memory,System.Boolean})">
+            <summary>
+                Transfers thoughts from pawn1 onto pawn2.
+            </summary>
+            <param name="pawn1">The pawn to transfer thoughts from.</param>
+            <param name="pawn2">The pawn to transfer thoughts onto.</param>
+            <param name="selector">The selector function. default just checks that the memory is valid for pawn2</param>
+            <exception cref="T:System.ArgumentNullException">
+                pawn1
+                or
+                pawn2
+            </exception>
         </member>
         <member name="M:Pawnmorph.PawnTransferUtilities.TransferTraits(Verse.Pawn,Verse.Pawn,System.Func{RimWorld.TraitDef,System.Boolean})">
             <summary>
@@ -8537,21 +8668,21 @@
             Doer(Pawn)
             Mutation(Mutation)
         </member>
-        <member name="F:Pawnmorph.PMHistoryEventDefOf.TransformedIntoFormerHuman">
+        <member name="F:Pawnmorph.PMHistoryEventDefOf.Transformed">
             <summary> Whenever a pawn becomes a former human </summary>
             args:
             Doer(pawn)
             Animal(PawnkindDef)
             FactionResponsible(Faction) can be null
         </member>
-        <member name="F:Pawnmorph.PMHistoryEventDefOf.TransformedFromFormerHuman">
+        <member name="F:Pawnmorph.PMHistoryEventDefOf.Reverted">
             <summary> Whenever a pawn is no longer a former human </summary>
             args:
             Doer(pawn)
             Animal(PawnKindDef)
             FactionResponsible(Faction) can be null
         </member>
-        <member name="F:Pawnmorph.PMHistoryEventDefOf.Transformed">
+        <member name="F:Pawnmorph.PMHistoryEventDefOf.Morphed">
             <summary>
             Whenever a pawn is transformed into a morph
             </summary>
@@ -8560,7 +8691,7 @@
             OldMorph(MorphDef) can be null
             NewMorph(MorphDef)
         </member>
-        <member name="F:Pawnmorph.PMHistoryEventDefOf.Reverted">
+        <member name="F:Pawnmorph.PMHistoryEventDefOf.DeMorphed">
             <summary>
             Whenever a pawn is reverted
             </summary>
@@ -8575,6 +8706,13 @@
             Doer(pawn)
             OldSapienceLevel(SapienceLevel)
             NewSapienceLevel(SapienceLevel)
+        </member>
+        <member name="F:Pawnmorph.PMHistoryEventDefOf.PermanentlyFeral">
+            <summary>
+            when a former human goes permanently feral
+            </summary>
+            args: 
+            Doer(pawn) the pawn that went permanently feral 
         </member>
         <member name="T:Pawnmorph.PMIdeoUtilities">
             <summary>
@@ -8596,6 +8734,26 @@
             or
             pawn
             </exception>
+        </member>
+        <member name="M:Pawnmorph.PMIdeoUtilities.HasPositionOn(RimWorld.Ideo,RimWorld.IssueDef)">
+            <summary>
+            Determines whether the ideology has a position on the given issue.
+            </summary>
+            <param name="ideo">The ideo.</param>
+            <param name="issue">The issue.</param>
+            <returns>
+              <c>true</c> if the ideology has a position on the given issue; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Pawnmorph.PMIssueDefOf">
+            <summary>
+            static class containing commonly used issue defs 
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.PMIssueDefOf.PM_SapienceLoss">
+            <summary>
+            The pm sapience loss issue 
+            </summary>
         </member>
         <member name="T:Pawnmorph.PMPawnKindDefOf">
             <summary>
@@ -8865,6 +9023,33 @@
                 pawn
             </returns>
         </member>
+        <member name="T:Pawnmorph.PreceptComps.GiveRelationDependentThought">
+            <summary>
+            precept comp for giving relationship dependent thoughts to pawns 
+            </summary>
+            <seealso cref="T:RimWorld.PreceptComp_Thought" />
+        </member>
+        <member name="F:Pawnmorph.PreceptComps.GiveRelationDependentThought.eventDef">
+            <summary>
+            The event definition this comp looks for 
+            </summary>
+        </member>
+        <member name="P:Pawnmorph.PreceptComps.GiveRelationDependentThought.TraitsAffecting">
+            <summary>
+            Gets the traits affecting this precept comp
+            </summary>
+            <value>
+            The traits affecting.
+            </value>
+        </member>
+        <member name="M:Pawnmorph.PreceptComps.GiveRelationDependentThought.Notify_MemberWitnessedAction(RimWorld.HistoryEvent,RimWorld.Precept,Verse.Pawn)">
+            <summary>
+            Notifies the member witnessed action.
+            </summary>
+            <param name="ev">The ev.</param>
+            <param name="precept">The precept.</param>
+            <param name="member">The member.</param>
+        </member>
         <member name="T:Pawnmorph.PreceptComps.SelfTookMemoryThought_MemeOverride">
             <summary>
                 self took thought that provides overrides for given memes
@@ -8883,6 +9068,14 @@
             <param name="parent">The parent.</param>
             <returns></returns>
         </member>
+        <member name="M:Pawnmorph.PreceptComps.SelfTookMemoryThought_MemeOverride.Notify_MemberTookAction(RimWorld.HistoryEvent,RimWorld.Precept,System.Boolean)">
+            <summary>
+                called when a member takes a specific action
+            </summary>
+            <param name="ev">The ev.</param>
+            <param name="precept">The precept.</param>
+            <param name="canApplySelfTookThoughts">if set to <c>true</c> [can apply self took thoughts].</param>
+        </member>
         <member name="M:Pawnmorph.PreceptComps.SelfTookMemoryThought_MemeOverride.CanGiveThought(Verse.Pawn,RimWorld.ThoughtDef)">
             <summary>
                 Determines whether this instance can give the given thought to the pawn
@@ -8892,6 +9085,13 @@
             <returns>
                 <c>true</c> if this instance can give the given thought to the pawn  otherwise, <c>false</c>.
             </returns>
+        </member>
+        <member name="M:Pawnmorph.PreceptComps.SelfTookMemoryThought_MemeOverride.GetBestThoughtFor(Verse.Pawn)">
+            <summary>
+            Gets the best thought for.
+            </summary>
+            <param name="pawn">The pawn.</param>
+            <returns></returns>
         </member>
         <member name="T:Pawnmorph.PreceptComps.SelfTookMemoryThought_MemeOverride.MemeThoughtEntry">
             <summary>
@@ -8924,31 +9124,99 @@
                 The result of the conversion.
             </returns>
         </member>
-        <member name="T:Pawnmorph.PreceptComps.VeneratedAnimalMutationThought">
+        <member name="T:Pawnmorph.PreceptComps.VeneratedAnimalMemory">
             <summary>
                 precept comp for giving a thought based on a venerated animal mutation
             </summary>
             <seealso cref="T:RimWorld.PreceptComp" />
         </member>
-        <member name="F:Pawnmorph.PreceptComps.VeneratedAnimalMutationThought.thoughtDef">
+        <member name="F:Pawnmorph.PreceptComps.VeneratedAnimalMemory.historyEvent">
+            <summary>
+            The history event to look for
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.PreceptComps.VeneratedAnimalMemory.thoughtDef">
             <summary>
                 The thought definition to give
             </summary>
         </member>
-        <member name="M:Pawnmorph.PreceptComps.VeneratedAnimalMutationThought.ConfigErrors(RimWorld.PreceptDef)">
+        <member name="M:Pawnmorph.PreceptComps.VeneratedAnimalMemory.ConfigErrors(RimWorld.PreceptDef)">
             <summary>
             gets all configuration errors with this instance.
             </summary>
             <param name="parent">The parent.</param>
             <returns></returns>
         </member>
-        <member name="M:Pawnmorph.PreceptComps.VeneratedAnimalMutationThought.Notify_MemberTookAction(RimWorld.HistoryEvent,RimWorld.Precept,System.Boolean)">
+        <member name="M:Pawnmorph.PreceptComps.VeneratedAnimalMemory.Notify_MemberTookAction(RimWorld.HistoryEvent,RimWorld.Precept,System.Boolean)">
             <summary>
             called when a pawn with an ideo with the given precept takes an action or has an action done to them 
             </summary>
             <param name="ev">The ev.</param>
             <param name="precept">The precept.</param>
             <param name="canApplySelfTookThoughts">if set to <c>true</c> [can apply self took thoughts].</param>
+        </member>
+        <member name="M:Pawnmorph.PreceptComps.VeneratedAnimalMemory.GetAnimal(RimWorld.HistoryEvent@,RimWorld.Ideo)">
+            <summary>
+            Gets the animal from the given history event .
+            </summary>
+            <param name="historyEvent">The history event.</param>
+            <param name="ideo">The ideo.</param>
+            <returns>
+            the animal from the event. if null the thought will not be given
+            </returns>
+        </member>
+        <member name="T:Pawnmorph.PreceptComps.VeneratedMutation">
+            <summary>
+            precept comp for giving venerated animal mutation thoughts 
+            </summary>
+            <seealso cref="T:Pawnmorph.PreceptComps.VeneratedAnimalMemory" />
+        </member>
+        <member name="M:Pawnmorph.PreceptComps.VeneratedMutation.GetAnimal(RimWorld.HistoryEvent@,RimWorld.Ideo)">
+            <summary>
+            Gets the animal from the given history event .
+            </summary>
+            <param name="historyEvent">The history event.</param>
+            <param name="ideo">The ideo.</param>
+            <returns>
+            the animal from the event. if null the thought will not be given
+            </returns>
+        </member>
+        <member name="T:Pawnmorph.PreceptComps.VeneratedMorph">
+            <summary>
+            precept comp for giving venerated morph thoughts 
+            </summary>
+            <seealso cref="T:Pawnmorph.PreceptComps.VeneratedAnimalMemory" />
+        </member>
+        <member name="F:Pawnmorph.PreceptComps.VeneratedMorph.reversion">
+            <summary>
+            if this is for reversion 
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.PreceptComps.VeneratedMorph.GetAnimal(RimWorld.HistoryEvent@,RimWorld.Ideo)">
+            <summary>
+            Gets the animal from the given history event .
+            </summary>
+            <param name="historyEvent">The history event.</param>
+            <param name="ideo">The ideo.</param>
+            <returns>
+            the animal from the event. if null the thought will not be given
+            </returns>
+        </member>
+        <member name="T:Pawnmorph.PreceptComps.VeneratedAnimalTransformation">
+            <summary>
+            comp for giving thoughts related to venerated animal transformations 
+            </summary>
+            <seealso cref="T:Pawnmorph.PreceptComps.VeneratedAnimalMemory" />
+        </member>
+        <member name="M:Pawnmorph.PreceptComps.VeneratedAnimalTransformation.GetAnimal(RimWorld.HistoryEvent@,RimWorld.Ideo)">
+            <summary>
+            Gets the animal from the given history event .
+            </summary>
+            <param name="historyEvent">The history event.</param>
+            <param name="ideo">The ideo.</param>
+            <returns>
+            the animal from the event. if null the thought will not be given
+            </returns>
         </member>
         <member name="T:Pawnmorph.ProductionBoost">
             <summary>
@@ -8988,6 +9256,57 @@
             </summary>
             <param name="thing">The thing.</param>
             <param name="part">The part.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Pawnmorph.RoleRequirement.BaseRoleRequirement">
+            <summary>
+            base role requirement containing useful features for pawnmorpher 
+            </summary>
+            <seealso cref="T:RimWorld.RoleRequirement" />
+        </member>
+        <member name="F:Pawnmorph.RoleRequirement.BaseRoleRequirement.invert">
+            <summary>
+                if the condition is
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.RoleRequirement.BaseRoleRequirement.Met(Verse.Pawn,RimWorld.Precept_Role)">
+            <summary>
+                Mets the specified p.
+            </summary>
+            <param name="p">The p.</param>
+            <param name="role">The role.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">
+                p
+                or
+                role
+            </exception>
+        </member>
+        <member name="M:Pawnmorph.RoleRequirement.BaseRoleRequirement.Met_Internal(Verse.Pawn,RimWorld.Precept_Role)">
+            <summary>
+                determine if the given pawn meets the conditions of this requirement for the given role.
+            </summary>
+            <param name="p">The p.</param>
+            <param name="role">The role.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Pawnmorph.RoleRequirement.FormerHuman">
+            <summary>
+            role requirement for ensuring a pawn is always a former human 
+            </summary>
+            <seealso cref="T:Pawnmorph.RoleRequirement.BaseRoleRequirement" />
+        </member>
+        <member name="F:Pawnmorph.RoleRequirement.FormerHuman.minSapienceLevel">
+            <summary>
+            The minimum sapience level
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.RoleRequirement.FormerHuman.Met_Internal(Verse.Pawn,RimWorld.Precept_Role)">
+            <summary>
+                determine if the given pawn meets the conditions of this requirement for the given role.
+            </summary>
+            <param name="p">The p.</param>
+            <param name="role">The role.</param>
             <returns></returns>
         </member>
         <member name="T:Pawnmorph.SapienceState">
@@ -13277,6 +13596,11 @@
             the pawn wants to be a full animal 
             </summary>
         </member>
+        <member name="F:Pawnmorph.MutationOutlook.Transhumanist">
+            <summary>
+            for a transhumanist pawn
+            </summary>
+        </member>
         <member name="T:Pawnmorph.MutationTracker">
             <summary> Tracker comp for tracking the current influence a pawn has of a given morph. </summary>
         </member>
@@ -14090,6 +14414,14 @@
             <returns>
               <c>true</c> if this pawn is loading or spawning ; otherwise, <c>false</c>.
             </returns>
+        </member>
+        <member name="M:Pawnmorph.PMUtilities.GetRelation(Verse.Pawn,RimWorld.Faction)">
+            <summary>
+            Gets the relation of this pawn to the given faction
+            </summary>
+            <param name="pawn">The pawn.</param>
+            <param name="faction">The faction.</param>
+            <returns></returns>
         </member>
         <member name="M:Pawnmorph.PMUtilities.Witnessed(Verse.Pawn,Verse.Pawn)">
             <summary>
@@ -15137,6 +15469,41 @@
             <param name="observer">The observer.</param>
             <returns></returns>
         </member>
+        <member name="T:Pawnmorph.Things.ExpandedPlant">
+            <summary>
+                class for more flexible plants
+            </summary>
+            <seealso cref="T:RimWorld.Plant" />
+        </member>
+        <member name="P:Pawnmorph.Things.ExpandedPlant.GrowthRate">
+            <summary>
+                Gets the growth rate.
+            </summary>
+            <value>
+                The growth rate.
+            </value>
+        </member>
+        <member name="P:Pawnmorph.Things.ExpandedPlant.LeaflessTemperatureThresh">
+            <summary>
+                Gets the leafless temperature thresh.
+            </summary>
+            <value>
+                The leafless temperature thresh.
+            </value>
+        </member>
+        <member name="M:Pawnmorph.Things.ExpandedPlant.GetInspectString">
+            <summary>
+                Gets the inspect string.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.Things.ExpandedPlant.GrowthRateFactorFor_Temperature(System.Single)">
+            <summary>
+                gets the growth rate factor for this plant .
+            </summary>
+            <param name="cellTemp">The cell temporary.</param>
+            <returns></returns>
+        </member>
         <member name="T:Pawnmorph.ThinkNodes.ConditionalAnimalisticColonist">
             <summary>
                 conditional think node for animalistic pawns in the player faction
@@ -15467,6 +15834,87 @@
             Exposes the data.
             </summary>
         </member>
+        <member name="T:Pawnmorph.Thoughts.Precept.PWorker_FormerHuman">
+            <summary>
+            abstract class for all precept thoughts that pertain only to former humans 
+            </summary>
+            <seealso cref="T:RimWorld.ThoughtWorker_Precept" />
+        </member>
+        <member name="F:Pawnmorph.Thoughts.Precept.PWorker_FormerHuman.minSapienceLevel">
+            <summary>
+            The minimum sapience level
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.Thoughts.Precept.PWorker_FormerHuman.ShouldHaveThought(Verse.Pawn)">
+            <summary>
+            if the given pawn should have this thought .
+            </summary>
+            <param name="p">The p.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.Thoughts.Precept.PWorker_FormerHuman.ShouldHaveThought_Internal(Verse.Pawn)">
+            <summary>
+            if the given pawn should have this thought.
+            </summary>
+            <param name="p">The p.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.Thoughts.Precept.PWorker_FormerHuman.GetStageForSapienceLevel(Pawnmorph.SapienceLevel)">
+            <summary>
+            Gets the stage for sapience level.
+            </summary>
+            <param name="sapience">The sapience.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Pawnmorph.Thoughts.Precept.PWorker_FormerHumanSocial">
+            <summary>
+            abstract class for all precept thoughts that pertain only to former humans 
+            </summary>
+            <seealso cref="T:RimWorld.ThoughtWorker_Precept" />
+        </member>
+        <member name="F:Pawnmorph.Thoughts.Precept.PWorker_FormerHumanSocial.observerFormerHuman">
+            <summary>
+            if the observer must be a former human
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.Thoughts.Precept.PWorker_FormerHumanSocial.observedFormerHuman">
+            <summary>
+            if the observed must be a former human
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.Thoughts.Precept.PWorker_FormerHumanSocial.minObserverSapienceLevel">
+            <summary>
+            The minimum observer sapience level
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.Thoughts.Precept.PWorker_FormerHumanSocial.minObservedSapienceLevel">
+            <summary>
+            The minimum observed sapience level
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.Thoughts.Precept.PWorker_FormerHumanSocial.ShouldHaveThought(Verse.Pawn,Verse.Pawn)">
+            <summary>
+            if the given pawn should have this thought .
+            </summary>
+            <param name="p">The p.</param>
+            <param name="otherPawn">The other pawn.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.Thoughts.Precept.PWorker_FormerHumanSocial.ShouldHaveThought_Internal(Verse.Pawn,Verse.Pawn)">
+            <summary>
+            if the given pawn should have this thought.
+            </summary>
+            <param name="observer">The observer.</param>
+            <param name="observed">The observed.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.Thoughts.Precept.PWorker_FormerHumanSocial.GetStageForSapienceLevel(Pawnmorph.SapienceLevel)">
+            <summary>
+            Gets the stage for sapience level.
+            </summary>
+            <param name="sapience">The sapience.</param>
+            <returns></returns>
+        </member>
         <member name="T:Pawnmorph.Thoughts.Precept.Thought_Precept_VeneratedFormerHuman">
             <summary>
                 situational thought for former humans of an ideologie's venerated animal
@@ -15539,6 +15987,7 @@
             <summary>
             call when the original pawn transforms into the transformedPawn
             </summary>
+            note: this does nothing if ideology is active, instead reaction thoughts are given by precepts instead 
             <param name="original">The original.</param>
             <param name="transformedPawn">The transformed pawn.</param>
             <param name="reactionStatus">The reaction status.</param>
@@ -15547,6 +15996,7 @@
             <summary>
             call when a pawn is reverted from an animal to handle giving the correct thoughts to colonists
             </summary>
+            note: this does nothing if ideology is active, instead reaction thoughts are given by precepts instead 
             <param name="originalPawn">The original pawn.</param>
             <param name="animalPawn">The animal pawn.</param>
             <param name="reactionStatus">The reaction status of the original pawn</param>
@@ -15555,6 +16005,7 @@
             <summary>
             call when an animal goes permanently feral to handle giving the correct thoughts to colonists
             </summary>
+            note: this does nothing if ideology is active, instead reaction thoughts are given by precepts instead 
             <param name="originalPawn">The original pawn.</param>
             <param name="animalPawn">The animal pawn.</param>
             <param name="reactionStatus">The reaction status.</param>
