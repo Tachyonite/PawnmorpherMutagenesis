@@ -4,7 +4,7 @@
         <label>collared</label>
         <description>This pawn has been collared with a sapio-collar, and can have their mental acuity altered on a whim.</description>
         <hediffClass>PawnmorpherMutagenesis.Hediffs.CollarHediff</hediffClass>
-        <comps>
+		<comps>
             <li Class="HediffCompProperties_RemoveIfApparelDropped" />
         </comps>
         <stages>
@@ -12,24 +12,28 @@
                 <label>sapient</label>
             </li>
             <li>
+				<minSeverity>0.2</minSeverity>
                 <label>mostly sapient</label>
                 <statOffsets>
                     <SapienceLimit>-0.2</SapienceLimit>
                 </statOffsets>
             </li>
             <li>
+				<minSeverity>0.4</minSeverity>
                 <label>conflicted</label>
                 <statOffsets>
                     <SapienceLimit>-0.4</SapienceLimit>
                 </statOffsets>
             </li>
             <li>
+				<minSeverity>0.6</minSeverity>
                 <label>mostly feral</label>
                 <statOffsets>
                     <SapienceLimit>-0.6</SapienceLimit>
                 </statOffsets>
             </li>
             <li>
+				<minSeverity>1</minSeverity>
                 <label>feral</label>
                 <statOffsets>
                     <SapienceLimit>-1</SapienceLimit>
