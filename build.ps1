@@ -49,7 +49,7 @@ if (!$?) {
 }
 
 Copy-Item -Path Defs, About , Languages, Patches, Textures -Destination "$buildDir/Tmp" -Recurse
-Copy-Item -Path LoadFolders.xml -Destination "$buildDir/Tmp/LoadFolders.xml" 
+Copy-Item -Path -Destination "$buildDir/Tmp/LoadFolders.xml" 
 
 #Remove hugs lib dll if present 
 if (Test-Path "$buildDir/Tmp/1.1/Assemblies/HugsLib.dll") {
