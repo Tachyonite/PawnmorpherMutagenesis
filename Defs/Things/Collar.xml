@@ -1,9 +1,9 @@
 <Defs>
     <ThingDef ParentName="ApparelBase">
         <defName>PMM_SapienceCollar</defName>
-        <label>TODO</label>
-        <description>TODO</description>
-        <smeltable>true</smeltable> <!-- yap finish this up with the graphics and stuff -->
+        <label>sapio-collar</label>
+        <description>An advanced metallic collar that seals around the neck and deploys microscopic fibres into the brain stem, to control the sapience of the wearer. You are able to set the user's sapience anywhere from 'sapient' to 'feral', in order to control livestock or whatever other purposes are needed.</description>
+        <smeltable>true</smeltable>
         <thingCategories>
             <li>Headgear</li>
         </thingCategories>
@@ -13,29 +13,21 @@
             <effectWorking>Smith</effectWorking>
             <soundWorking>Recipe_Smith</soundWorking>
             <recipeUsers>
-                <li>ElectricSmithy</li>
-                <li>FueledSmithy</li>
+                <li>MachiningTable</li>
             </recipeUsers>
-            <defaultIngredientFilter>
-                <categories>
-                    <li>Root</li>
-                </categories>
-                <disallowedThingDefs>
-                    <li>Jade</li>
-                    <li>Uranium</li>
-                </disallowedThingDefs>
-            </defaultIngredientFilter>
         </recipeMaker>
+		<costList>
+			<Plasteel>30</Plasteel>
+			<ComponentAdvanced>1</ComponentAdvanced>
+			<Uranium>2</Uranium>
+			<FeralPill>1</FeralPill>
+			<SapiencePill>1</SapiencePill>
+		</costList>
         <graphicData>
-            <texPath>Things/Pawn/Humanlike/Apparel/TortureCrown/TortureCrown</texPath>
+            <texPath>Things/Items/Apparel/SapienceCollar/SapienceCollar</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(0.8, 0.8)</drawSize>
         </graphicData>
-        <costStuffCount>25</costStuffCount>
-        <stuffCategories>
-            <li>Metallic</li>
-            <li>Woody</li>
-        </stuffCategories>
         <statBases>
             <MaxHitPoints>80</MaxHitPoints>
             <WorkToMake>1200</WorkToMake>
@@ -47,7 +39,7 @@
             <bodyPartGroups>
                 <li>UpperHead</li>
             </bodyPartGroups>
-            <wornGraphicPath>Things/Pawn/Humanlike/Apparel/TortureCrown/TortureCrown</wornGraphicPath>
+            <wornGraphicPath>Things/Items/Apparel/SapienceCollar/SapienceCollar</wornGraphicPath>
             <layers>
                 <li>Overhead</li>
             </layers>
