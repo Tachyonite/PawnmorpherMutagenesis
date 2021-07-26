@@ -13,12 +13,12 @@
             <effectWorking>Smith</effectWorking>
             <soundWorking>Recipe_Smith</soundWorking>
             <recipeUsers>
-                <li>MachiningTable</li>
+                <li>TableMachining</li>
             </recipeUsers>
         </recipeMaker>
 		<costList>
 			<Plasteel>30</Plasteel>
-			<ComponentAdvanced>1</ComponentAdvanced>
+			<ComponentSpacer>1</ComponentSpacer>
 			<Uranium>2</Uranium>
 			<FeralPill>1</FeralPill>
 			<SapiencePill>1</SapiencePill>

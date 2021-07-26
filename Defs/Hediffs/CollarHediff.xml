@@ -9,28 +9,28 @@
         </comps>
         <stages>
             <li>
-                <label>collared (sapient)</label>
+                <label>sapient</label>
             </li>
             <li>
-                <label>collared (mostly sapient)</label>
+                <label>mostly sapient</label>
                 <statOffsets>
                     <SapienceLimit>-0.2</SapienceLimit>
                 </statOffsets>
             </li>
             <li>
-                <label>collared (conflicted)</label>
+                <label>conflicted</label>
                 <statOffsets>
                     <SapienceLimit>-0.4</SapienceLimit>
                 </statOffsets>
             </li>
             <li>
-                <label>collared (mostly feral)</label>
+                <label>mostly feral</label>
                 <statOffsets>
                     <SapienceLimit>-0.6</SapienceLimit>
                 </statOffsets>
             </li>
             <li>
-                <label>collared (feral)</label>
+                <label>feral</label>
                 <statOffsets>
                     <SapienceLimit>-1</SapienceLimit>
                 </statOffsets>
