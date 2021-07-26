@@ -267,8 +267,4 @@
     </Reference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ThingComps\" />
-  </ItemGroup>
-
 </Project>
