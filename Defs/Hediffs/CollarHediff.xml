@@ -11,26 +11,29 @@
             <li>
                 <label>sapient</label>
                 <minSeverity>0.0</minSeverity>
+                <statOffsets>
+                    <SapienceLimit>-0.1</SapienceLimit>
+                </statOffsets>
             </li>
             <li>
 				<minSeverity>0.2</minSeverity>
                 <label>mostly sapient</label>
                 <statOffsets>
-                    <SapienceLimit>-0.2</SapienceLimit>
+                    <SapienceLimit>-0.4</SapienceLimit>
                 </statOffsets>
             </li>
             <li>
 				<minSeverity>0.4</minSeverity>
                 <label>conflicted</label>
                 <statOffsets>
-                    <SapienceLimit>-0.4</SapienceLimit>
+                    <SapienceLimit>-0.6</SapienceLimit>
                 </statOffsets>
             </li>
             <li>
 				<minSeverity>0.6</minSeverity>
                 <label>mostly feral</label>
                 <statOffsets>
-                    <SapienceLimit>-0.6</SapienceLimit>
+                    <SapienceLimit>-0.8</SapienceLimit>
                 </statOffsets>
             </li>
             <li>
