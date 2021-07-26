@@ -52,6 +52,9 @@
                 <hediff>PMM_CollarHediff</hediff>
                 <part>Head</part>
             </li>
+            <li>
+                <compClass>PawnmorpherMutagenesis.ThingComps.AutoLocker</compClass>
+            </li>
         </comps>
     </ThingDef>
 </Defs>
