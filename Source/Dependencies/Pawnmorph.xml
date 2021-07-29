@@ -15491,6 +15491,19 @@
                 The leafless temperature thresh.
             </value>
         </member>
+        <member name="M:Pawnmorph.Things.ExpandedPlant.TickLong">
+            <summary>
+            performs a long tick.
+            </summary>
+        </member>
+        <member name="P:Pawnmorph.Things.ExpandedPlant.LabelMouseover">
+            <summary>
+            Gets the  mouseover label.
+            </summary>
+            <value>
+            The label mouseover.
+            </value>
+        </member>
         <member name="M:Pawnmorph.Things.ExpandedPlant.GetInspectString">
             <summary>
                 Gets the inspect string.
@@ -16523,6 +16536,16 @@
             <returns></returns>
         </member>
         <member name="M:Pawnmorph.TransformerUtility.CleanUpHumanPawnPostTf(Verse.Pawn,Verse.Hediff,System.Boolean)">
+            <summary>
+            Cleans up all references to the original human pawn after creating the animal pawn. <br />
+            This does not call Pawn.DeSpawn.
+            </summary>
+            <param name="originalPawn">The original pawn.</param>
+            <param name="cause">The cause.</param>
+            <param name="removeMentalStates">if set to <c>true</c> [remove mental states].</param>
+            <exception cref="T:System.ArgumentNullException">originalPawn</exception>
+        </member>
+        <member name="M:Pawnmorph.TransformerUtility.DBGCleanUpHumanPawnPostTf(Verse.Pawn,Verse.Hediff,System.Boolean,Verse.Pawn)">
             <summary>
             Cleans up all references to the original human pawn after creating the animal pawn. <br />
             This does not call Pawn.DeSpawn.
