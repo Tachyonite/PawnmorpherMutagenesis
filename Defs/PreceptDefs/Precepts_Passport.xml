@@ -15,7 +15,7 @@
     <defName>PM_Mutagenic_Passport_Indifferent</defName>
     <issue>PM_Mutagenic_Passport</issue>
     <label>indifferent</label>
-    <description>TODO no need</description>
+    <description>Colonists are not expected to be morphs. Non-morphs live freely with morphs.</description>
     <impact>Low</impact>
     <classic>true</classic>
     <displayOrderInIssue>10</displayOrderInIssue>
@@ -26,7 +26,7 @@
     <defName>PM_Mutagenic_Passport_Desired</defName>
     <issue>PM_Mutagenic_Passport</issue>
     <label>desired</label>
-    <description>TODO priority.</description>
+    <description>Non-morphs are second-class colonists. While being a morph is desirable, non-morphs still live in relative peace.</description>
     <impact>High</impact>
     <displayOrderInIssue>100</displayOrderInIssue>
     <displayOrderInImpact>750</displayOrderInImpact>
@@ -44,7 +44,7 @@
     <defName>PM_Mutagenic_Passport_Mandatory</defName>
     <issue>PM_Mutagenic_Passport</issue>
     <label>required</label>
-    <description>TODO required.</description>
+    <description>Non-morphs are shunned by morphs. Being a morph is required to be considered a full member of the colony.</description>
     <impact>High</impact>
     <displayOrderInIssue>100</displayOrderInIssue>
     <displayOrderInImpact>750</displayOrderInImpact>
