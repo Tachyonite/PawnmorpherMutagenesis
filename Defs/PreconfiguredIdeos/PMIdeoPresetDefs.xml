@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!-- Categories -->
+  
+  <IdeoPresetCategoryDef>
+    <defName>Pawnmorpher</defName>
+    <label>pawnmorpher</label>
+    <description>Get the full Pawnmorpher experience.</description>
+    <groupLabel>Presets</groupLabel>
+  </IdeoPresetCategoryDef>
+  
+    <!-- Pawnmorpher ideos -->
+	
+   <IdeoPresetDef>
+    <defName>Sheep_Lovers</defName>
+    <label>sheep lovers</label>
+    <description>I am sorry Iron.</description>
+    <categoryDef>Pawnmorpher</categoryDef>
+    <memes>
+      <li>NaturePrimacy</li>
+      <li>AnimalPersonhood</li>
+    </memes>
+  </IdeoPresetDef>
+  
+</Defs>
