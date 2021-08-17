@@ -163,6 +163,40 @@
             <returns></returns>
             <exception cref="T:System.ArgumentNullException">animalClass</exception>
         </member>
+        <member name="M:Pawnmorph.AnimalClassUtilities.GetAssociatedAnimalBonus(Pawnmorph.MorphDef,Verse.ThingDef,System.Int32)">
+            <summary>
+            Gets the associated animal bonus.
+            </summary>
+            <param name="mDef">The m definition.</param>
+            <param name="targetAnimal">The target animal.</param>
+            <param name="maxHeight">The maximum height.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">
+            mDef
+            or
+            targetAnimal
+            </exception>
+        </member>
+        <member name="M:Pawnmorph.AnimalClassUtilities.GetAdjacentAnimals(Pawnmorph.MorphDef,System.Int32)">
+            <summary>
+            Gets a list of all animals 'adjacent' to this morph.
+            </summary>
+            <param name="mDef">The morph definition definition.</param>
+            <param name="height">how many parents up to look for adjacent animals</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">mDef</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">height &lt; 0</exception>
+            get a list of all animals 'adjacent' to this morph by getting all associated animals for this morph and
+            all animals associated with it's 'height''th parent class
+        </member>
+        <member name="M:Pawnmorph.AnimalClassUtilities.GetAssociatedAnimals(Pawnmorph.AnimalClassBase)">
+            <summary>
+            Gets the associated animals for the given animal class 
+            </summary>
+            <param name="animalClass">The animal class.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">animalClass</exception>
+        </member>
         <member name="M:Pawnmorph.AnimalClassUtilities.GetAllMutationIn(Pawnmorph.AnimalClassBase)">
             <summary>
             Gets all mutation in this class 
@@ -902,6 +936,14 @@
             <param name="sender">The sender.</param>
             <param name="aspect">The aspect.</param>
         </member>
+        <member name="T:Pawnmorph.AspectTracker.AspectStageChangedHandle">
+            <summary>
+             delegate for the <see cref="E:Pawnmorph.AspectTracker.AspectStageChanged"/> event
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="aspect">The aspect.</param>
+            <param name="lastStage">the last stage the aspect was in</param>
+        </member>
         <member name="E:Pawnmorph.AspectTracker.AspectAdded">
             <summary>
                 Occurs when an aspect is added
@@ -910,6 +952,11 @@
         <member name="E:Pawnmorph.AspectTracker.AspectRemoved">
             <summary>
                 Occurs when when an aspect is removed
+            </summary>
+        </member>
+        <member name="E:Pawnmorph.AspectTracker.AspectStageChanged">
+            <summary>
+            Occurs when an aspect stage changes.
             </summary>
         </member>
         <member name="M:Pawnmorph.AspectTracker.System#Collections#IEnumerable#GetEnumerator">
@@ -2064,6 +2111,13 @@
             <param name="type">The type.</param>
             <returns></returns>
         </member>
+        <member name="M:Pawnmorph.ChaomorphUtilities.GetRandomChaomorphPK(Pawnmorph.ChaomorphType)">
+            <summary>
+            Gets a random chaomorph pawnkind def.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>the pawnkind def, null if none is available</returns>
+        </member>
         <member name="M:Pawnmorph.ChaomorphUtilities.IsChaomorph(Verse.ThingDef)">
             <summary>
             Determines whether this instance is a chaomorph.
@@ -2752,6 +2806,11 @@
             The pawn kind definition
             </summary>
         </member>
+        <member name="F:Pawnmorph.DefExtensions.ChaomorphExtension.customTfTale">
+            <summary>
+            optional tale for when a pawn tf into this kind of chaomorph 
+            </summary>
+        </member>
         <member name="T:Pawnmorph.DefExtensions.DefExtensionUtilities">
             <summary>
             static class for commonly used def extension functions 
@@ -3246,6 +3305,31 @@
             if the def can be used with the given pawn
             </returns>
             <exception cref="T:System.ArgumentNullException">pawn</exception>
+        </member>
+        <member name="T:Pawnmorph.DefExtensions.VeneratedAnimalMutationThought_TransferWorker">
+            <summary>
+            thought transfer worker for the venerated animal mutation thoughts 
+            </summary>
+            <seealso cref="T:Verse.DefModExtension" />
+            <seealso cref="T:Pawnmorph.Thoughts.IThoughtTransferWorker" />
+        </member>
+        <member name="M:Pawnmorph.DefExtensions.VeneratedAnimalMutationThought_TransferWorker.ShouldTransfer(Verse.Pawn,Verse.Pawn,RimWorld.Thought_Memory)">
+            <summary>
+            if this thought should be transferred from the original pawn onto the target
+            </summary>
+            <param name="original">The original.</param>
+            <param name="target">The target.</param>
+            <param name="thought">The thought.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.DefExtensions.VeneratedAnimalMutationThought_TransferWorker.CreateNewThought(Verse.Pawn,Verse.Pawn,RimWorld.Thought_Memory)">
+            <summary>
+            Creates the new thought from the original pawn to transfer to the target pawn.
+            </summary>
+            <param name="original">The original.</param>
+            <param name="target">The target.</param>
+            <param name="originalThought">The original thought.</param>
+            <returns></returns>
         </member>
         <member name="T:Pawnmorph.Designations.RecruitSapientFormerHuman">
             <summary>
@@ -3779,6 +3863,8 @@
             <summary>
                 Gives the sapient animal the hunting thought.
             </summary>
+            note: this always gives the default thoughts, the caller should
+            first check if ideology is active and if the pawns ideo should override these 
             <param name="sapientAnimal">The sapient animal.</param>
             <param name="prey">The prey.</param>
         </member>
@@ -4046,6 +4132,222 @@
                 formerHuman
             </exception>
         </member>
+        <member name="T:Pawnmorph.GraphicSys.MutationGraphicsData">
+            <summary>
+            simple class containing data about a specific set of mutations graphics 
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.GraphicSys.MutationGraphicsData.path">
+            <summary>
+            The path
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.GraphicSys.MutationGraphicsData.anchorID">
+            <summary>
+            The anchor identifier
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.GraphicSys.MutationGraphicsData.LoadDataFromXmlCustom(System.Xml.XmlNode)">
+            <summary>
+            Loads the data from XML.
+            </summary>
+            <param name="xmlNode">The XML node.</param>
+        </member>
+        <member name="T:Pawnmorph.GraphicSys.TaggedBodyAddon">
+            <summary>
+            subclass of har's body addon class to allow tagging unique addons for injection later
+            </summary>
+            <seealso cref="T:AlienRace.AlienPartGenerator.BodyAddon" />
+        </member>
+        <member name="F:Pawnmorph.GraphicSys.TaggedBodyAddon.anchorID">
+            <summary>
+            The anchor identifier
+            </summary>
+        </member>
+        <member name="T:Pawnmorph.GraphicSys.GraphicsUpdaterComp">
+            <summary>
+            Thing comp to update the graphics of a pawn as they gain/lose mutations. <br/>
+            Requires that the pawn have a MutationTracker comp too.
+            </summary>
+        </member>
+        <member name="T:Pawnmorph.GraphicSys.InitialGraphicsComp">
+            <summary>
+                comp for storing the initial graphics settings of a pawn for use latter
+            </summary>
+            <seealso cref="T:Verse.ThingComp" />
+        </member>
+        <member name="P:Pawnmorph.GraphicSys.InitialGraphicsComp.CustomDrawSize">
+            <summary>Gets the draw size.</summary>
+            <value>The size of the custom draw.</value>
+        </member>
+        <member name="P:Pawnmorph.GraphicSys.InitialGraphicsComp.CustomPortraitDrawSize">
+            <summary>Gets the draw size of the custom portrait </summary>
+            <value>The size of the custom portrait draw.</value>
+        </member>
+        <member name="P:Pawnmorph.GraphicSys.InitialGraphicsComp.FixGenderPostSpawn">
+            <summary>
+                Gets a value indicating whether [fix gender post spawn].
+            </summary>
+            <value><c>true</c> if [fix gender post spawn]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Pawnmorph.GraphicSys.InitialGraphicsComp.SkinColor">
+            <summary>Gets the color of the skin.</summary>
+            <value>The color of the skin.</value>
+        </member>
+        <member name="P:Pawnmorph.GraphicSys.InitialGraphicsComp.HairColor">
+            <summary>Gets the color of the hair.</summary>
+            <value>The color of the hair.</value>
+        </member>
+        <member name="P:Pawnmorph.GraphicSys.InitialGraphicsComp.SkinColorSecond">
+            <summary>Gets the skin color second.</summary>
+            <value>The skin color second.</value>
+        </member>
+        <member name="P:Pawnmorph.GraphicSys.InitialGraphicsComp.HairColorSecond">
+            <summary>Gets the hair color second.</summary>
+            <value>The hair color second.</value>
+        </member>
+        <member name="P:Pawnmorph.GraphicSys.InitialGraphicsComp.CrownType">
+            <summary>Gets the type of the crown.</summary>
+            <value>The type of the crown.</value>
+        </member>
+        <member name="P:Pawnmorph.GraphicSys.InitialGraphicsComp.BodyType">
+            <summary>
+                Gets the initial body type of this pawn
+            </summary>
+            <value>
+                The type of the body.
+            </value>
+        </member>
+        <member name="P:Pawnmorph.GraphicSys.InitialGraphicsComp.HairDef">
+            <summary>
+                Gets the initial hair definition.
+            </summary>
+            <value>
+                The hair definition.
+            </value>
+        </member>
+        <member name="M:Pawnmorph.GraphicSys.InitialGraphicsComp.GetDebugStr">
+            <summary>Gets the debug string.</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.GraphicSys.InitialGraphicsComp.Initialize(Verse.CompProperties)">
+            <summary>Initializes this instance with the specified properties.</summary>
+            <param name="props">The properties.</param>
+        </member>
+        <member name="M:Pawnmorph.GraphicSys.InitialGraphicsComp.PostExposeData">
+            <summary>expose data.</summary>
+        </member>
+        <member name="M:Pawnmorph.GraphicSys.InitialGraphicsComp.PostSpawnSetup(System.Boolean)">
+            <summary>called after the pawn is spawned</summary>
+            <param name="respawningAfterLoad">if set to <c>true</c> [respawning after load].</param>
+        </member>
+        <member name="M:Pawnmorph.GraphicSys.InitialGraphicsComp.RestoreGraphics">
+            <summary>
+                Restores the alien Comp attached to the parent from the ones stored earlier
+                this does not resolve the graphics, that is the job of the caller
+            </summary>
+        </member>
+        <member name="T:Pawnmorph.GraphicSys.MorphGraphicsUtils">
+            <summary>
+                collection of useful graphics related utility functions on morphs
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.SetSkinColor(AlienRace.AlienPartGenerator.AlienComp,UnityEngine.Color,System.Nullable{UnityEngine.Color})">
+            <summary>
+            Sets the color of the skin.
+            </summary>
+            <param name="alienComp">The alien comp.</param>
+            <param name="first">The first.</param>
+            <param name="second">The second.</param>
+            <exception cref="T:System.ArgumentNullException">alienComp</exception>
+        </member>
+        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.GetHairColor(AlienRace.AlienPartGenerator.AlienComp,System.Boolean)">
+            <summary>
+            Gets the color of the hair.
+            </summary>
+            <param name="alienComp">The alien comp.</param>
+            <param name="first">if set to <c>true</c> [first].</param>
+            <exception cref="T:System.ArgumentNullException">alienComp</exception>
+        </member>
+        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.GetSkinColor(AlienRace.AlienPartGenerator.AlienComp,System.Boolean)">
+            <summary>
+            Gets the color of the skin.
+            </summary>
+            <param name="alienComp">The alien comp.</param>
+            <param name="first">if set to <c>true</c> [first].</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">alienComp</exception>
+        </member>
+        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.SetHairColor(AlienRace.AlienPartGenerator.AlienComp,UnityEngine.Color,System.Nullable{UnityEngine.Color})">
+            <summary>
+            Sets the color of the hair.
+            </summary>
+            <param name="alienComp">The alien comp.</param>
+            <param name="first">The first.</param>
+            <param name="second">The second.</param>
+            <exception cref="T:System.ArgumentNullException">alienComp</exception>
+        </member>
+        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.GenerateRandomColor(AlienRace.AlienPartGenerator,System.String,System.Boolean,System.Nullable{System.Int32})">
+            <summary>
+            Generates the random color.
+            </summary>
+            <param name="generator">The generator.</param>
+            <param name="channelName">Name of the channel.</param>
+            <param name="first">if set to <c>true</c> [first].</param>
+            <param name="seed">The seed.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">generator</exception>
+        </member>
+        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.GetPartGenerator(AlienRace.ThingDef_AlienRace)">
+            <summary>
+            Gets the part generator.
+            </summary>
+            <param name="alienRace">The alien race.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">alienRace</exception>
+        </member>
+        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.GetHairColorOverride(Pawnmorph.MorphDef,Verse.Pawn)">
+            <summary>
+                Gets the hair color override.
+            </summary>
+            <param name="def">The definition.</param>
+            <param name="pawn">The pawn.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">def</exception>
+        </member>
+        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.GetHairColorOverrideSecond(Pawnmorph.MorphDef,Verse.Pawn)">
+            <summary>
+                Gets the hair color override second.
+            </summary>
+            <param name="def">The definition.</param>
+            <param name="pawn">The pawn.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">def</exception>
+        </member>
+        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.GetSkinColorOverride(Pawnmorph.MorphDef,Verse.Pawn)">
+            <summary>
+                Gets the skin color override.
+            </summary>
+            <param name="def">The definition.</param>
+            <param name="pawn">The pawn.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">def</exception>
+        </member>
+        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.GetSkinColorSecondOverride(Pawnmorph.MorphDef,Verse.Pawn)">
+            <summary>
+                Gets the skin color second override.
+            </summary>
+            <param name="def">The definition.</param>
+            <param name="pawn">The pawn.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">def</exception>
+        </member>
+        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.RefreshGraphics(Verse.Pawn)">
+            <summary>
+                refresh the graphics associated with this pawn, including the portraits if it's a colonist
+            </summary>
+            <param name="pawn"></param>
+        </member>
         <member name="M:Pawnmorph.Hediffs.Comp_ImmunizableMutation.SeverityChangePerDay">
             <summary>
             gets the severity change per day 
@@ -4151,6 +4453,14 @@
                 hediff comp that acts like severity per day but if affected by the 'Mutation Adaptability Stat'
             </summary>
             <seealso cref="T:Pawnmorph.Utilities.HediffCompBase`1" />
+        </member>
+        <member name="P:Pawnmorph.Hediffs.Comp_MutationSeverityAdjust.CompLabelInBracketsExtra">
+            <summary>
+            Gets the comp label in brackets extra.
+            </summary>
+            <value>
+            The comp label in brackets extra.
+            </value>
         </member>
         <member name="P:Pawnmorph.Hediffs.Comp_MutationSeverityAdjust.NaturalSeverityLimit">
             <summary>
@@ -4262,6 +4572,52 @@
             <param name="pawn">The pawn.</param>
             <returns></returns>
         </member>
+        <member name="T:Pawnmorph.Hediffs.CompRemoveNonPart">
+            <summary>
+            comp that removes mutations from a pawn while they are transforming based on the morph they
+            are turning into 
+            </summary>
+            <seealso cref="T:Verse.HediffComp" />
+            <seealso cref="T:Pawnmorph.Hediffs.ITfHediffObserverComp" />
+        </member>
+        <member name="M:Pawnmorph.Hediffs.CompRemoveNonPart.Init">
+            <summary>
+            called when the morph hediff is about to start visiting body parts.
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.Hediffs.CompRemoveNonPart.StageChanged">
+            <summary>
+            called when the hediff stage changes.
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.Hediffs.CompRemoveNonPart.Observe(Verse.BodyPartRecord)">
+            <summary>
+            called when the morph tf observes the give body part record on the given pawn
+            </summary>
+            <param name="record">The record observed. if null a observing whole body hediffs</param>
+        </member>
+        <member name="M:Pawnmorph.Hediffs.CompRemoveNonPart.MutationAdded(Pawnmorph.Hediff_AddedMutation)">
+            <summary>
+            called after the given mutation is added to the pawn.
+            </summary>
+            <param name="newMutation">The new mutation.</param>
+        </member>
+        <member name="T:Pawnmorph.Hediffs.CompProps_RemoveNonMorphPart">
+            <summary>
+            properties for <see cref="T:Pawnmorph.Hediffs.CompRemoveNonPart"/>
+            </summary>
+            <seealso cref="T:Verse.HediffCompProperties" />
+        </member>
+        <member name="F:Pawnmorph.Hediffs.CompProps_RemoveNonMorphPart.removeChance">
+            <summary>
+            The remove chance
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.Hediffs.CompProps_RemoveNonMorphPart.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Pawnmorph.Hediffs.CompProps_RemoveNonMorphPart"/> class.
+            </summary>
+        </member>
         <member name="T:Pawnmorph.Hediffs.Comp_RestartMutationProgression">
             <summary>
             hediff comp that restarts 
@@ -4367,6 +4723,39 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Pawnmorph.Hediffs.Giver_ChaomorphTf">
+            <summary>
+                hediff giver that transforms a pawn into a chaomorph using the chaomorph extension
+            </summary>
+            <seealso cref="T:Verse.HediffGiver" />
+            <seealso cref="T:Pawnmorph.IPawnTransformer" />
+        </member>
+        <member name="F:Pawnmorph.Hediffs.Giver_ChaomorphTf.tale">
+            Tale to add to the tales.
+        </member>
+        <member name="F:Pawnmorph.Hediffs.Giver_ChaomorphTf.forceGender">
+            The gender that will be forced (i.e. a ChookMorph will be forced female).
+        </member>
+        <member name="F:Pawnmorph.Hediffs.Giver_ChaomorphTf.forceGenderChance">
+            If forceGender is provided, this is the chance the gender will be forced.
+        </member>
+        <member name="F:Pawnmorph.Hediffs.Giver_ChaomorphTf.type">
+            <summary>
+                The type of chaomorph to choose from
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.Hediffs.Giver_ChaomorphTf.TransformPawn(Verse.Pawn,Verse.Hediff)">
+            <summary>Transforms the pawn.</summary>
+            <param name="pawn">The pawn.</param>
+            <param name="cause">The cause.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.Hediffs.Giver_ChaomorphTf.Pawnmorph#IPawnTransformer#TryTransform(Verse.Pawn,Verse.Hediff)">
+            <summary>Tries to transform the pawn</summary>
+            <param name="pawn">The pawn.</param>
+            <param name="cause">The cause.</param>
+            <returns></returns>
+        </member>
         <member name="T:Pawnmorph.Hediffs.Giver_MutationClass">
             <summary>
             hediff giver for giving mutation in a class 
@@ -4422,6 +4811,33 @@
             Gets all Configuration errors in this instance.
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:Pawnmorph.Hediffs.ITfHediffObserverComp">
+            <summary>
+            interface for hediff comps that listen to the parts that <see cref="T:Pawnmorph.Hediffs.TransformationBase"/> visits while trying to add mutations 
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.Hediffs.ITfHediffObserverComp.Init">
+            <summary>
+            called when the morph hediff is about to start visiting body parts.
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.Hediffs.ITfHediffObserverComp.StageChanged">
+            <summary>
+            called when the hediff stage changes.
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.Hediffs.ITfHediffObserverComp.Observe(Verse.BodyPartRecord)">
+            <summary>
+            called when the morph tf observes the give body part record on the given pawn
+            </summary>
+            <param name="record">The record observed. if null a observing whole body hediffs</param>
+        </member>
+        <member name="M:Pawnmorph.Hediffs.ITfHediffObserverComp.MutationAdded(Pawnmorph.Hediff_AddedMutation)">
+            <summary>
+            called after the given mutation is added to the pawn.
+            </summary>
+            <param name="newMutation">The new mutation.</param>
         </member>
         <member name="T:Pawnmorph.Hediffs.IRaceMutationRetriever">
             <summary>
@@ -4612,6 +5028,11 @@
         <member name="F:Pawnmorph.Hediffs.MutationDef.blockSites">
             <summary>
             list of body part defs that this mutations blocks other mutations from being added onto 
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.Hediffs.MutationDef.graphics">
+            <summary>
+            The graphics for this mutation 
             </summary>
         </member>
         <member name="F:Pawnmorph.Hediffs.MutationDef.value">
@@ -4871,6 +5292,11 @@
             The skip aspects
             </summary>
         </member>
+        <member name="F:Pawnmorph.Hediffs.MutationStage.graphics">
+            <summary>
+            The graphic for this stage 
+            </summary>
+        </member>
         <member name="P:Pawnmorph.Hediffs.MutationStage.SkipAspects">
             <summary>
             Gets the skip aspects.
@@ -4949,7 +5375,7 @@
         </member>
         <member name="T:Pawnmorph.Hediffs.IDescriptiveStage">
             <summary>
-            interface for a hediff stage that contains a description and label override
+            interface for a hediff stage that can override the hediff's main label and description entirely 
             </summary>
         </member>
         <member name="P:Pawnmorph.Hediffs.IDescriptiveStage.DescriptionOverride">
@@ -5066,20 +5492,6 @@
             Initializes a new instance of the <see cref="T:Pawnmorph.Hediffs.CompProps_MutationTagger"/> class.
             </summary>
         </member>
-        <member name="T:Pawnmorph.Hediffs.PersistentMorphTf">
-            <summary>
-            morph tf that sticks around on non mutable pawns even if they don't mutate 
-            </summary>
-            <seealso cref="T:Pawnmorph.Hediffs.MorphTf" />
-        </member>
-        <member name="P:Pawnmorph.Hediffs.PersistentMorphTf.RemoveIfNotMutable">
-            <summary>
-            Gets a value indicating whether  this should be removed if the pawn is not mutable.
-            </summary>
-            <value>
-              <c>true</c> if this should be removed if the pawn is not mutable.; otherwise, <c>false</c>.
-            </value>
-        </member>
         <member name="T:Pawnmorph.Hediffs.RandomMorphFullTfStage">
             <summary>
             transformation stage that picks a random morph to turn the pawn into
@@ -5128,6 +5540,11 @@
         <member name="F:Pawnmorph.Hediffs.RandomMorphTransformationStage.morph">
             <summary>
             The morph or class to pick from 
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.Hediffs.RandomMorphTransformationStage.height">
+            <summary>
+            how far up the class tree to take mutations from 
             </summary>
         </member>
         <member name="F:Pawnmorph.Hediffs.RandomMorphTransformationStage.allowRestricted">
@@ -5294,6 +5711,14 @@
             <seealso cref="T:Pawnmorph.IDescriptiveHediff" />
             <seealso cref="T:Verse.Hediff" />
         </member>
+        <member name="P:Pawnmorph.Hediffs.TransformationBase.ObserverComps">
+            <summary>
+            all observer comps to notify when adding mutations and visiting parts to add mutations onto.
+            </summary>
+            <value>
+            The observer comps.
+            </value>
+        </member>
         <member name="P:Pawnmorph.Hediffs.TransformationBase.BlocksRaceCheck">
             <summary>
             Gets a value indicating whether this transformation hediff blocks the race checking 
@@ -5339,7 +5764,7 @@
         </member>
         <member name="P:Pawnmorph.Hediffs.TransformationBase.MinMutationsPerCheck">
             <summary>Gets the minimum mutations per check.</summary>
-            if greater then 1, every-time a mutation is possible don't stop iterating over the parts until a mutable part is found
+            if greater then 1, every-time a mutation is possible don't stop iterating over the parts until a body part that can be mutated is found 
             <value>The minimum mutations per check.</value>
         </member>
         <member name="P:Pawnmorph.Hediffs.TransformationBase.CanReset">
@@ -5356,14 +5781,7 @@
             <value>
               <c>true</c> if this instance can mutate the pawn; otherwise, <c>false</c>.
             </value>
-        </member>
-        <member name="P:Pawnmorph.Hediffs.TransformationBase.RemoveIfNotMutable">
-            <summary>
-            Gets a value indicating whether  this should be removed if the pawn is not mutable.
-            </summary>
-            <value>
-              <c>true</c> if this should be removed if the pawn is not mutable.; otherwise, <c>false</c>.
-            </value>
+            this is meant as an optimization, if false the hediff won't bother looking for parts to mutate  
         </member>
         <member name="M:Pawnmorph.Hediffs.TransformationBase.PostAdd(System.Nullable{Verse.DamageInfo})">
             <summary>called after this hediff is added to the pawn</summary>
@@ -5408,9 +5826,6 @@
             <summary>
             called when the hediff is removed.
             </summary>
-        </member>
-        <member name="M:Pawnmorph.Hediffs.TransformationBase.TryGiveTransformations">
-            <summary>Tries to give transformations</summary>
         </member>
         <member name="M:Pawnmorph.Hediffs.TransformationBase.AnyMutationsInStage(Verse.HediffStage)">
             <summary>
@@ -5457,6 +5872,8 @@
             <summary>
             Marks this hediff removal.
             </summary>
+            this is needed because Rimworld is touchy about removing hediffs. best to not do it manually and call this,
+            the HediffTracker will then remove this hediff next tick once all hediffs are no longer running any code 
         </member>
         <member name="T:Pawnmorph.Hediffs.TransformationStage">
             <summary>
@@ -6521,6 +6938,44 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Pawnmorph.IFoodPreferenceAdjustor">
+            <summary>
+            interface for something that can adjust a pawns food preference for a particular thing 
+            </summary>
+        </member>
+        <member name="P:Pawnmorph.IFoodPreferenceAdjustor.Priority">
+            <summary>
+            Gets the priority.
+            </summary>
+            used for determining if multiple adjustors are present. 'lower' values override higher ones 
+            <value>
+            The priority.
+            </value>
+        </member>
+        <member name="M:Pawnmorph.IFoodPreferenceAdjustor.AdjustPreferability(Verse.Pawn,Verse.Thing)">
+            <summary>
+            Adjusts the preferability.
+            </summary>
+            <param name="eater">The eater.</param>
+            <param name="thingToEat">The thing to eat.</param>
+            <returns>the preferability,  null if no adjustment is needed</returns>
+        </member>
+        <member name="M:Pawnmorph.IFoodPreferenceAdjustor.AdjustPreferability(Verse.Pawn,RimWorld.FoodTypeFlags)">
+            <summary>
+            Adjusts the preferability.
+            </summary>
+            <param name="eater">The eater.</param>
+            <param name="foodType">Type of the food.</param>
+            <returns>null if no adjustment is needed</returns>
+        </member>
+        <member name="M:Pawnmorph.IFoodPreferenceAdjustor.MinHungerToHunt(Verse.Pawn)">
+            <summary>
+            get the minimum hunger level to hunt for the given eater.
+            </summary>
+            note this will not make a pawn that doesn't normally hunt, hunt 
+            <param name="eater">The eater.</param>
+            <returns>the hunger level the eater will hunt at, null if they shouldn't or use the default level </returns>
+        </member>
         <member name="T:Pawnmorph.IMentalStateRecoveryReceiver">
             <summary>
             interface for things that receive notifications when a pawn recovers from a mental state 
@@ -6706,6 +7161,23 @@
             <param name="pawn">The pawn.</param>
             <param name="ingested">The ingested.</param>
         </member>
+        <member name="T:Pawnmorph.IngestionOutcomeDoer_GiveHediff">
+            <summary>
+            ingestion outcome doer to add a simple hediff ignoring body size 
+            </summary>
+            <seealso cref="T:RimWorld.IngestionOutcomeDoer" />
+        </member>
+        <member name="F:Pawnmorph.IngestionOutcomeDoer_GiveHediff.hediffDef">
+            <summary>The hediff</summary>
+        </member>
+        <member name="F:Pawnmorph.IngestionOutcomeDoer_GiveHediff.severity">
+            <summary>The initial severity</summary>
+        </member>
+        <member name="M:Pawnmorph.IngestionOutcomeDoer_GiveHediff.DoIngestionOutcomeSpecial(Verse.Pawn,Verse.Thing)">
+            <summary>Does the ingestion outcome special.</summary>
+            <param name="pawn">The pawn.</param>
+            <param name="ingested">The ingested.</param>
+        </member>
         <member name="T:Pawnmorph.IngestionOutcomeDoer_RemoveAspects">
             <summary>
             ingestion out come doer that adds an aspect to a pawn
@@ -6751,17 +7223,25 @@
             <param name="pawn">The pawn.</param>
             <param name="ingested">The ingested.</param>
         </member>
-        <member name="T:Pawnmorph.InteractionWorker_Bleat">
+        <member name="T:Pawnmorph.IngredientValueGetter_Mutanite">
             <summary>
-            interaction worker for the bleat interaction 
+            Getter for the mutanite value of items.
             </summary>
-            <seealso cref="T:RimWorld.InteractionWorker" />
         </member>
-        <member name="M:Pawnmorph.InteractionWorker_Bleat.RandomSelectionWeight(Verse.Pawn,Verse.Pawn)">
-            <summary>gets the random selection weight.</summary>
-            <param name="initiator">The initiator.</param>
-            <param name="recipient">The recipient.</param>
-            <returns></returns>
+        <member name="M:Pawnmorph.IngredientValueGetter_Mutanite.ValuePerUnitOf(Verse.ThingDef)">
+            <summary>
+            Get the mutanite value of an item.
+            </summary>
+            <param name="t">The item.</param>
+            <returns>The value.</returns>
+        </member>
+        <member name="M:Pawnmorph.IngredientValueGetter_Mutanite.BillRequirementsDescription(Verse.RecipeDef,Verse.IngredientCount)">
+            <summary>
+            Description for the ingredients required for a recipe.
+            </summary>
+            <param name="r">The recipe.</param>
+            <param name="ing">The count of ingredients.</param>
+            <returns>The description</returns>
         </member>
         <member name="T:Pawnmorph.IPMThingComp">
             <summary>
@@ -7466,11 +7946,6 @@
         <member name="T:Pawnmorph.MutationCategoryDefOf">
             <summary>
             static class that contains various Mutation Category defs 
-            </summary>
-        </member>
-        <member name="F:Pawnmorph.MutationCategoryDefOf.PM_ChamberFailures">
-            <summary>
-            mutation category containing all mutations that can result from failed chamber tf 
             </summary>
         </member>
         <member name="T:Pawnmorph.MutationResult">
@@ -8523,6 +8998,18 @@
                 static class for food related utilities
             </summary>
         </member>
+        <member name="M:Pawnmorph.PMFoodUtilities.ClearCaches">
+            <summary>
+            Clears the caches used to find food preferability 
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.PMFoodUtilities.GetAdjustorsFor(Verse.Pawn)">
+            <summary>
+            Gets the adjustors for the given eater 
+            </summary>
+            <param name="eater">The eater.</param>
+            <returns></returns>
+        </member>
         <member name="M:Pawnmorph.PMFoodUtilities.BestFoodSourceOnMapOptimized(Verse.Pawn,Verse.Pawn,System.Boolean,Verse.ThingDef@,RimWorld.FoodPreferability,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,RimWorld.FoodPreferability)">
             <summary>
                 Gets the best food source on the map for the given getter and eater pawns
@@ -8714,6 +9201,29 @@
             args: 
             Doer(pawn) the pawn that went permanently feral 
         </member>
+        <member name="F:Pawnmorph.PMHistoryEventDefOf.FormerHumanHunted">
+            <summary>
+            event for when a former human hunts another animal either due to hunger or as a mental break 
+            </summary>
+            args:
+            Doer(pawn) the pawn that hunted
+            VICTIM(pawn) what the pawn hunted 
+        </member>
+        <member name="F:Pawnmorph.PMHistoryEventDefOf.FormerHumanGrazed">
+            <summary>
+            event for when a former human grazes (eats either live plants, seeds or trees)
+            </summary>
+            args:
+            Doer(pawn) the pawn that grazed
+            VICTIM(Thing) the thing the pawn ate 
+        </member>
+        <member name="F:Pawnmorph.PMHistoryEventDefOf.FormerHumanAteCorpse">
+            <summary>
+            event for when a former human eats a raw corpse 
+            </summary>
+            args:
+            Doer(pawn) 
+        </member>
         <member name="T:Pawnmorph.PMIdeoUtilities">
             <summary>
             static class containing additional ideology utilities 
@@ -8747,12 +9257,17 @@
         </member>
         <member name="T:Pawnmorph.PMIssueDefOf">
             <summary>
-            static class containing commonly used issue defs 
+                static class containing commonly used issue defs
             </summary>
         </member>
         <member name="F:Pawnmorph.PMIssueDefOf.PM_SapienceLoss">
             <summary>
-            The pm sapience loss issue 
+                The pm sapience loss issue
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.PMIssueDefOf.PM_FormerHuman_Nudity">
+            <summary>
+                issue for former human behaviour
             </summary>
         </member>
         <member name="T:Pawnmorph.PMPawnKindDefOf">
@@ -9023,6 +9538,48 @@
                 pawn
             </returns>
         </member>
+        <member name="T:Pawnmorph.PreceptComps.FeralFoodAdjustor">
+            <summary>
+                precept comp that adjusts a former human's preference to their feral counterpart
+            </summary>
+            <seealso cref="T:RimWorld.PreceptComp" />
+        </member>
+        <member name="P:Pawnmorph.PreceptComps.FeralFoodAdjustor.Priority">
+            <summary>
+            Gets the priority.
+            </summary>
+            used for determining if multiple adjustors are present. 'lower' values override higher ones 
+            <value>
+            The priority.
+            </value>
+        </member>
+        <member name="M:Pawnmorph.PreceptComps.FeralFoodAdjustor.AdjustPreferability(Verse.Pawn,Verse.Thing)">
+            <summary>
+                Adjusts the preferability.
+            </summary>
+            <param name="eater">The eater.</param>
+            <param name="thingToEat">The thing to eat.</param>
+            <returns>
+                the preferability,  null if no adjustment is needed
+            </returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Pawnmorph.PreceptComps.FeralFoodAdjustor.AdjustPreferability(Verse.Pawn,RimWorld.FoodTypeFlags)">
+            <summary>
+                Adjusts the preferability.
+            </summary>
+            <param name="eater">The eater.</param>
+            <param name="foodType">Type of the food.</param>
+            <returns>null if no adjustment is needed</returns>
+        </member>
+        <member name="M:Pawnmorph.PreceptComps.FeralFoodAdjustor.MinHungerToHunt(Verse.Pawn)">
+            <summary>
+            get the minimum hunger level to hunt for the given eater.
+            </summary>
+            note this will not make a pawn that doesn't normally hunt, hunt 
+            <param name="eater">The eater.</param>
+            <returns>the hunger level the eater will hunt at, null if they shouldn't or use the default level </returns>
+        </member>
         <member name="T:Pawnmorph.PreceptComps.GiveRelationDependentThought">
             <summary>
             precept comp for giving relationship dependent thoughts to pawns 
@@ -9234,6 +9791,113 @@
             <param name="hediff">The hediff.</param>
             <returns></returns>
         </member>
+        <member name="T:Pawnmorph.RecipeWorkers.ApplyAdaptationCream">
+            <summary>
+            recipe worker for applying adaption cream 
+            </summary>
+            <seealso cref="T:Pawnmorph.RecipeWorkers.ApplyToMutatedPart" />
+        </member>
+        <member name="M:Pawnmorph.RecipeWorkers.ApplyAdaptationCream.ApplyOnMutation(Verse.Pawn,Verse.Pawn,Pawnmorph.Hediff_AddedMutation,System.Collections.Generic.IReadOnlyList{Verse.Thing})">
+            <summary>
+            applies the effect onto the given mutation. can be called multiple times on the same pawn 
+            </summary>
+            <param name="pawn">The pawn.</param>
+            <param name="billDoer">The bill doer.</param>
+            <param name="mutation">The mutation.</param>
+            <param name="ingredients">The ingredients.</param>
+        </member>
+        <member name="M:Pawnmorph.RecipeWorkers.ApplyAdaptationCream.CanApplyOnMutation(Pawnmorph.Hediff_AddedMutation,Verse.RecipeDef)">
+            <summary>
+            Determines whether this instance with can be applied on the given mutation 
+            </summary>
+            <param name="mutation">The mutation.</param>
+            <param name="recipe">The recipe.</param>
+            <returns>
+              <c>true</c> if this instance be applied on the given mutation otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Pawnmorph.RecipeWorkers.ApplyHaltingCream">
+            <summary>
+            recipe worker for applying halting cream 
+            </summary>
+            <seealso cref="T:Pawnmorph.RecipeWorkers.ApplyToMutatedPart" />
+        </member>
+        <member name="M:Pawnmorph.RecipeWorkers.ApplyHaltingCream.GetPartsToApplyOn(Verse.Pawn,Verse.RecipeDef)">
+            <summary>
+            Gets the parts to apply on.
+            </summary>
+            <param name="pawn">The pawn.</param>
+            <param name="recipe">The recipe.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.RecipeWorkers.ApplyHaltingCream.ApplyOnMutation(Verse.Pawn,Verse.Pawn,Pawnmorph.Hediff_AddedMutation,System.Collections.Generic.IReadOnlyList{Verse.Thing})">
+            <summary>
+            applies the effect onto the given mutation. can be called multiple times on the same pawn 
+            </summary>
+            <param name="pawn">The pawn.</param>
+            <param name="billDoer">The bill doer.</param>
+            <param name="mutation">The mutation.</param>
+            <param name="ingredients">The ingredients.</param>
+        </member>
+        <member name="T:Pawnmorph.RecipeWorkers.ApplyToMutatedPart">
+            <summary>
+            recipe worker for applying stuff to mutated parts  
+            </summary>
+            <seealso cref="T:RimWorld.Recipe_Surgery" />
+        </member>
+        <member name="M:Pawnmorph.RecipeWorkers.ApplyToMutatedPart.ApplyOnPawn(Verse.Pawn,Verse.BodyPartRecord,Verse.Pawn,System.Collections.Generic.List{Verse.Thing},RimWorld.Bill)">
+            <summary>
+            Applies the on pawn.
+            </summary>
+            <param name="pawn">The pawn.</param>
+            <param name="part">The part.</param>
+            <param name="billDoer">The bill doer.</param>
+            <param name="ingredients">The ingredients.</param>
+            <param name="bill">The bill.</param>
+        </member>
+        <member name="M:Pawnmorph.RecipeWorkers.ApplyToMutatedPart.Init(Verse.Pawn,Verse.Pawn,System.Collections.Generic.IReadOnlyList{Verse.Thing})">
+            <summary>
+            called when this instance is about to apply effects on mutations.
+            </summary>
+            <param name="p">The p.</param>
+            <param name="billDoer">The bill doer.</param>
+            <param name="ingredients">The ingredients.</param>
+        </member>
+        <member name="M:Pawnmorph.RecipeWorkers.ApplyToMutatedPart.FinishEffects(Verse.Pawn,Verse.Pawn,System.Collections.Generic.IReadOnlyList{Verse.Thing})">
+            <summary>
+            called after all effects have been applied on the pawn 
+            </summary>
+            <param name="p">The p.</param>
+            <param name="billDoer">The bill doer.</param>
+            <param name="ingredients">The ingredients.</param>
+        </member>
+        <member name="M:Pawnmorph.RecipeWorkers.ApplyToMutatedPart.ApplyOnMutation(Verse.Pawn,Verse.Pawn,Pawnmorph.Hediff_AddedMutation,System.Collections.Generic.IReadOnlyList{Verse.Thing})">
+            <summary>
+            applies the effect onto the given mutation. can be called multiple times on the same pawn 
+            </summary>
+            <param name="pawn">The pawn.</param>
+            <param name="billDoer">The bill doer.</param>
+            <param name="mutation">The mutation.</param>
+            <param name="ingredients">The ingredients.</param>
+        </member>
+        <member name="M:Pawnmorph.RecipeWorkers.ApplyToMutatedPart.GetPartsToApplyOn(Verse.Pawn,Verse.RecipeDef)">
+            <summary>
+            Gets the parts to apply on.
+            </summary>
+            <param name="pawn">The pawn.</param>
+            <param name="recipe">The recipe.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.RecipeWorkers.ApplyToMutatedPart.CanApplyOnMutation(Pawnmorph.Hediff_AddedMutation,Verse.RecipeDef)">
+            <summary>
+            Determines whether this instance with can be applied on the given mutation 
+            </summary>
+            <param name="mutation">The mutation.</param>
+            <param name="recipe">The recipe.</param>
+            <returns>
+              <c>true</c> if this instance be applied on the given mutation otherwise, <c>false</c>.
+            </returns>
+        </member>
         <member name="T:Pawnmorph.RecipeWorkers.TagAnimal">
             <summary>
             recipe worker for tagging animals 
@@ -9257,6 +9921,88 @@
             <param name="thing">The thing.</param>
             <param name="part">The part.</param>
             <returns></returns>
+        </member>
+        <member name="T:Pawnmorph.Rituals.AttachableOutcomeEffectWorkers.AddRandomVeneratedMutation">
+            <summary>
+                ritual outcome effect worker that adds a random number of mutations of a venerated animal on a target
+            </summary>
+            <seealso cref="T:RimWorld.RitualAttachableOutcomeEffectWorker" />
+        </member>
+        <member name="F:Pawnmorph.Rituals.AttachableOutcomeEffectWorkers.AddRandomVeneratedMutation.MUTATION_TRANSLATION">
+            <summary>
+                translation id for the translated outcome text
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.Rituals.AttachableOutcomeEffectWorkers.AddRandomVeneratedMutation.COUNT_TAG">
+            <summary>
+                the tag that refers to the number of pawns mutated in the ritual
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.Rituals.AttachableOutcomeEffectWorkers.AddRandomVeneratedMutation.MEMBER_TAG">
+            <summary>
+                the tag for members of this ritual
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.Rituals.AttachableOutcomeEffectWorkers.AddRandomVeneratedMutation.Apply(System.Collections.Generic.Dictionary{Verse.Pawn,System.Int32},RimWorld.LordJob_Ritual,RimWorld.OutcomeChance,System.String@,Verse.LookTargets@)">
+            <summary>
+                Applies the effect on the given ritual .
+            </summary>
+            <param name="totalPresence">The total presence.</param>
+            <param name="jobRitual">The job ritual.</param>
+            <param name="outcome">The outcome.</param>
+            <param name="extraOutcomeDesc">The extra outcome desc.</param>
+            <param name="letterLookTargets">The letter look targets.</param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Pawnmorph.Rituals.AttachableOutcomeEffectWorkers.AddRandomVeneratedMutation.CanApplyNow(RimWorld.Precept_Ritual,Verse.Map)">
+            <summary>
+                Determines whether this instance with the specified ritual can be applied
+            </summary>
+            <param name="ritual">The ritual.</param>
+            <param name="map">The map.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.Rituals.AttachableOutcomeEffectWorkers.AddRandomVeneratedMutation.GetMutationCount(Verse.Pawn,RimWorld.OutcomeChance)">
+            <summary>
+                Gets the mutation count.
+            </summary>
+            <param name="pawn">The pawn.</param>
+            <param name="outcomeChance">The outcome chance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.Rituals.AttachableOutcomeEffectWorkers.AddRandomVeneratedMutation.GetMutationsToAdd(Verse.Pawn,RimWorld.LordJob_Ritual,RimWorld.OutcomeChance,Verse.ThingDef@)">
+            <summary>
+                Gets the mutations to add onto the given target
+            </summary>
+            <param name="target">The target.</param>
+            <param name="jobRitual">The job ritual.</param>
+            <param name="outcome">The outcome.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.Rituals.AttachableOutcomeEffectWorkers.AddRandomVeneratedMutation.GetTargets(RimWorld.LordJob_Ritual,RimWorld.OutcomeChance)">
+            <summary>
+            Gets the targets to add mutations onto
+            </summary>
+            <param name="jobRitual">The job ritual.</param>
+            <param name="outcome">The outcome.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.Rituals.AttachableOutcomeEffectWorkers.AddRandomVeneratedMutation.InitRitual(RimWorld.LordJob_Ritual,RimWorld.OutcomeChance)">
+            <summary>
+                Initializes the ritual effects. called when starting to process the effects of this ritual
+            </summary>
+            <param name="ritual">The ritual.</param>
+            <param name="outcome">The outcome.</param>
+        </member>
+        <member name="T:Pawnmorph.Rituals.RoleTags">
+            <summary>
+            static class containing commonly used ritual role tags
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.Rituals.RoleTags.TARGET_TAG">
+            <summary>
+            tag used to define a 'target' role, used to assign outcomes of an effect onto a specific role 
+            </summary>
         </member>
         <member name="T:Pawnmorph.RoleRequirement.BaseRoleRequirement">
             <summary>
@@ -9399,6 +10145,11 @@
                 Initializes this instance.
             </summary>
             this is always called before enter and after loading a pawn
+        </member>
+        <member name="M:Pawnmorph.SapienceState.MakeFeral">
+            <summary>
+            clean up the pawn when making them feral .
+            </summary>
         </member>
         <member name="T:Pawnmorph.SapienceStateDef">
             <summary>
@@ -10350,6 +11101,18 @@
             <param name="recipient">The recipient.</param>
             <returns></returns>
         </member>
+        <member name="T:Pawnmorph.Social.InteractionWorker_DeepTalk">
+            <summary>
+            interaction worker that functions like InteractionWorker_DeepTalk
+            </summary>
+            <seealso cref="T:Pawnmorph.Social.PMInteractionWorkerBase" />
+        </member>
+        <member name="M:Pawnmorph.Social.InteractionWorker_DeepTalk.RandomSelectionWeight(Verse.Pawn,Verse.Pawn)">
+            <summary>gets the selection weight.</summary>
+            <param name="initiator">The initiator.</param>
+            <param name="recipient">The recipient.</param>
+            <returns></returns>
+        </member>
         <member name="T:Pawnmorph.Social.InteractionWorker_KindWords">
             <summary>
             interaction worker that functions like InteractionWorker_KindWords
@@ -10410,38 +11173,57 @@
             </summary>
             <seealso cref="T:RimWorld.InteractionDef" />
         </member>
-        <member name="T:Pawnmorph.Social.PMInteractionDef.Weights">
-            <summary>
-            class that represents a single weight entry 
-            </summary>
-        </member>
-        <member name="F:Pawnmorph.Social.PMInteractionDef.Weights.mutationWeights">
-            <summary>The mutation weights</summary>
-        </member>
-        <member name="F:Pawnmorph.Social.PMInteractionDef.Weights.morphWeights">
-            <summary>The morph weights</summary>
-        </member>
-        <member name="F:Pawnmorph.Social.PMInteractionDef.Weights.requiresBoth">
-            <summary>if the pawn needs both a mutation and be a morph to get a non zero weight </summary>
-        </member>
-        <member name="M:Pawnmorph.Social.PMInteractionDef.Weights.GetTotalWeight(Verse.Pawn)">
-            <summary>Gets the total weight.</summary>
-            the higher the weight the more likely this interaction is going to be picked 
-            <param name="pawn">The pawn.</param>
-            <returns></returns>
-        </member>
         <member name="M:Pawnmorph.Social.PMInteractionDef.ConfigErrors">
             <summary>Get all Configuration Errors with this instance</summary>
             <returns></returns>
         </member>
         <member name="F:Pawnmorph.Social.PMInteractionDef.initiatorWeights">
-            <summary>The initiator weights</summary>
+            <summary>The weights applied based on the initator's mutations</summary>
         </member>
         <member name="F:Pawnmorph.Social.PMInteractionDef.recipientWeights">
-            <summary>The recipient weights</summary>
+            <summary>The weights applied based on the recipients's mutations</summary>
+        </member>
+        <member name="F:Pawnmorph.Social.PMInteractionDef.weightMultiplier">
+            <summary>An additional multiplier on the weight of the interaction</summary>
         </member>
         <member name="F:Pawnmorph.Social.PMInteractionDef.requiresBoth">
-            <summary>if both the initiator and recipient need to have non zero weights for the resultant weight to be non zero </summary>
+            <summary>if both the initiator and recipient need to have non-zero weights for the resultant weight to be non zero </summary>
+        </member>
+        <member name="T:Pawnmorph.Social.PMInteractionWeightsDef">
+            <summary>
+            A def that describes interaction weights for pawnmorpher-specific interactions.
+            This allows interactions to be weighted based on the mutations of the initatior
+            and/or recipient of the interaction.  Interactions can also require specific
+            mutations and/or morphs before they will trigger at all.
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.Social.PMInteractionWeightsDef.requiredMutationsAny">
+            <summary>If specified, at least one of these mutations is required for this interaction to trigger.
+            Does not affect the weight of the interaction.</summary>
+        </member>
+        <member name="F:Pawnmorph.Social.PMInteractionWeightsDef.requiredMutationsAll">
+            <summary>If specified, all of these mutations are required before this interaction triggers.
+            Does not affect the weight of the interaction.</summary>
+        </member>
+        <member name="F:Pawnmorph.Social.PMInteractionWeightsDef.restrictedToMorphs">
+            <summary>If specified, only a pawn that's one of these kinds of morph can trigger this interaction.
+            Does not affect the weight of the interaction.</summary>
+        </member>
+        <member name="F:Pawnmorph.Social.PMInteractionWeightsDef.mutationWeights">
+            <summary>Weight added to the interaction for each instance of a given mutation</summary>
+        </member>
+        <member name="F:Pawnmorph.Social.PMInteractionWeightsDef.morphWeights">
+            <summary>Weight added to the interaction for being a specific kind of morphs</summary>
+        </member>
+        <member name="M:Pawnmorph.Social.PMInteractionWeightsDef.GetTotalWeight(Verse.Pawn)">
+            <summary>
+            Gets the total interaction weight for the given pawn based on this def.
+            The higher the weight the more likely this interaction is going to be picked.
+            The weight is relative to the vanilla version of the interaction.  For example,
+            a weight of 2 means the interaction will happen twice as often as the vanilla version.
+            </summary>
+            <param name="pawn">The pawn.</param>
+            <returns></returns>
         </member>
         <member name="T:Pawnmorph.StockGenerators.GenomeGenerator">
             <summary>
@@ -11090,6 +11872,10 @@
             The minimum severity of the former human hediff
             </summary>
         </member>
+        <member name="M:Pawnmorph.TfSys.TransformationRequest.ToString">
+            <summary>Returns a string that represents the current object.</summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
         <member name="T:Pawnmorph.TfSys.TransformedPawn">
             <summary>
                 base class for storing a "transformed pawn" in such a way that the original can be retried
@@ -11343,6 +12129,46 @@
         </member>
         <member name="F:Pawnmorph.TfSys.TransformedStatus.Transformed">
             the pawn is the result of a transformed pawn 
+        </member>
+        <member name="T:Pawnmorph.ThingComps.AddAspectEffectProps">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:RimWorld.CompProperties_UseEffect" />
+        </member>
+        <member name="F:Pawnmorph.ThingComps.AddAspectEffectProps.aspect">
+            <summary>
+            The aspect to give 
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.ThingComps.AddAspectEffectProps.stage">
+            <summary>
+            The stage to give 
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.ThingComps.AddAspectEffectProps.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Pawnmorph.ThingComps.AddAspectEffectProps"/> class.
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.ThingComps.AddAspectEffectProps.ConfigErrors(Verse.ThingDef)">
+            <summary>
+            gets all configuration errors with this instance.
+            </summary>
+            <param name="parentDef">The parent definition.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Pawnmorph.ThingComps.AddAspectEffect">
+            <summary>
+            effect to add a specific aspect on use 
+            </summary>
+            <seealso cref="T:RimWorld.CompUseEffect" />
+        </member>
+        <member name="M:Pawnmorph.ThingComps.AddAspectEffect.DoEffect(Verse.Pawn)">
+            <summary>
+            Does the effect.
+            </summary>
+            <param name="usedBy">The used by.</param>
         </member>
         <member name="T:Pawnmorph.ThingComps.AlwaysMergedPawn">
             <summary>
@@ -11745,6 +12571,18 @@
             Initializes a new instance of the <see cref="T:Pawnmorph.ThingComps.MutationSequencerProps"/> class.
             </summary>
         </member>
+        <member name="T:Pawnmorph.ThingComps.PlantIngesterListener">
+            <summary>
+            comp that listens for when a plant or tree is consumed to send the former human grazed event 
+            </summary>
+            <seealso cref="T:Verse.ThingComp" />
+        </member>
+        <member name="M:Pawnmorph.ThingComps.PlantIngesterListener.PostIngested(Verse.Pawn)">
+            <summary>
+            called after the parent is ingested
+            </summary>
+            <param name="ingester">The ingester.</param>
+        </member>
         <member name="T:Pawnmorph.ThingComps.ResurrectorTargetProperties">
             <summary>
             properties for <see cref="T:Pawnmorph.ThingComps.ResurrectorTargetComp"/>
@@ -12106,190 +12944,6 @@
             <param name="map"></param>
             <returns></returns>
         </member>
-        <member name="T:Pawnmorph.GraphicSys.GraphicsUpdaterComp">
-            <summary>
-            Thing comp to update the graphics of a pawn as they gain/lose mutations. <br/>
-            Requires that the pawn have a MutationTracker comp too.
-            </summary>
-        </member>
-        <member name="T:Pawnmorph.GraphicSys.InitialGraphicsComp">
-            <summary>
-                comp for storing the initial graphics settings of a pawn for use latter
-            </summary>
-            <seealso cref="T:Verse.ThingComp" />
-        </member>
-        <member name="P:Pawnmorph.GraphicSys.InitialGraphicsComp.CustomDrawSize">
-            <summary>Gets the draw size.</summary>
-            <value>The size of the custom draw.</value>
-        </member>
-        <member name="P:Pawnmorph.GraphicSys.InitialGraphicsComp.CustomPortraitDrawSize">
-            <summary>Gets the draw size of the custom portrait </summary>
-            <value>The size of the custom portrait draw.</value>
-        </member>
-        <member name="P:Pawnmorph.GraphicSys.InitialGraphicsComp.FixGenderPostSpawn">
-            <summary>
-                Gets a value indicating whether [fix gender post spawn].
-            </summary>
-            <value><c>true</c> if [fix gender post spawn]; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:Pawnmorph.GraphicSys.InitialGraphicsComp.SkinColor">
-            <summary>Gets the color of the skin.</summary>
-            <value>The color of the skin.</value>
-        </member>
-        <member name="P:Pawnmorph.GraphicSys.InitialGraphicsComp.HairColor">
-            <summary>Gets the color of the hair.</summary>
-            <value>The color of the hair.</value>
-        </member>
-        <member name="P:Pawnmorph.GraphicSys.InitialGraphicsComp.SkinColorSecond">
-            <summary>Gets the skin color second.</summary>
-            <value>The skin color second.</value>
-        </member>
-        <member name="P:Pawnmorph.GraphicSys.InitialGraphicsComp.HairColorSecond">
-            <summary>Gets the hair color second.</summary>
-            <value>The hair color second.</value>
-        </member>
-        <member name="P:Pawnmorph.GraphicSys.InitialGraphicsComp.CrownType">
-            <summary>Gets the type of the crown.</summary>
-            <value>The type of the crown.</value>
-        </member>
-        <member name="P:Pawnmorph.GraphicSys.InitialGraphicsComp.BodyType">
-            <summary>
-                Gets the initial body type of this pawn
-            </summary>
-            <value>
-                The type of the body.
-            </value>
-        </member>
-        <member name="P:Pawnmorph.GraphicSys.InitialGraphicsComp.HairDef">
-            <summary>
-                Gets the initial hair definition.
-            </summary>
-            <value>
-                The hair definition.
-            </value>
-        </member>
-        <member name="M:Pawnmorph.GraphicSys.InitialGraphicsComp.GetDebugStr">
-            <summary>Gets the debug string.</summary>
-            <returns></returns>
-        </member>
-        <member name="M:Pawnmorph.GraphicSys.InitialGraphicsComp.Initialize(Verse.CompProperties)">
-            <summary>Initializes this instance with the specified properties.</summary>
-            <param name="props">The properties.</param>
-        </member>
-        <member name="M:Pawnmorph.GraphicSys.InitialGraphicsComp.PostExposeData">
-            <summary>expose data.</summary>
-        </member>
-        <member name="M:Pawnmorph.GraphicSys.InitialGraphicsComp.PostSpawnSetup(System.Boolean)">
-            <summary>called after the pawn is spawned</summary>
-            <param name="respawningAfterLoad">if set to <c>true</c> [respawning after load].</param>
-        </member>
-        <member name="M:Pawnmorph.GraphicSys.InitialGraphicsComp.RestoreGraphics">
-            <summary>
-                Restores the alien Comp attached to the parent from the ones stored earlier
-                this does not resolve the graphics, that is the job of the caller
-            </summary>
-        </member>
-        <member name="T:Pawnmorph.GraphicSys.MorphGraphicsUtils">
-            <summary>
-                collection of useful graphics related utility functions on morphs
-            </summary>
-        </member>
-        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.SetSkinColor(AlienRace.AlienPartGenerator.AlienComp,UnityEngine.Color,System.Nullable{UnityEngine.Color})">
-            <summary>
-            Sets the color of the skin.
-            </summary>
-            <param name="alienComp">The alien comp.</param>
-            <param name="first">The first.</param>
-            <param name="second">The second.</param>
-            <exception cref="T:System.ArgumentNullException">alienComp</exception>
-        </member>
-        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.GetHairColor(AlienRace.AlienPartGenerator.AlienComp,System.Boolean)">
-            <summary>
-            Gets the color of the hair.
-            </summary>
-            <param name="alienComp">The alien comp.</param>
-            <param name="first">if set to <c>true</c> [first].</param>
-            <exception cref="T:System.ArgumentNullException">alienComp</exception>
-        </member>
-        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.GetSkinColor(AlienRace.AlienPartGenerator.AlienComp,System.Boolean)">
-            <summary>
-            Gets the color of the skin.
-            </summary>
-            <param name="alienComp">The alien comp.</param>
-            <param name="first">if set to <c>true</c> [first].</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">alienComp</exception>
-        </member>
-        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.SetHairColor(AlienRace.AlienPartGenerator.AlienComp,UnityEngine.Color,System.Nullable{UnityEngine.Color})">
-            <summary>
-            Sets the color of the hair.
-            </summary>
-            <param name="alienComp">The alien comp.</param>
-            <param name="first">The first.</param>
-            <param name="second">The second.</param>
-            <exception cref="T:System.ArgumentNullException">alienComp</exception>
-        </member>
-        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.GenerateRandomColor(AlienRace.AlienPartGenerator,System.String,System.Boolean,System.Nullable{System.Int32})">
-            <summary>
-            Generates the random color.
-            </summary>
-            <param name="generator">The generator.</param>
-            <param name="channelName">Name of the channel.</param>
-            <param name="first">if set to <c>true</c> [first].</param>
-            <param name="seed">The seed.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">generator</exception>
-        </member>
-        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.GetPartGenerator(AlienRace.ThingDef_AlienRace)">
-            <summary>
-            Gets the part generator.
-            </summary>
-            <param name="alienRace">The alien race.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">alienRace</exception>
-        </member>
-        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.GetHairColorOverride(Pawnmorph.MorphDef,Verse.Pawn)">
-            <summary>
-                Gets the hair color override.
-            </summary>
-            <param name="def">The definition.</param>
-            <param name="pawn">The pawn.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">def</exception>
-        </member>
-        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.GetHairColorOverrideSecond(Pawnmorph.MorphDef,Verse.Pawn)">
-            <summary>
-                Gets the hair color override second.
-            </summary>
-            <param name="def">The definition.</param>
-            <param name="pawn">The pawn.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">def</exception>
-        </member>
-        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.GetSkinColorOverride(Pawnmorph.MorphDef,Verse.Pawn)">
-            <summary>
-                Gets the skin color override.
-            </summary>
-            <param name="def">The definition.</param>
-            <param name="pawn">The pawn.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">def</exception>
-        </member>
-        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.GetSkinColorSecondOverride(Pawnmorph.MorphDef,Verse.Pawn)">
-            <summary>
-                Gets the skin color second override.
-            </summary>
-            <param name="def">The definition.</param>
-            <param name="pawn">The pawn.</param>
-            <returns></returns>
-            <exception cref="T:System.ArgumentNullException">def</exception>
-        </member>
-        <member name="M:Pawnmorph.GraphicSys.MorphGraphicsUtils.RefreshGraphics(Verse.Pawn)">
-            <summary>
-                refresh the graphics associated with this pawn, including the portraits if it's a colonist
-            </summary>
-            <param name="pawn"></param>
-        </member>
         <member name="T:Pawnmorph.HediffGiver_Mutation">
             <summary>
             hediff giver for giving a mutation 
@@ -12582,54 +13236,6 @@
             <param name="pawn">The pawn.</param>
             <param name="ingested">The ingested.</param>
         </member>
-        <member name="T:Pawnmorph.InteractionWorker_Bark">
-            <summary>
-            interaction worker for the bark interaction
-            </summary>
-            <seealso cref="T:RimWorld.InteractionWorker" />
-        </member>
-        <member name="M:Pawnmorph.InteractionWorker_Bark.RandomSelectionWeight(Verse.Pawn,Verse.Pawn)">
-            <summary>gets the random selection weight.</summary>
-            <param name="initiator">The initiator.</param>
-            <param name="recipient">The recipient.</param>
-            <returns></returns>
-        </member>
-        <member name="T:Pawnmorph.InteractionWorker_Bok">
-            <summary>
-            interaction worker for the bok interaction 
-            </summary>
-            <seealso cref="T:RimWorld.InteractionWorker" />
-        </member>
-        <member name="M:Pawnmorph.InteractionWorker_Bok.RandomSelectionWeight(Verse.Pawn,Verse.Pawn)">
-            <summary>Gets the random selection weight.</summary>
-            <param name="initiator">The initiator.</param>
-            <param name="recipient">The recipient.</param>
-            <returns></returns>
-        </member>
-        <member name="T:Pawnmorph.InteractionWorker_Meow">
-            <summary>
-            interaction worker for the meow interaction 
-            </summary>
-            <seealso cref="T:RimWorld.InteractionWorker" />
-        </member>
-        <member name="M:Pawnmorph.InteractionWorker_Meow.RandomSelectionWeight(Verse.Pawn,Verse.Pawn)">
-            <summary>gets the random selection weight.</summary>
-            <param name="initiator">The initiator.</param>
-            <param name="recipient">The recipient.</param>
-            <returns></returns>
-        </member>
-        <member name="T:Pawnmorph.InteractionWorker_Yip">
-            <summary>
-            interaction worker for the yip interaction 
-            </summary>
-            <seealso cref="T:RimWorld.InteractionWorker" />
-        </member>
-        <member name="M:Pawnmorph.InteractionWorker_Yip.RandomSelectionWeight(Verse.Pawn,Verse.Pawn)">
-            <summary>gets the random selection weight.</summary>
-            <param name="initiator">The initiator.</param>
-            <param name="recipient">The recipient.</param>
-            <returns></returns>
-        </member>
         <member name="T:Pawnmorph.IRaceChangeEventReceiver">
             <summary> Interface for things that receive race change event. </summary>
         </member>
@@ -12891,6 +13497,11 @@
             The bedroom thought replacement
             </summary>
         </member>
+        <member name="F:Pawnmorph.MorphGroupDef.asceticRoomThought">
+            <summary>
+            The room thought for ascetics
+            </summary>
+        </member>
         <member name="P:Pawnmorph.MorphGroupDef.AnimalRaces">
             <summary>
             Gets the animal races in this morph group
@@ -13035,7 +13646,7 @@
         <member name="T:Pawnmorph.MorphTrackingComp">
             <summary> Component for tracking the morph related updates of a single pawn. </summary>
         </member>
-        <member name="F:Pawnmorph.MorphTrackingComp.needsRaceCompCheck">
+        <member name="M:Pawnmorph.MorphTrackingComp.SetNeedsRaceCheck">
             <summary>
             flag to check if the pawn needs to have their comps check for any comps added or removed by a race change
             </summary>
@@ -13798,6 +14409,55 @@
         <member name="P:Pawnmorph.MutationUtilities.AllMutationsWithGraphics">
             <summary>Gets all mutations with graphics.</summary>
             <value>All mutations with graphics.</value>
+        </member>
+        <member name="M:Pawnmorph.MutationUtilities.IsVeneratedBy(Pawnmorph.Hediffs.MutationDef,RimWorld.Ideo)">
+            <summary>
+            Determines whether this mutation is venerated by the specified ideology.
+            </summary>
+            <param name="mutation">The mutation.</param>
+            <param name="ideo">The ideo.</param>
+            <returns>
+              <c>true</c> if this mutation is venerated by the specified ideology; otherwise, <c>false</c>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            mutation
+            or
+            ideo
+            </exception>
+        </member>
+        <member name="M:Pawnmorph.MutationUtilities.IsVeneratedBy(Pawnmorph.Hediff_AddedMutation,RimWorld.Ideo)">
+            <summary>
+            Determines whether this mutation is venerated by the specified ideology.
+            </summary>
+            <param name="mutation">The mutation.</param>
+            <param name="ideo">The ideo.</param>
+            <returns>
+              <c>true</c> if this mutation is venerated by the specified ideology; otherwise, <c>false</c>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            mutation
+            or
+            ideo
+            </exception>
+        </member>
+        <member name="M:Pawnmorph.MutationUtilities.ClearMutationIdeoCache">
+            <summary>
+            Clears the mutation ideo cache.
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.MutationUtilities.ClearMutationIdeoCache(RimWorld.Ideo)">
+            <summary>
+            Clears the mutation ideo cache of the specified ideology .
+            </summary>
+            <param name="ideo">The ideo.</param>
+        </member>
+        <member name="M:Pawnmorph.MutationUtilities.GetAllMutations(Verse.Pawn)">
+            <summary>
+            Gets all mutations on the given pawn
+            </summary>
+            <param name="p">The p.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">p</exception>
         </member>
         <member name="M:Pawnmorph.MutationUtilities.GetMarketValueFor(Pawnmorph.Hediffs.MutationDef)">
             <summary>
@@ -14969,18 +15629,6 @@
             <summary>called after the parent is updated</summary>
             <param name="severityAdjustment">The severity adjustment.</param>
         </member>
-        <member name="T:Pawnmorph.InteractionWorker_Moo">
-            <summary>
-            interaction worker for the moo interaction 
-            </summary>
-            <seealso cref="T:RimWorld.InteractionWorker" />
-        </member>
-        <member name="M:Pawnmorph.InteractionWorker_Moo.RandomSelectionWeight(Verse.Pawn,Verse.Pawn)">
-            <summary>gets the random selection weight.</summary>
-            <param name="initiator">The initiator.</param>
-            <param name="recipient">The recipient.</param>
-            <returns></returns>
-        </member>
         <member name="T:Pawnmorph.CompProperties_MutagenicRadius">
             <summary>
             comp properties for mutagenic radius comp 
@@ -15530,6 +16178,19 @@
             <param name="pawn">The pawn.</param>
             <returns></returns>
         </member>
+        <member name="T:Pawnmorph.ThinkNodes.ConditionalAnimalisticHumanlike">
+            <summary>
+            think node for animalistic pawns 
+            </summary>
+            <seealso cref="T:Verse.AI.ThinkNode_Conditional" />
+        </member>
+        <member name="M:Pawnmorph.ThinkNodes.ConditionalAnimalisticHumanlike.Satisfied(Verse.Pawn)">
+            <summary>
+            if the condition is satisfied or not 
+            </summary>
+            <param name="pawn">The pawn.</param>
+            <returns></returns>
+        </member>
         <member name="T:Pawnmorph.ThinkNodes.ConditionalFactionSapientAnimal">
             <summary>
             conditional node for sapient animals that are part of a faction other then the player's
@@ -15926,6 +16587,62 @@
             Gets the stage for sapience level.
             </summary>
             <param name="sapience">The sapience.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Pawnmorph.Thoughts.Precept.Worker_FormerHuman_Social">
+            <summary>
+            thought worker for a pawn viewing another pawn who's a former human 
+            </summary>
+            <seealso cref="T:RimWorld.ThoughtWorker_Precept_Social" />
+        </member>
+        <member name="M:Pawnmorph.Thoughts.Precept.Worker_FormerHuman_Social.ShouldHaveThought(Verse.Pawn,Verse.Pawn)">
+            <summary>
+            if this pawn should have the thought about the other given pawn 
+            </summary>
+            <param name="p">The p.</param>
+            <param name="otherPawn">The other pawn.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Pawnmorph.Thoughts.Precept.Worker_VeneratedFormerHuman_Social">
+            <summary>
+            thought worker for a pawn viewing another pawn who's been tf'd into one of the ideos venerated animals 
+            </summary>
+            <seealso cref="T:RimWorld.ThoughtWorker_Precept_Social" />
+        </member>
+        <member name="M:Pawnmorph.Thoughts.Precept.Worker_VeneratedFormerHuman_Social.ShouldHaveThought(Verse.Pawn,Verse.Pawn)">
+            <summary>
+            if this pawn should have the thought about the other given pawn 
+            </summary>
+            <param name="p">The p.</param>
+            <param name="otherPawn">The other pawn.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Pawnmorph.Thoughts.Precept.Worker_HasMutations_Social">
+            <summary>
+            social precept thought worker for when a pawn has mutations
+            </summary>
+            <seealso cref="T:RimWorld.ThoughtWorker_Precept_Social" />
+        </member>
+        <member name="M:Pawnmorph.Thoughts.Precept.Worker_HasMutations_Social.ShouldHaveThought(Verse.Pawn,Verse.Pawn)">
+            <summary>
+            if p should have this thought about otherPawn
+            </summary>
+            <param name="p">The p.</param>
+            <param name="otherPawn">The other pawn.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Pawnmorph.Thoughts.Precept.Worker_VeneratedMutation_Social">
+            <summary>
+                thought worker for a pawn having thoughts about another pawn with venerated mutations
+            </summary>
+            <seealso cref="T:RimWorld.ThoughtWorker_Precept_Social" />
+        </member>
+        <member name="M:Pawnmorph.Thoughts.Precept.Worker_VeneratedMutation_Social.ShouldHaveThought(Verse.Pawn,Verse.Pawn)">
+            <summary>
+                if the pawn 'p' should have this thought about the given other pawn
+            </summary>
+            <param name="p">The p.</param>
+            <param name="otherPawn">The other pawn.</param>
             <returns></returns>
         </member>
         <member name="T:Pawnmorph.Thoughts.Precept.Thought_Precept_VeneratedFormerHuman">
@@ -16553,6 +17270,7 @@
             <param name="originalPawn">The original pawn.</param>
             <param name="cause">The cause.</param>
             <param name="removeMentalStates">if set to <c>true</c> [remove mental states].</param>
+            <param name="tfdPawn">The TFD pawn.</param>
             <exception cref="T:System.ArgumentNullException">originalPawn</exception>
         </member>
         <member name="M:Pawnmorph.TransformerUtility.GetEtherState(Verse.Pawn)">
@@ -17133,6 +17851,19 @@
             <param name="x">The x.</param>
             <returns></returns>
         </member>
+        <member name="M:Pawnmorph.Utilities.MathUtilities.FitToRange(System.Single,System.Single,System.Single,System.Single,System.Single,System.Boolean)">
+            <summary>
+            Fits a value from the initial range into the new range 
+            </summary>
+            note: it is up to the caller to ensure the ranges are valid 
+            <param name="val">The value.</param>
+            <param name="oldMin">The old minimum.</param>
+            <param name="oldMax">The old maximum.</param>
+            <param name="newMin">The new minimum.</param>
+            <param name="newMax">The new maximum.</param>
+            <param name="clamp">if set to <c>true</c> clamp value between the newMin and newMax values .</param>
+            <returns></returns>
+        </member>
         <member name="T:Pawnmorph.Utilities.PatchUtilities">
             <summary>
                 static class containing various utilities for patching functions
@@ -17250,11 +17981,17 @@
         </member>
         <member name="M:Pawnmorph.Utilities.PatchUtilities.ILPatchCommonMethods(HarmonyLib.Harmony,System.Reflection.MethodInfo,System.Boolean)">
             <summary>
-                patch the given method,  replacing all instances of RaceProps.Animal/Tooluser/Humanlike
-                with the FormerHumanUtilities equivalents
+            patch the given method,  replacing all instances of RaceProps.Animal/Tooluser/Humanlike
+            with the FormerHumanUtilities equivalents
             </summary>
-            <param name="harmony"></param>
-            <param name="targetMethod"></param>
+            <param name="harmony">The harmony.</param>
+            <param name="targetMethod">The target method.</param>
+            <param name="debug">if set to <c>true</c> [debug].</param>
+            <exception cref="T:System.ArgumentNullException">
+            harmony
+            or
+            targetMethod
+            </exception>
         </member>
         <member name="M:Pawnmorph.Utilities.PatchUtilities.IsCompilerGenerated(System.Type)">
             <summary>
