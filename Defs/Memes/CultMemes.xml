@@ -1,0 +1,50 @@
+<Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Schemas/MemeDef.xsd">
+
+    <MemeDef>
+        <defName>PMM_Mutagenesis</defName>
+        <label>mutagenesis</label>
+        <description>TODO</description>
+        <groupDef>PMM_Mutagenic</groupDef>
+        <impact>2</impact>
+
+        <!-- TODO, replace this with custom graphics -->
+        <iconPath>UI/Memes/AnimalPersonhood</iconPath>
+
+        <requireOne>
+            <li>
+                <li>PM_MutationsNeutral</li>
+                <li>PM_MutationsLoved</li>
+            </li>
+            <li>
+                <li>PM_TransformationNeutral</li>
+                <li>PM_TransformationLoved</li>
+            </li>
+            <li>
+                <li>PM_ReversionNeutral</li>
+                <li>PM_ReversionHated</li>
+            </li>
+        </requireOne>
+
+        <agreeableTraits>
+            <li>MutationAffinity</li>
+        </agreeableTraits>
+        <startingResearchProjects>
+            <li>MutagenicPlantSowing</li>
+        </startingResearchProjects>
+        <disagreeableTraits>
+            <li>BodyPurist</li>
+        </disagreeableTraits>
+    </MemeDef>
+
+
+    <MemeDef ParentName="StructureOriginBase">
+        <defName>PMM_MysteryCult</defName>
+        <label>mystery cult</label>
+        <description>TODO</description>
+        <selectOneOrNone Inherit="false" xsi:nil="true" />
+        <!-- TODO replace this with custom graphics -->
+        <iconPath>UI/Structures/Animist</iconPath>
+        <worshipRoomLabel>temple</worshipRoomLabel>
+        <deityCount>1~1</deityCount>
+    </MemeDef>
+</Defs>

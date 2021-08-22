@@ -1,0 +1,8 @@
+<Defs>
+    <MemeGroupDef>
+        <defName>PMM_Mutagenic</defName>
+        <drawOffset>(0.65, 0.23)</drawOffset>
+        <maxRows>1</maxRows>
+        <renderOrder>2000</renderOrder>
+    </MemeGroupDef>
+</Defs>
