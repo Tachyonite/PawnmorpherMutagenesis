@@ -36,7 +36,7 @@
                 </xs:complexType>
             </xs:element>
 
-            <xs:element name="selectOneOrNone" type="PreceptsWithNoneChance" minOccurs="0" />
+            <xs:element name="selectOneOrNone" nillable="true" type="PreceptsWithNoneChance" minOccurs="0" />
             <xs:element name="requiredRituals" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
@@ -119,7 +119,7 @@
             <xs:element name="agreeableTraits" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:any/>
+                        <xs:any maxOccurs="unbounded" processContents="lax" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -127,7 +127,7 @@
             <xs:element name="disagreeableTraits" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:any />
+                        <xs:any maxOccurs="unbounded" processContents="lax" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -141,15 +141,16 @@
 
     <xs:complexType name="PreceptsWithNoneChance">
         <xs:all>
-            <xs:element name="preceptThingPairs">
+            <xs:element name="preceptThingPairs" nillable="true">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="li" type="PreceptThingPair" maxOccurs="unbounded" />
+                        <xs:element name="li" type="PreceptThingPair" minOccurs="0" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
             <xs:element name="noneChance" type="xs:float" />
         </xs:all>
+        <xs:attribute name="Inherit" type="xs:boolean" use="optional" />
     </xs:complexType>
 
     <xs:complexType name="PreceptThingPair">
