@@ -1,0 +1,18 @@
+<Patch>
+    <Operation Class="PatchOperationSequence">
+        <operations>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/PreceptDef[defName="PM_MutationsLoved" or defName="PM_TransformationLoved"]/associatedMemes</xpath>
+                <value>
+                    <li>PMM_Mutagenesis</li>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/PreceptDef[defName="PM_MutationsDisliked" or defName="PM_MutationsAbhorrent" or defName="PM_TransformationAbhorrent" or defName="PM_TransformationDisliked"]/conflictingMemes</xpath>
+                <value>
+                    <li>PMM_Mutagenesis</li>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+</Patch>
