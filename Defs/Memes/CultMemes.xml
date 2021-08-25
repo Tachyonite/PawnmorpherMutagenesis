@@ -25,6 +25,7 @@
             </li>
         </requireOne>
 
+
         <agreeableTraits>
             <li>MutationAffinity</li>
         </agreeableTraits>
@@ -36,15 +37,15 @@
         </disagreeableTraits>
     </MemeDef>
 
-
+    <!-- 
     <MemeDef ParentName="StructureOriginBase">
         <defName>PMM_MysteryCult</defName>
         <label>mystery cult</label>
         <description>TODO</description>
         <selectOneOrNone Inherit="false" xsi:nil="true" />
-        <!-- TODO replace this with custom graphics -->
         <iconPath>UI/Structures/Animist</iconPath>
         <worshipRoomLabel>temple</worshipRoomLabel>
         <deityCount>1~1</deityCount>
     </MemeDef>
+    -->
 </Defs>
