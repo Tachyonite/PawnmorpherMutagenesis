@@ -1,0 +1,102 @@
+<Defs>
+	
+	<ThingDef ParentName="SculptureBase">
+        <defName>PM_MutagenicIdolSmall</defName>
+        <label>small idol</label>
+		<thingClass>Pawnmorph.MutagenicStone</thingClass>
+		<tickerType>Rare</tickerType>
+        <description>TODO.</description>
+        <graphicData>
+            <graphicClass>Graphic_Random</graphicClass>
+            <texPath>Things/Building/Art/IdolSmall</texPath>
+        </graphicData>
+        <fillPercent>0.35</fillPercent>
+        <rotatable>false</rotatable>
+        <statBases>
+            <MaxHitPoints>90</MaxHitPoints>
+            <Mass>3</Mass>
+            <Beauty>50</Beauty>
+            <WorkToMake>18000</WorkToMake>
+		    <StyleDominance MayRequire="Ludeon.RimWorld.Ideology">10</StyleDominance>
+        </statBases>
+        <stuffCategories>
+            <li>Mutagenic</li>
+        </stuffCategories>
+		<comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>2</glowRadius>
+				<glowColor>(0,255,0,0)</glowColor>
+			</li>
+		</comps>
+        <costStuffCount>50</costStuffCount>
+    </ThingDef>
+	
+    <ThingDef ParentName="SculptureBase">
+        <defName>PM_MutagenicIdolLarge</defName>
+        <label>large idol</label>
+		<thingClass>Pawnmorph.MutagenicStone</thingClass>
+		<tickerType>Rare</tickerType>
+        <description>TODO.</description>
+		<castEdgeShadows>true</castEdgeShadows>
+        <graphicData>
+            <graphicClass>Graphic_Random</graphicClass>
+            <texPath>Things/Building/Art/IdolLarge</texPath>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <fillPercent>0.5</fillPercent>
+        <rotatable>false</rotatable>
+        <statBases>
+            <MaxHitPoints>150</MaxHitPoints>
+            <Mass>7</Mass>
+            <Beauty>100</Beauty>
+            <WorkToMake>30000</WorkToMake>
+		    <StyleDominance MayRequire="Ludeon.RimWorld.Ideology">10</StyleDominance>
+        </statBases>
+        <stuffCategories>
+            <li>Mutagenic</li>
+        </stuffCategories>
+        <costStuffCount>100</costStuffCount>
+	    <comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>4</glowRadius>
+				<glowColor>(0,255,0,0)</glowColor>
+			</li>
+		</comps>
+    </ThingDef>
+
+    <ThingDef ParentName="SculptureBase">
+        <defName>PM_MutagenicIdolGrand</defName>
+        <label>grand idol</label>
+		<thingClass>Pawnmorph.MutagenicStone</thingClass>
+		<tickerType>Rare</tickerType>
+        <description>TODO.</description>
+		<castEdgeShadows>true</castEdgeShadows>
+        <graphicData>
+            <graphicClass>Graphic_Random</graphicClass>
+            <texPath>Things/Building/Art/IdolGrand</texPath>
+            <drawSize>(4,4)</drawSize>
+        </graphicData>
+        <fillPercent>0.5</fillPercent>
+        <rotatable>false</rotatable>
+		<size>(2,2)</size>
+        <canOverlapZones>false</canOverlapZones>
+        <statBases>
+            <MaxHitPoints>300</MaxHitPoints>
+            <Mass>28</Mass>
+            <Beauty>400</Beauty>
+            <WorkToMake>10500</WorkToMake>
+		    <StyleDominance MayRequire="Ludeon.RimWorld.Ideology">40</StyleDominance>
+        </statBases>
+        <stuffCategories>
+            <li>Mutagenic</li>
+        </stuffCategories>
+        <costStuffCount>400</costStuffCount>
+	    <comps>
+			<li Class="CompProperties_Glower">
+				<glowRadius>5</glowRadius>
+				<glowColor>(0,255,0,0)</glowColor>
+			</li>
+		</comps>
+    </ThingDef>
+	
+</Defs> 
