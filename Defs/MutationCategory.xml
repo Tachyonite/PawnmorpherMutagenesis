@@ -1,6 +1,6 @@
 <Defs>
 	<Pawnmorph.MutationCategoryDef>
 		<defName>PM_ChamberFailures</defName>
-		<restricted>true</restricted>
+		<restricted>Always</restricted>
 	</Pawnmorph.MutationCategoryDef>
 </Defs>
