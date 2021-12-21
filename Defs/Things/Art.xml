@@ -1,7 +1,7 @@
 <Defs>
 	
 	<ThingDef ParentName="SculptureBase">
-        <defName>PM_MutagenicIdolSmall</defName>
+        <defName>PMM_StatueSmall</defName>
         <label>small idol</label>
 		<thingClass>Pawnmorph.MutagenicStone</thingClass>
 		<tickerType>Rare</tickerType>
@@ -32,7 +32,7 @@
     </ThingDef>
 	
     <ThingDef ParentName="SculptureBase">
-        <defName>PM_MutagenicIdolLarge</defName>
+        <defName>PMM_StatueLarge</defName>
         <label>large idol</label>
 		<thingClass>Pawnmorph.MutagenicStone</thingClass>
 		<tickerType>Rare</tickerType>
@@ -65,7 +65,7 @@
     </ThingDef>
 
     <ThingDef ParentName="SculptureBase">
-        <defName>PM_MutagenicIdolGrand</defName>
+        <defName>PMM_StatueGrand</defName>
         <label>grand idol</label>
 		<thingClass>Pawnmorph.MutagenicStone</thingClass>
 		<tickerType>Rare</tickerType>
