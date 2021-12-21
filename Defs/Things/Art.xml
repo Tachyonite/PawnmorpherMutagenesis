@@ -8,7 +8,7 @@
         <description>TODO.</description>
         <graphicData>
             <graphicClass>Graphic_Random</graphicClass>
-            <texPath>Things/Building/Art/IdolSmall</texPath>
+            <texPath>Things/Buildings/Art/IdolSmall</texPath>
         </graphicData>
         <fillPercent>0.35</fillPercent>
         <rotatable>false</rotatable>
@@ -40,7 +40,7 @@
 		<castEdgeShadows>true</castEdgeShadows>
         <graphicData>
             <graphicClass>Graphic_Random</graphicClass>
-            <texPath>Things/Building/Art/IdolLarge</texPath>
+            <texPath>Things/Buildings/Art/IdolLarge</texPath>
             <drawSize>(3,3)</drawSize>
         </graphicData>
         <fillPercent>0.5</fillPercent>
@@ -73,7 +73,7 @@
 		<castEdgeShadows>true</castEdgeShadows>
         <graphicData>
             <graphicClass>Graphic_Random</graphicClass>
-            <texPath>Things/Building/Art/IdolGrand</texPath>
+            <texPath>Things/Buildings/Art/IdolGrand</texPath>
             <drawSize>(4,4)</drawSize>
         </graphicData>
         <fillPercent>0.5</fillPercent>
