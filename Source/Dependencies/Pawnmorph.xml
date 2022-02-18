@@ -1330,6 +1330,11 @@
             if this thing is consumed on use
             </summary>
         </member>
+        <member name="F:Pawnmorph.Chambers.AnimalGenomeStorageCompProps.scanFailReason">
+            <summary>
+            Special reason that block scanning if set.
+            </summary>
+        </member>
         <member name="M:Pawnmorph.Chambers.AnimalGenomeStorageCompProps.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Pawnmorph.Chambers.AnimalGenomeStorageCompProps"/> class.
@@ -1995,6 +2000,14 @@
             <summary>
             The special thing that a tf is waiting on 
             </summary>
+        </member>
+        <member name="P:Pawnmorph.Chambers.MutaChamber.IsContentsSuspended">
+            <summary>
+            Gets a value indicating whether this instance has its contents suspended / in stasis.
+            </summary>
+            <value>
+              <c>true</c> if this instance's contents are suspended; otherwise, <c>false</c>.
+            </value>
         </member>
         <member name="P:Pawnmorph.Chambers.MutaChamber.CurrentUse">
             <summary>
@@ -4194,13 +4207,14 @@
                 <c>true</c> if this pawn is blocked by fences; otherwise, <c>false</c>.
             </returns>
         </member>
-        <member name="M:Pawnmorph.FormerHumanUtilities.IsFormerHuman(Verse.Pawn)">
+        <member name="M:Pawnmorph.FormerHumanUtilities.IsFormerHuman(Verse.Pawn,System.Boolean)">
             <summary>
-                Determines whether the given pawn is a former human.
+            Determines whether the given pawn is a former human.
             </summary>
             <param name="pawn">The pawn.</param>
+            <param name="countPermanentlyFeral">if set to <c>true</c> permanently feral pawns count as former humans.</param>
             <returns>
-                <c>true</c> if the given pawn is former human; otherwise, <c>false</c>.
+              <c>true</c> if the given pawn is former human; otherwise, <c>false</c>.
             </returns>
         </member>
         <member name="M:Pawnmorph.FormerHumanUtilities.IsHumanlike(Verse.Pawn)">
@@ -4476,6 +4490,11 @@
             <summary>
                 Restores the alien Comp attached to the parent from the ones stored earlier
                 this does not resolve the graphics, that is the job of the caller
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.GraphicSys.InitialGraphicsComp.ScanGraphics">
+            <summary>
+            Scans the graphics settings of the attached pawn and saves it so it can be reverted later.
             </summary>
         </member>
         <member name="T:Pawnmorph.GraphicSys.MorphGraphicsUtils">
@@ -8483,6 +8502,14 @@
             error-prone to do it manually.
             </summary>
         </member>
+        <member name="P:Pawnmorph.Hediffs.Utility.BodyMutationManager.AvailableMutations">
+            <summary>
+            Gets the total number of mutations available for the current limb.
+            </summary>
+            <value>
+            The number of available mutations.
+            </value>
+        </member>
         <member name="P:Pawnmorph.Hediffs.Utility.BodyMutationManager.BodyPart">
             <summary>
             Gets the current body part.
@@ -8823,6 +8850,11 @@
             </summary>
             <param name="ev">The ev.</param>
             <returns></returns>
+        </member>
+        <member name="T:Pawnmorph.HPatches.BiosculpterPatches">
+            <summary>
+            patches to the CompBiosculpter and related classes 
+            </summary>
         </member>
         <member name="T:Pawnmorph.HPatches.ConversionUtilityPatches">
             <summary>
@@ -9470,6 +9502,11 @@
         <member name="F:Pawnmorph.IngestionEffects.AddMorphCategoryTfHediff.severity">
             <summary>
             The initial severity
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.IngestionEffects.AddMorphCategoryTfHediff.allowRestricted">
+            <summary>
+            Whether or not to allow restricted morphs.
             </summary>
         </member>
         <member name="M:Pawnmorph.IngestionEffects.AddMorphCategoryTfHediff.DoIngestionOutcomeSpecial(Verse.Pawn,Verse.Thing)">
@@ -12346,6 +12383,26 @@
             The merging icon.
             </value>
         </member>
+        <member name="P:Pawnmorph.PMTextures.MutagenicHazardEther">
+            <summary>
+            Gets a purple mutagenic hazard logo.
+            </summary>
+        </member>
+        <member name="P:Pawnmorph.PMTextures.MutagenicHazardHigh">
+            <summary>
+            Gets a red mutagenic hazard logo.
+            </summary>
+        </member>
+        <member name="P:Pawnmorph.PMTextures.MutagenicHazardMid">
+            <summary>
+            Gets a yellow mutagenic hazard logo.
+            </summary>
+        </member>
+        <member name="P:Pawnmorph.PMTextures.MutagenicHazardLow">
+            <summary>
+            Gets a green mutagenic hazard logo.
+            </summary>
+        </member>
         <member name="F:Pawnmorph.PMThingCategoryDefOf.Textiles">
             <summary> Not in base ThingCategoryDefOf </summary>
         </member>
@@ -15210,6 +15267,17 @@
             Occurs when an animal is chosen.
             </summary>
         </member>
+        <member name="T:Pawnmorph.ThingComps.AnimalSelectorComp.OnClickHandler">
+            <summary>
+            Simple delegate for the <see cref="E:Pawnmorph.ThingComps.AnimalSelectorComp.OnClick"/> event 
+            </summary>
+            <param name="comp">The <see cref="T:Pawnmorph.ThingComps.AnimalSelectorComp" /> that triggered the event.</param>
+        </member>
+        <member name="E:Pawnmorph.ThingComps.AnimalSelectorComp.OnClick">
+            <summary>
+            Triggers when selector action is clicked but before anything else.
+            </summary>
+        </member>
         <member name="P:Pawnmorph.ThingComps.AnimalSelectorComp.Enabled">
             <summary>
             Gets or sets a value indicating whether this <see cref="T:Pawnmorph.ThingComps.AnimalSelectorComp"/> is enabled.
@@ -15224,6 +15292,14 @@
             </summary>
             <value>
                 The props.
+            </value>
+        </member>
+        <member name="P:Pawnmorph.ThingComps.AnimalSelectorComp.SpeciesFilter">
+            <summary>
+            Gets or sets a filter to specify what should (true) or shouldn't (false) be selectable.
+            </summary>
+            <value>
+            The species filter.
             </value>
         </member>
         <member name="P:Pawnmorph.ThingComps.AnimalSelectorComp.ChosenKind">
@@ -15297,12 +15373,6 @@
                 comp to add to buildings to have them add database storage
             </summary>
             <seealso cref="T:Verse.ThingComp" />
-        </member>
-        <member name="M:Pawnmorph.ThingComps.DatabaseStorage.Notify_SignalReceived(RimWorld.Signal)">
-            <summary>
-            Notifies the signal received.
-            </summary>
-            <param name="signal">The signal.</param>
         </member>
         <member name="M:Pawnmorph.ThingComps.DatabaseStorage.PostDestroy(Verse.DestroyMode,Verse.Map)">
             <summary>
@@ -22079,17 +22149,6 @@
             <param name="t">The t.</param>
             <param name="forced">if set to <c>true</c> [forced].</param>
             <returns></returns>
-        </member>
-        <member name="M:Pawnmorph.Work.Giver_TransformPrisoner.HasJobOnThing(Verse.Pawn,Verse.Thing,System.Boolean)">
-            <summary>
-            Determines whether this instance has a job for the given pawn with the given thing.
-            </summary>
-            <param name="pawn">The pawn.</param>
-            <param name="t">The t.</param>
-            <param name="forced">if set to <c>true</c> [forced].</param>
-            <returns>
-              <c>true</c> if [has job on thing] [the specified pawn]; otherwise, <c>false</c>.
-            </returns>
         </member>
         <member name="T:Pawnmorph.Work.Giver_WorkAtSequencer">
             <summary>
