@@ -13,7 +13,7 @@
         <requireOne>
             <li>
                 <li>PM_MutationsNeutral</li>
-                <li>PM_MutationsLoved</li>
+                <li>PM_MutationsLoved</li> <!-- make sure to update these with special precepts -->
             </li>
             <li>
                 <li>PM_TransformationNeutral</li>

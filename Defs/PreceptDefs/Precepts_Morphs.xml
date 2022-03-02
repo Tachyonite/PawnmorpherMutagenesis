@@ -1,0 +1,15 @@
+<Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Schemas/PreceptDef.xsd">
+    <PreceptDef Abstract="true" Name="PMM_MorphPrecept">
+        <issue>PMM_Morphs</issue>
+    </PreceptDef>
+
+    <PreceptDef ParentName="PMM_MorphPrecept">
+        <defName>PMM_MorphNeutral</defName>
+        <label>neutral</label>
+        <countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
+        <impact>Low</impact>
+        <description>TODO</description>
+        <displayOrderInIssue>20</displayOrderInIssue>
+        <displayOrderInImpact>1000</displayOrderInImpact>
+    </PreceptDef>
+</Defs>
