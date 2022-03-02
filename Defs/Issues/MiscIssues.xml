@@ -1,0 +1,9 @@
+<Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Schemas/IssueDef.xsd">
+    <IssueDef>
+        <defName>PMM_Morphs</defName>
+        <label>Morphs</label>
+        <description>transforming humans into animal hybrids</description>
+        <iconPath>UI/Precepts/TransformationPrecept</iconPath>
+    </IssueDef>
+
+</Defs>
