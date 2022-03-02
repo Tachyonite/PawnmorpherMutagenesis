@@ -6562,6 +6562,11 @@
             </summary>
             only should be set if morphInfluence is not set!
         </member>
+        <member name="F:Pawnmorph.Hediffs.MutationDef.classInfluences">
+            <summary>
+            The class influences if multiple.
+            </summary>
+        </member>
         <member name="F:Pawnmorph.Hediffs.MutationDef.mutationMemory">
             <summary>The mutation memory</summary>
         </member>
@@ -6616,6 +6621,11 @@
                 <c>true</c> if this instance is restricted the mutation can only be given to special PawnKindGroups; otherwise it
                 can show up in any group, <c>false</c>.
             </value>
+        </member>
+        <member name="P:Pawnmorph.Hediffs.MutationDef.ClassInfluences">
+            <summary>
+            Gets the finalized collection of class influences regardless of how it was defined in the XML.
+            </summary>
         </member>
         <member name="P:Pawnmorph.Hediffs.MutationDef.RestrictionLevel">
             <summary>
