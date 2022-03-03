@@ -33,6 +33,7 @@ namespace PawnmorpherMutagenesis.Thoughts.Precept
         /// <param name="p">Pawn</param>
         protected override ThoughtState ShouldHaveThought(Pawn p)
         {
+            if (p?.IsFormerHuman() != false) return false; 
             return !MorphUtilities.IsMorph(p);
         }
     }

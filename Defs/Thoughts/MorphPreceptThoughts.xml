@@ -1,5 +1,27 @@
 <Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Schemas/ThoughtDef.xsd">
 
-    <ThoughtDef Name="PMM_MorphPreceptThought" Abstract="true"></ThoughtDef>
+    <ThoughtDef>
+        <defName>PMM_IsHuman_MorphRequired</defName>
+        <workerClass> PawnmorpherMutagenesis.Thoughts.Precept.ThoughtWorker_Precept_IsNotMorph</workerClass>
+        <stages>
+            <li>
+                <baseMoodEffect>-1</baseMoodEffect>
+                <description>TODO</description>
+                <label>TODO</label>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>PMM_IsMorph_MorphRequired</defName>
+        <workerClass> PawnmorpherMutagenesis.Thoughts.Precept.Worker_IsMorph</workerClass>
+        <stages>
+            <li>
+                <baseMoodEffect>-1</baseMoodEffect>
+                <description>TODO</description>
+                <label>TODO</label>
+            </li>
+        </stages>
+    </ThoughtDef>
 
 </Defs>
