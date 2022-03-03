@@ -4,12 +4,53 @@
     </PreceptDef>
 
     <PreceptDef ParentName="PMM_MorphPrecept">
-        <defName>PMM_MorphNeutral</defName>
+        <defName>PMM_MorphingNeutral</defName>
         <label>neutral</label>
         <countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
         <impact>Low</impact>
         <description>TODO</description>
         <displayOrderInIssue>20</displayOrderInIssue>
         <displayOrderInImpact>1000</displayOrderInImpact>
+    </PreceptDef>
+    <PreceptDef ParentName="PMM_MorphPrecept">
+        <defName>PMM_MorphingDisliked</defName>
+        <label>disliked</label>
+        <impact>Medium</impact>
+        <description>TODO</description>
+    </PreceptDef>
+
+    <PreceptDef ParentName="PMM_MorphPrecept">
+        <defName>PMM_MorphingHated</defName>
+        <label>hated</label>
+        <impact>Medium</impact>
+        <description>TODO</description>
+    </PreceptDef>
+
+    <PreceptDef ParentName="PMM_MorphPrecept">
+        <defName>PMM_MorphingLiked</defName>
+        <label>liked</label>
+        <impact>Medium</impact>
+        <description>TODO</description>
+    </PreceptDef>
+
+    <PreceptDef ParentName="PMM_MorphPrecept">
+        <defName>PMM_MorphingLoved</defName>
+        <label>loved</label>
+        <impact>Medium</impact>
+        <description>TODO</description>
+    </PreceptDef>
+
+    <PreceptDef ParentName="PMM_MorphPrecept">
+        <defName>PMM_MorphingRequired</defName>
+        <label>required</label>
+        <impact>Medium</impact>
+        <description>TODO</description>
+    </PreceptDef>
+
+    <PreceptDef ParentName="PMM_MorphPrecept">
+        <defName>PMM_PerpetualMorphing</defName>
+        <label>perpetual morphing</label>
+        <impact>High</impact>
+        <description>TODO</description>
     </PreceptDef>
 </Defs>
