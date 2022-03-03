@@ -45,6 +45,12 @@
         <label>required</label>
         <impact>Medium</impact>
         <description>TODO</description>
+        <statOffsets>
+            <li>
+                <stat>MutagenSensitivity</stat>
+                <value>0.25</value>
+            </li>
+        </statOffsets>
     </PreceptDef>
 
     <PreceptDef ParentName="PMM_MorphPrecept">
@@ -52,5 +58,15 @@
         <label>perpetual morphing</label>
         <impact>High</impact>
         <description>TODO</description>
+        <statOffsets>
+            <li>
+                <stat>MutagenSensitivity</stat>
+                <value>0.5</value>
+            </li>
+            <li>
+                <stat>PM_MutagenPainSensitivity</stat>
+                <value>-0.2</value>
+            </li>
+        </statOffsets>
     </PreceptDef>
 </Defs>
