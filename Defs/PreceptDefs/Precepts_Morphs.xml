@@ -38,6 +38,7 @@
         <displayOrderInIssue>20</displayOrderInIssue>
         <displayOrderInImpact>1000</displayOrderInImpact>
     </PreceptDef>
+
     <PreceptDef ParentName="PMM_MorphPrecept">
         <defName>PMM_MorphingDisliked</defName>
         <label>disliked</label>
@@ -81,6 +82,7 @@
         <label>perpetual morphing</label>
         <impact>High</impact>
         <description>TODO</description>
+        <alsoAdds>PM_ReversionHated</alsoAdds>
         <statOffsets>
             <MutagenSensitivity>0.5</MutagenSensitivity>
             <PM_MutagenPainSensitivity>-0.2</PM_MutagenPainSensitivity>

@@ -18,10 +18,17 @@
             <li>
                 <li>PM_TransformationNeutral</li>
                 <li>PM_TransformationLoved</li>
+                <li>PMM_PerpetualTransformation</li>
             </li>
             <li>
                 <li>PM_ReversionNeutral</li>
                 <li>PM_ReversionHated</li>
+            </li>
+            <li>
+                <!-- morphing precepts -->
+                <li>PMM_MorphingLoved</li>
+                <li>PMM_MorphingRequired</li>
+                <li>PMM_PerpetualMorphing</li>
             </li>
         </requireOne>
 
