@@ -1,8 +1,15 @@
 <Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Schemas/ThoughtDef.xsd">
 
-    <ThoughtDef>
+    <ThoughtDef Abstract="true" Name="PMM_IsMorphSituationalBase">
+        <workerClass>PawnmorpherMutagenesis.Thoughts.Precept.Worker_IsMorph</workerClass>
+    </ThoughtDef>
+
+    <ThoughtDef Abstract="true" Name="PMM_IsNotMorphSituationalBase">
+        <workerClass>PawnmorpherMutagenesis.Thoughts.Precept.ThoughtWorker_Precept_IsNotMorph</workerClass>
+    </ThoughtDef>
+
+    <ThoughtDef ParentName="PMM_IsNotMorphSituationalBase">
         <defName>PMM_IsHuman_MorphRequired</defName>
-        <workerClass> PawnmorpherMutagenesis.Thoughts.Precept.ThoughtWorker_Precept_IsNotMorph</workerClass>
         <stages>
             <li>
                 <baseMoodEffect>-1</baseMoodEffect>
@@ -12,12 +19,22 @@
         </stages>
     </ThoughtDef>
 
-    <ThoughtDef>
+    <ThoughtDef ParentName="PMM_IsMorphSituationalBase">
         <defName>PMM_IsMorph_MorphRequired</defName>
-        <workerClass> PawnmorpherMutagenesis.Thoughts.Precept.Worker_IsMorph</workerClass>
         <stages>
             <li>
                 <baseMoodEffect>-1</baseMoodEffect>
+                <description>TODO</description>
+                <label>TODO</label>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef ParentName="PMM_IsMorphSituationalBase">
+        <defName>PMM_IsMorph_MorphHated</defName>
+        <stages>
+            <li>
+                <baseMoodEffect>-2</baseMoodEffect>
                 <description>TODO</description>
                 <label>TODO</label>
             </li>
