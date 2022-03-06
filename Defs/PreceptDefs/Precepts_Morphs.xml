@@ -3,6 +3,32 @@
         <issue>PMM_Morphs</issue>
     </PreceptDef>
 
+    <PreceptDef Abstract="true" Name="PMM_MorphPrecept_Liked" ParentName="PMM_MorphPrecept">
+        <conflictingMemes>
+            <li>HumanPrimacy</li>
+            <li>FleshPurity</li>
+            <li>Transhumanist</li>
+        </conflictingMemes>
+        <associatedMemes>
+            <li>NaturePrimacy</li>
+            <li>PMM_Mutagenesis</li>
+            <li>AnimalPersonhood</li>
+        </associatedMemes>
+    </PreceptDef>
+
+    <PreceptDef Name="PMM_MorphPrecept_Disliked" ParentName="PMM_MorphPrecept">
+        <associatedMemes>
+            <li>HumanPrimacy</li>
+            <li>FleshPurity</li>
+            <li>Transhumanist</li>
+        </associatedMemes>
+        <conflictingMemes>
+            <li>NaturePrimacy</li>
+            <li>PMM_Mutagenesis</li>
+            <li>AnimalPersonhood</li>
+        </conflictingMemes>
+    </PreceptDef>
+
     <PreceptDef ParentName="PMM_MorphPrecept">
         <defName>PMM_MorphingNeutral</defName>
         <label>neutral</label>
@@ -26,21 +52,21 @@
         <description>TODO</description>
     </PreceptDef>
 
-    <PreceptDef ParentName="PMM_MorphPrecept">
+    <PreceptDef ParentName="PMM_MorphPrecept_Liked">
         <defName>PMM_MorphingLiked</defName>
         <label>liked</label>
         <impact>Medium</impact>
         <description>TODO</description>
     </PreceptDef>
 
-    <PreceptDef ParentName="PMM_MorphPrecept">
+    <PreceptDef ParentName="PMM_MorphPrecept_Liked">
         <defName>PMM_MorphingLoved</defName>
         <label>loved</label>
         <impact>Medium</impact>
         <description>TODO</description>
     </PreceptDef>
 
-    <PreceptDef ParentName="PMM_MorphPrecept">
+    <PreceptDef ParentName="PMM_MorphPrecept_Liked">
         <defName>PMM_MorphingRequired</defName>
         <label>required</label>
         <impact>Medium</impact>
@@ -50,7 +76,7 @@
         </statOffsets>
     </PreceptDef>
 
-    <PreceptDef ParentName="PMM_MorphPrecept">
+    <PreceptDef ParentName="PMM_MorphPrecept_Liked">
         <defName>PMM_PerpetualMorphing</defName>
         <label>perpetual morphing</label>
         <impact>High</impact>
