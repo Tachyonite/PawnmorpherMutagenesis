@@ -1,0 +1,27 @@
+<Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Schemas/PreceptDef.xsd">
+
+    <PreceptDef Abstract="true" Name="PMM_FormerHumanPrecept">
+        <issue>PM_Transformation</issue>
+    </PreceptDef>
+
+    <PreceptDef ParentName="PMM_FormerHumanPrecept">
+        <defName>PMM_PerpetualTransformation</defName>
+        <label>Perpetual Transformation</label>
+        <description>TODO</description>
+        <impact>High</impact>
+        <conflictingMemes>
+            <li>HumanPrimacy</li>
+            <li>FleshPurity</li>
+            <li>Transhumanist</li>
+        </conflictingMemes>
+        <associatedMemes>
+            <li>NaturePrimacy</li>
+            <li>PMM_Mutagenesis</li>
+            <li>AnimalPersonhood</li>
+        </associatedMemes>
+        <statOffsets>
+            <PM_MutagenPainSensitivity>-0.2</PM_MutagenPainSensitivity>
+        </statOffsets>
+    </PreceptDef>
+
+</Defs>
