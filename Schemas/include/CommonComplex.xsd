@@ -15,7 +15,7 @@
 
     <xs:complexType name="StatModifiers">
         <xs:sequence>
-            <xs:element name="li" type="StatModifier" minOccurs="1" maxOccurs="unbounded" />
+            <xs:any processContents="lax" minOccurs="1" maxOccurs="unbounded" />
         </xs:sequence>
     </xs:complexType>
 

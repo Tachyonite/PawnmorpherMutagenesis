@@ -46,10 +46,7 @@
         <impact>Medium</impact>
         <description>TODO</description>
         <statOffsets>
-            <li>
-                <stat>MutagenSensitivity</stat>
-                <value>0.25</value>
-            </li>
+            <MutagenSensitivity>0.25</MutagenSensitivity>
         </statOffsets>
     </PreceptDef>
 
@@ -59,14 +56,8 @@
         <impact>High</impact>
         <description>TODO</description>
         <statOffsets>
-            <li>
-                <stat>MutagenSensitivity</stat>
-                <value>0.5</value>
-            </li>
-            <li>
-                <stat>PM_MutagenPainSensitivity</stat>
-                <value>-0.2</value>
-            </li>
+            <MutagenSensitivity>0.5</MutagenSensitivity>
+            <PM_MutagenPainSensitivity>-0.2</PM_MutagenPainSensitivity>
         </statOffsets>
     </PreceptDef>
 </Defs>
