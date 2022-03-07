@@ -6,4 +6,10 @@
         <iconPath>UI/Precepts/TransformationPrecept</iconPath>
     </IssueDef>
 
+    <!-- 
+    <IssueDef>
+        <defName>PM_Mutagenic_Passport</defName>
+        <label>mutagenic passport</label>
+        <iconPath>UI/Precepts/MutagenicPassport</iconPath>
+    </IssueDef> -->
 </Defs>

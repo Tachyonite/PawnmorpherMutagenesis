@@ -1,0 +1,53 @@
+<Defs>
+    <ThoughtDef>
+        <defName>PM_Mutagenic_Passport_MorphDesired</defName>
+        <thoughtClass>Thought_Situational</thoughtClass>
+        <workerClass>PawnmorpherMutagenesis.Thoughts.Precept.ThoughtWorker_Precept_IsNotMorph</workerClass>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+            <li>
+                <label>not morph (desired)</label>
+                <description>TODO</description>
+                <baseMoodEffect>-5</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>PM_Mutagenic_Passport_MorphDesired_Social</defName>
+        <thoughtClass>Thought_SituationalSocial</thoughtClass>
+        <workerClass>PawnmorpherMutagenesis.Thoughts.Precept.ThoughtWorker_Precept_IsNotMorph_Social</workerClass>
+        <stages>
+            <li>
+                <label>not morph (desired)</label>
+                <baseOpinionOffset>-5</baseOpinionOffset>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>PM_Mutagenic_Passport_MorphRequired</defName>
+        <thoughtClass>Thought_Situational</thoughtClass>
+        <workerClass>PawnmorpherMutagenesis.Thoughts.Precept.ThoughtWorker_Precept_IsNotMorph</workerClass>
+        <validWhileDespawned>true</validWhileDespawned>
+        <stages>
+            <li>
+                <label>not morph (required)</label>
+                <description>TODO</description>
+                <baseMoodEffect>-10</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>PM_Mutagenic_Passport_MorphRequired_Social</defName>
+        <thoughtClass>Thought_SituationalSocial</thoughtClass>
+        <workerClass>PawnmorpherMutagenesis.Thoughts.Precept.ThoughtWorker_Precept_IsNotMorph_Social</workerClass>
+        <stages>
+            <li>
+                <label>not morph (required)</label>
+                <baseOpinionOffset>-10</baseOpinionOffset>
+            </li>
+        </stages>
+    </ThoughtDef>
+</Defs>
