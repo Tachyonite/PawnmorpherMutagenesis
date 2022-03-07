@@ -16,11 +16,12 @@ namespace PawnmorpherMutagenesis.HEvents
     /// </summary>
     public class EventTracker : IExposable
     {
-        [NotNull] private readonly int[] _tickArray;
+        [NotNull] private int[] _tickArray;
 
         private int _curCount;
 
         private float? _meanVal;
+        [NotNull] private  HistoryEventDef _eventDef;
 
         /// <summary>
         ///     Gets the event definition this instance is listening for.
@@ -29,7 +30,7 @@ namespace PawnmorpherMutagenesis.HEvents
         ///     The event definition.
         /// </value>
         [NotNull]
-        public HistoryEventDef EventDef { get; }
+        public HistoryEventDef EventDef => _eventDef;
 
 
         /// <summary>
@@ -80,9 +81,11 @@ namespace PawnmorpherMutagenesis.HEvents
             if (sampleCount <= 0)
                 throw new ArgumentOutOfRangeException(nameof(sampleCount), sampleCount, "must be greater then 0");
 
-            EventDef = eventDef ?? throw new ArgumentNullException(nameof(eventDef));
+            _eventDef = eventDef ?? throw new ArgumentNullException(nameof(eventDef));
             _tickArray = new int[sampleCount];
         }
+
+        public EventTracker() {  }
 
         /// <summary>
         ///     listen to the history event that occured at the current tick
@@ -117,12 +120,16 @@ namespace PawnmorpherMutagenesis.HEvents
         /// </summary>
         public void ExposeData()
         {
-            List<int> tmpList = _tickArray.ToList();
+            List<int> tmpList = _tickArray?.ToList() ?? new List<int>();
 
             Scribe_Collections.Look(ref tmpList, "samples");
+            tmpList = tmpList ?? new List<int>(); 
             if (Scribe.mode == LoadSaveMode.LoadingVars)
                 for (var i = 0; i < Mathf.Min(tmpList.Count, _tickArray.Length); i++)
                     _tickArray[i] = tmpList[i];
+
+            Scribe_Defs.Look(ref _eventDef, "eventDef");
+
         }
 
 
