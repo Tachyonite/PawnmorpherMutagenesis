@@ -1,0 +1,34 @@
+<Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Schemas/PreceptDef.xsd">
+    <PreceptDef Abstract="true" Name="PMM_MutagenicsUsagePreceptBase">
+        <issue>PMM_MutagenicsUsage</issue>
+    </PreceptDef>
+
+    <PreceptDef ParentName="PMM_MutagenicsUsagePreceptBase">
+        <defName>PMM_MutagenicsUnlimited</defName>
+        <label>Unlimited</label>
+        <countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
+        <impact>Low</impact>
+    </PreceptDef>
+
+    <PreceptDef ParentName="PMM_MutagenicsUsagePreceptBase">
+        <defName>PMM_MutagenicsWillingColonistsOnly</defName>
+        <label>Willing Colonists Only</label>
+        <impact>Medium</impact>
+    </PreceptDef>
+    <PreceptDef ParentName="PMM_MutagenicsUsagePreceptBase">
+        <defName>PMM_MutagenicsColonistsOnly</defName>
+        <label>Colonists Only</label>
+        <impact>Medium</impact>
+    </PreceptDef>
+    <PreceptDef ParentName="PMM_MutagenicsUsagePreceptBase">
+        <defName>PMM_MutagenicsColonistsAndGuiltyOnly</defName>
+        <label>Colonists And Guilty Only</label>
+        <impact>Medium</impact>
+    </PreceptDef>
+
+    <PreceptDef ParentName="PMM_MutagenicsUsagePreceptBase">
+        <defName>PMM_MutagenicsBanned</defName>
+        <label>Banned</label>
+        <impact>High</impact>
+    </PreceptDef>
+</Defs>

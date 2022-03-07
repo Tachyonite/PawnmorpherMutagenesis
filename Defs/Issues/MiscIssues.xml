@@ -6,6 +6,13 @@
         <iconPath>UI/Precepts/TransformationPrecept</iconPath>
     </IssueDef>
 
+    <IssueDef>
+        <defName>PMM_MutagenicsUsage</defName>
+        <label>Mutagenics Usage</label>
+        <description>TODO</description>
+        <iconPath>UI/Precepts/TransformationPrecept</iconPath>
+    </IssueDef>
+
     <!-- 
     <IssueDef>
         <defName>PM_Mutagenic_Passport</defName>
