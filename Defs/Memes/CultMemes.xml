@@ -50,15 +50,99 @@
         </disagreeableTraits>
     </MemeDef>
 
-    <!-- 
-    <MemeDef ParentName="StructureOriginBase">
-        <defName>PMM_MysteryCult</defName>
-        <label>mystery cult</label>
-        <description>TODO</description>
-        <selectOneOrNone Inherit="false" xsi:nil="true" />
+    <MemeDef >
+        <defName>PMM_Metamorphic</defName>
+        <label>metamorphic</label>
+        <description>A close-knit cult of devout followers who believe that a nature spirit controls the planet, changing and molding those who believe into loyal followers. They believe that by changing themselves, they can inherit the world.</description>
+        <category>Structure</category>
         <iconPath>UI/Structures/Animist</iconPath>
+        <impact>0</impact>
+
+        <!-- below this is copied from Animism, these should be changed -->
         <worshipRoomLabel>temple</worshipRoomLabel>
-        <deityCount>1~1</deityCount>
+        <randomizationSelectionWeightFactor>2</randomizationSelectionWeightFactor>
+        <deityCount>0~1</deityCount>
+        <generalRules>
+            <rulesStrings>
+                <li>memeLeaderNoun->curate</li>
+                <li>memeLeaderNoun->speaker</li>
+                <li>memeLeaderAdjective->universe</li>
+                <li>memeLeaderAdjective->spirit</li>
+                <li>memeLeaderAdjective->anima</li>
+                <li>memeHyphenPrefix->ani</li>
+                <li>memeMoralist->shaman</li>
+                <li>memeMoralist->priest</li>
+                <li>memeMoralist->elder</li>
+            </rulesStrings>
+        </generalRules>
+        <descriptionMaker>
+            <patterns>
+                <li>
+                    <def>AnimistDescription</def>
+                </li>
+            </patterns>
+            <constants>
+                <li>
+                    <key>structure_animist</key>
+                    <value>true</value>
+                </li>
+            </constants>
+        </descriptionMaker>
+        <symbolPacks>
+            <li>
+                <theme>animism</theme>
+                <adjective>animist</adjective>
+                <member>animist</member>
+            </li>
+            <li>
+                <theme>spiritism</theme>
+                <adjective>spiritist</adjective>
+                <member>spiritist</member>
+            </li>
+        </symbolPacks>
+        <thingStyleCategories>
+            <li>
+                <category>Animalist</category>
+                <priority>1</priority>
+            </li>
+        </thingStyleCategories>
     </MemeDef>
+
+    <!-- copy of IdeoStoryPatternDef for Animist, this is for reference only  
+    <IdeoStoryPatternDef>
+        <defName>AnimistDescription</defName>
+        <segments>
+            <li>animistBasis</li>
+            <li>animistFact</li>
+            <li>animistProphecy</li>
+        </segments>
+        <rules>
+            <include>
+                <li>IdeoDescriptionGlobal</li>
+            </include>
+            <rulesStrings>
+                generic basis 
+                <li>animistBasis   ->The universe is an endless cycle of creation and destruction managed by spirits in aspects of the world around us.</li>
+                <li>animistBasis   ->A parallel universe of spirits lies next to our own. A seemingly inanimate object in this universe corresponds to an animated spirit in the other.</li>
+
+                generic fact
+                <li>animistFact    ->Each spirit has an essential nature, and seeks to influence the world. Sometimes this influence is helpful, and  sometimes it is harmful.</li>
+
+                generic prophecy
+                <li>animistProphecy->[itIsSaid] that the spirit of the great [relic0_name] will one day grant its wielder power over all spirits.</li>
+                <li>animistProphecy->[itIsSaid] that a sleeping traveler from the stars will crash to the earth, and the spirit of the crater will wake the traveller who will raise the last tribe.</li>
+
+                pieces
+                <li>itIsSaid->It is said</li>
+                <li>itIsSaid->It is prophesied</li>
+                <li>itIsSaid->An ancient text says</li>
+                <li>itIsSaid->Our book says</li>
+                <li>itIsSaid->Our sages say</li>
+                <li>itIsSaid->We know</li>
+
+            </rulesStrings>
+        </rules>
+    </IdeoStoryPatternDef>
     -->
+
 </Defs>
