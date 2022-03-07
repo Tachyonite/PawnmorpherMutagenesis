@@ -34,7 +34,7 @@
         <label>neutral</label>
         <countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
         <impact>Low</impact>
-        <description>TODO</description>
+        <description>Morphs were originally human, so we should treat them the same as we'd treat anyone, for better or worse.</description>
         <displayOrderInIssue>20</displayOrderInIssue>
         <displayOrderInImpact>1000</displayOrderInImpact>
     </PreceptDef>
@@ -43,7 +43,7 @@
         <defName>PMM_MorphingDisliked</defName>
         <label>disliked</label>
         <impact>Medium</impact>
-        <description>TODO</description>
+        <description>Mutated people are unsightly and strange. Until we know they won't bite and claw at us like animals, we prefer to keep our distance from them.</description>
         <comps>
             <li Class="PreceptComp_SituationalThought">
                 <thought>PMM_IsMorph_MorphHated</thought>
@@ -55,7 +55,7 @@
         <defName>PMM_MorphingHated</defName>
         <label>hated</label>
         <impact>Medium</impact>
-        <description>TODO</description>
+        <description>Mutated "people" are little better than animals. They should stay as far away from us as possible. Or else.</description>
         <comps>
             <li Class="PreceptComp_SituationalThought">
                 <thought>PMM_IsMorph_MorphHated</thought>
@@ -67,14 +67,14 @@
         <defName>PMM_MorphingLiked</defName>
         <label>liked</label>
         <impact>Medium</impact>
-        <description>TODO</description>
+        <description>Morphs are a means of self-expression (or unfortunate happenstance). They are still people, and deserve all rights non-mutated humans do.</description>
     </PreceptDef>
 
     <PreceptDef ParentName="PMM_MorphPrecept_Liked">
         <defName>PMM_MorphingLoved</defName>
         <label>loved</label>
         <impact>Medium</impact>
-        <description>TODO</description>
+        <description>There is little better than becoming closer to nature via the use of mutagen. It allows for ones' true character to emerge, unlimited by a feeble human form.</description>
         <comps>
             <li Class="PreceptComp_SituationalThought">
                 <thought>PMM_IsMorph_MorphRequired</thought>
@@ -86,7 +86,7 @@
         <defName>PMM_MorphingRequired</defName>
         <label>required</label>
         <impact>Medium</impact>
-        <description>TODO</description>
+        <description>Humanity is overrated. Embrace the green glow of mutagen, and rejoice in the changes. Or else.</description>
         <statOffsets>
             <MutagenSensitivity>0.25</MutagenSensitivity>
         </statOffsets>
@@ -104,7 +104,7 @@
         <defName>PMM_PerpetualMorphing</defName>
         <label>perpetual morphing</label>
         <impact>High</impact>
-        <description>TODO</description>
+        <description>Why settle for just one form, when life is all about variety? We believe that people should constantly be changing with the times.</description>
         <alsoAdds>PM_ReversionHated</alsoAdds>
         <comps>
             <li Class="PreceptComp_SituationalThought">
