@@ -55,10 +55,10 @@
         <label>metamorphic</label>
         <description>A close-knit cult of devout followers who believe that a nature spirit controls the planet, changing and molding those who believe into loyal followers. They believe that by changing themselves, they can inherit the world.</description>
         <category>Structure</category>
-        <iconPath>UI/Structures/Animist</iconPath>
         <impact>0</impact>
 
         <!-- below this is copied from Animism, these should be changed -->
+        <iconPath>UI/Structures/Animist</iconPath>
         <worshipRoomLabel>temple</worshipRoomLabel>
         <randomizationSelectionWeightFactor>2</randomizationSelectionWeightFactor>
         <deityCount>0~1</deityCount>
@@ -82,6 +82,7 @@
                 </li>
             </patterns>
             <constants>
+                <!-- not sure what this is used for -->
                 <li>
                     <key>structure_animist</key>
                     <value>true</value>
@@ -144,5 +145,42 @@
         </rules>
     </IdeoStoryPatternDef>
     -->
+
+    <!-- 
+        Christian Diety namers/Type makers for reference 
+    <RulePackDef>
+        <defName>NamerDeityChristian</defName>
+        <include>
+            <li>GlobalUtility</li>
+        </include>
+        <rulePack>
+            <rulesStrings>
+                <li>r_deityName(p=3)->God</li>
+                <li>r_deityName->Christ-Lord</li>
+                <li>r_deityName->Christ</li>
+                <li>r_deityName->[color] Jesus</li>
+                <li>r_deityName->[color] Christ</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>DietyTypeMakerAbrahamic</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_deityType->Creator of [all]</li>
+                <li>r_deityType->[adj] god</li>
+
+                <li>all->everything</li>
+                <li>all->all</li>
+                <li>all->the universe</li>
+
+                <li>adj->all-powerful</li>
+                <li>adj->omnipotent</li>
+                <li>adj->universal</li>
+            </rulesStrings>
+        </rulePack>
+    </RulePackDef>
+-->
 
 </Defs>
