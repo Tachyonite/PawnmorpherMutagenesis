@@ -6852,6 +6852,11 @@
             The graphic for this stage 
             </summary>
         </member>
+        <member name="F:Pawnmorph.Hediffs.MutationStage.verbOverrides">
+            <summary>
+            Overrides to allow changing values of mutation verbs.
+            </summary>
+        </member>
         <member name="P:Pawnmorph.Hediffs.MutationStage.SkipAspects">
             <summary>
             Gets the skip aspects.
@@ -6863,6 +6868,26 @@
         <member name="M:Pawnmorph.Hediffs.MutationStage.EnteredStage(Verse.Hediff)">
             <summary>called when the given hediff enters this stage</summary>
             <param name="hediff">The hediff.</param>
+        </member>
+        <member name="T:Pawnmorph.Hediffs.MutationStage.VerbToolOverride">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.Hediffs.MutationStage.VerbToolOverride.label">
+            <summary>
+            The label of the verb to override.
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.Hediffs.MutationStage.VerbToolOverride.power">
+            <summary>
+            Value to set verb power to.
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.Hediffs.MutationStage.VerbToolOverride.cooldownTime">
+            <summary>
+            Value to set verb cooldown time to.
+            </summary>
         </member>
         <member name="T:Pawnmorph.Hediffs.MutationStage.AspectEntry">
             <summary>
@@ -9809,6 +9834,30 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:Pawnmorph.Jobs.Driver_MutagenicSow">
+            <summary>
+                job driver for sowing mutagenic plants
+            </summary>
+            <seealso cref="T:Verse.AI.JobDriver" />
+        </member>
+        <member name="M:Pawnmorph.Jobs.Driver_MutagenicSow.ExposeData">
+            <summary>
+                Exposes the data.
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.Jobs.Driver_MutagenicSow.TryMakePreToilReservations(System.Boolean)">
+            <summary>
+                Tries the make pre toil reservations.
+            </summary>
+            <param name="errorOnFailed">if set to <c>true</c> [error on failed].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.Jobs.Driver_MutagenicSow.MakeNewToils">
+            <summary>
+                Makes the new toils.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Pawnmorph.Jobs.Driver_RecruitSapientFormerHuman">
             <summary>
             job driver for recruiting a sapient former human
@@ -9838,6 +9887,30 @@
         <member name="M:Pawnmorph.Jobs.Driver_RecruitSapientFormerHuman.FeedToils">
             <summary>
             gets the Feeds toils.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Pawnmorph.Jobs.Driver_SowMutagenicPlant">
+            <summary>
+                job driver for sowing mutagenic plants
+            </summary>
+            <seealso cref="T:RimWorld.JobDriver_PlantSow" />
+        </member>
+        <member name="M:Pawnmorph.Jobs.Driver_SowMutagenicPlant.ExposeData">
+            <summary>
+                Exposes the data for saving/loading.
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.Jobs.Driver_SowMutagenicPlant.TryMakePreToilReservations(System.Boolean)">
+            <summary>
+                Tries to make the pre toil reservations.
+            </summary>
+            <param name="errorOnFailed">if set to <c>true</c> [error on failed].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.Jobs.Driver_SowMutagenicPlant.MakeNewToils">
+            <summary>
+                Makes the new toils.
             </summary>
             <returns></returns>
         </member>
@@ -10478,7 +10551,7 @@
         </member>
         <member name="T:Pawnmorph.MutagenicBuildupUtilities">
             <summary>
-            static class for various mutagenic buildup related utilities 
+            static class for various mutagenic buildup, mutagenic weapons and mutagen drug related utilities 
             </summary>
         </member>
         <member name="M:Pawnmorph.MutagenicBuildupUtilities.GetMutagenicBuildupMultiplier(Verse.Pawn,Pawnmorph.MutagenDef)">
@@ -10488,6 +10561,36 @@
             <param name="pawn">The pawn.</param>
             <param name="mutagenDef">The mutagen definition.</param>
             <returns></returns>
+        </member>
+        <member name="M:Pawnmorph.MutagenicBuildupUtilities.IsMutagenicWeapon(Verse.Thing)">
+            <summary>
+            Determines whether this thing is a mutagenic weapon.
+            </summary>
+            <param name="thing">The thing.</param>
+            <returns>
+              <c>true</c> if this thing is a mutagenic weapon; otherwise, <c>false</c>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">thing</exception>
+        </member>
+        <member name="M:Pawnmorph.MutagenicBuildupUtilities.IsMutagenicWeapon(Verse.ThingDef)">
+            <summary>
+            Determines whether this weapon is a mutagenic weapon.
+            </summary>
+            <param name="weaponDef">The weapon definition.</param>
+            <returns>
+              <c>true</c> if this weapon is a mutagenic weapon; otherwise, <c>false</c>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">weaponDef</exception>
+        </member>
+        <member name="M:Pawnmorph.MutagenicBuildupUtilities.IsMutagenOrMutagenicDrug(Verse.ThingDef)">
+            <summary>
+            Determines whether this thing def is a mutagenic drug or not.
+            </summary>
+            <param name="tDef">The t definition.</param>
+            <returns>
+              <c>true</c> if this thing is a mutagenic drug or not; otherwise, <c>false</c>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">tDef</exception>
         </member>
         <member name="M:Pawnmorph.MutagenicBuildupUtilities.AdjustMutagenicBuildup(Verse.Def,Verse.Pawn,System.Single,Pawnmorph.MutagenDef)">
             <summary>
@@ -12087,6 +12190,48 @@
             args:
             Doer(pawn) 
         </member>
+        <member name="F:Pawnmorph.PMHistoryEventDefOf.ApplyMutagenicsOn">
+            <summary>
+            history event for when a pawn applies mutagenics on another pawn
+            </summary>
+            args:
+            Doer(pawn): the pawn applying the mutagenics 
+            Victim(pawn): the pawn they are being applied on 
+        </member>
+        <member name="F:Pawnmorph.PMHistoryEventDefOf.SowMutagenicPlants">
+            <summary>
+            event for when a pawn sows mutagenic plants
+            </summary>
+            args:
+            Doer(pawn): the pawn sowing
+            SUBJECT (thingDef): the plant def being sowed 
+        </member>
+        <member name="F:Pawnmorph.PMHistoryEventDefOf.CreateMutagenicWeapon">
+            <summary>
+            event for when a pawn creates 
+            </summary>
+            args:
+            Doer: the pawn making the weapon
+            SUBJECT (thingDef): the weapon def being made 
+        </member>
+        <member name="T:Pawnmorph.PMHistoryEventUtilities">
+            <summary>
+            static class for history related utilities
+            </summary>
+        </member>
+        <member name="M:Pawnmorph.PMHistoryEventUtilities.DoerWillingToDo(RimWorld.HistoryEventDef,Verse.Pawn)">
+            <summary>
+            determine if the given doer is willing to do this event def.
+            </summary>
+            <param name="eventDef">The event definition.</param>
+            <param name="doer">The doer.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">
+            eventDef
+            or
+            doer
+            </exception>
+        </member>
         <member name="T:Pawnmorph.PMIdeoUtilities">
             <summary>
             static class containing additional ideology utilities 
@@ -12344,6 +12489,11 @@
         <member name="F:Pawnmorph.PMStatDefOf.PM_MutagenPainSensitivity">
             <summary>
                 how much pain a pawn receives from mutations and transformations. percentage from [0,)
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.PMStatDefOf.PM_BodySize">
+            <summary>
+                Multiplier on the total pawn body size.
             </summary>
         </member>
         <member name="F:Pawnmorph.PMStatDefOf.DrugSynthesisSpeed">
@@ -15322,7 +15472,7 @@
         </member>
         <member name="P:Pawnmorph.ThingComps.AnimalSelectorComp.AllAnimalsSelectable">
             <summary>
-            Gets all animals selectable.
+            Gets all animals selectable according to the selection mode.
             </summary>
             <value>
             All animals selectable.
@@ -15352,17 +15502,27 @@
         </member>
         <member name="F:Pawnmorph.ThingComps.AnimalSelectorCompProperties.requiresTag">
             <summary>
-                if an animal must be tagged by the tagging rifle
+                Only allow selection of animals which have been tagged in the database
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.ThingComps.AnimalSelectorCompProperties.labelKey">
+            <summary>
+                Label of selector button gizmo. Localised key.
+            </summary>
+        </member>
+        <member name="F:Pawnmorph.ThingComps.AnimalSelectorCompProperties.descriptionKey">
+            <summary>
+                Tooltip of selector button gizmo. Localised key.
             </summary>
         </member>
         <member name="F:Pawnmorph.ThingComps.AnimalSelectorCompProperties.alwaysAvailable">
             <summary>
-            list of animals always available for selection 
+                List of animals which will always be available for selection 
             </summary>
         </member>
         <member name="F:Pawnmorph.ThingComps.AnimalSelectorCompProperties.raceFilter">
             <summary>
-                The race filter
+                List of animals that will be excluded from the selection
             </summary>
         </member>
         <member name="M:Pawnmorph.ThingComps.AnimalSelectorCompProperties.#ctor">
