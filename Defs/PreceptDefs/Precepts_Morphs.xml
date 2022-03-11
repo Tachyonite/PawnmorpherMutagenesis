@@ -16,7 +16,7 @@
         </associatedMemes>
     </PreceptDef>
 
-    <PreceptDef Name="PMM_MorphPrecept_Disliked" ParentName="PMM_MorphPrecept">
+    <PreceptDef Abstract="true" Name="PMM_MorphPrecept_Disliked" ParentName="PMM_MorphPrecept">
         <associatedMemes>
             <li>HumanPrimacy</li>
             <li>FleshPurity</li>
