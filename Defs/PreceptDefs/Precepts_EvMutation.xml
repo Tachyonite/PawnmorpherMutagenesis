@@ -1,0 +1,36 @@
+<Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Schemas/PreceptDef.xsd">
+
+    <PreceptDef Abstract="true" Name="PMM_EvMutationPrecept">
+        <issue>PMM_EnvironmentalMutation</issue>
+
+    </PreceptDef>
+
+    <PreceptDef ParentName="PMM_EvMutationPrecept">
+        <defName>PMM_EvMutationProhibited</defName>
+        <label>prohibited</label>
+        <description>TODO</description>
+        <impact>High</impact>
+    </PreceptDef>
+
+    <PreceptDef ParentName="PMM_EvMutationPrecept">
+        <defName>PMM_EvMutationDisliked</defName>
+        <label>disliked</label>
+        <description>TODO</description>
+        <impact>Medium</impact>
+    </PreceptDef>
+    <PreceptDef ParentName="PMM_EvMutationPrecept">
+        <defName>PMM_EvMutationNeutral</defName>
+        <label>neutral</label>
+        <description>TODO</description>
+        <impact>Low</impact>
+        <countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
+    </PreceptDef>
+
+    <PreceptDef ParentName="PMM_EvMutationPrecept">
+        <defName>PMM_EvMutationLiked</defName>
+        <label>liked</label>
+        <description>TODO</description>
+        <impact>Medium</impact>
+    </PreceptDef>
+
+</Defs>

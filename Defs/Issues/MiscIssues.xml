@@ -13,6 +13,12 @@
         <iconPath>UI/Precepts/TransformationPrecept</iconPath>
     </IssueDef>
 
+    <IssueDef>
+        <defName>PMM_EnvironmentalMutation</defName>
+        <label>Environmental Mutation</label>
+        <description>TODO</description>
+        <iconPath>UI/Precepts/TransformationPrecept</iconPath>
+    </IssueDef>
     <!-- 
     <IssueDef>
         <defName>PM_Mutagenic_Passport</defName>
