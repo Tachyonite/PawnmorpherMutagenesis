@@ -1,0 +1,52 @@
+<Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Schemas/ThoughtDef.xsd">
+    <ThoughtDef>
+        <defName>PMM_UsingMutagenicWeaponBad</defName>
+        <workerClass>PawnmorpherMutagenesis.Thoughts.Precept.Worker_HasMutagenicWeapon</workerClass>
+        <stages>
+            <li>
+                <label>TODO</label>
+                <baseMoodEffect>-10</baseMoodEffect>
+                <description>TODO</description>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+
+    <ThoughtDef>
+        <defName>PMM_UsingMutagenicWeaponGood</defName>
+        <workerClass>PawnmorpherMutagenesis.Thoughts.Precept.Worker_HasMutagenicWeapon</workerClass>
+        <stages>
+            <li>
+                <label>TODO</label>
+                <baseMoodEffect>5</baseMoodEffect>
+                <description>TODO</description>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>PMM_PlantedMutagenicPlantBad</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <stackLimit>4</stackLimit>
+        <stages>
+            <li>
+                <baseMoodEffect>-1</baseMoodEffect>
+                <description>TODO</description>
+                <label>TODO</label>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>PMM_CreatedMutagenicWeaponBad</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <stackLimit>4</stackLimit>
+        <stages>
+            <li>
+                <baseMoodEffect>-1</baseMoodEffect>
+                <description>TODO</description>
+                <label>TODO</label>
+            </li>
+        </stages>
+    </ThoughtDef>
+</Defs>

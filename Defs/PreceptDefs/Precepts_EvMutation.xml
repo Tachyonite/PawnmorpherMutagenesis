@@ -10,6 +10,14 @@
         <label>prohibited</label>
         <description>TODO</description>
         <impact>High</impact>
+        <comps>
+            <li Class="PreceptComp_UnwillingToDo">
+                <eventDef>SowMutagenicPlants</eventDef>
+            </li>
+            <li Class="PreceptComp_UnwillingToDo">
+                <eventDef>CreateMutagenicWeapon</eventDef>
+            </li>
+        </comps>
     </PreceptDef>
 
     <PreceptDef ParentName="PMM_EvMutationPrecept">
@@ -17,7 +25,21 @@
         <label>disliked</label>
         <description>TODO</description>
         <impact>Medium</impact>
+        <comps>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>PMM_UsingMutagenicWeaponBad</thought>
+            </li>
+            <li Class="PreceptComp_SelfTookMemoryThought">
+                <thought>PMM_PlantedMutagenicPlantBad</thought>
+                <eventDef>SowMutagenicPlants</eventDef>
+            </li>
+            <li Class="PreceptComp_SelfTookMemoryThought">
+                <thought>PMM_CreatedMutagenicWeaponBad</thought>
+                <eventDef>CreateMutagenicWeapon</eventDef>
+            </li>
+        </comps>
     </PreceptDef>
+
     <PreceptDef ParentName="PMM_EvMutationPrecept">
         <defName>PMM_EvMutationNeutral</defName>
         <label>neutral</label>
@@ -30,7 +52,12 @@
         <defName>PMM_EvMutationLiked</defName>
         <label>liked</label>
         <description>TODO</description>
-        <impact>Medium</impact>
+        <impact>Low</impact>
+        <comps>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>PMM_UsingMutagenicWeaponGood</thought>
+            </li>
+        </comps>
     </PreceptDef>
 
 </Defs>
