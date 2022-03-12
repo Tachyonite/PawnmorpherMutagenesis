@@ -9,7 +9,6 @@
         <label>Perpetual Transformation</label>
         <description>TODO</description>
         <impact>High</impact>
-        <alsoAdds>PM_ReversionHated</alsoAdds>
         <conflictingMemes>
             <li>HumanPrimacy</li>
             <li>FleshPurity</li>
