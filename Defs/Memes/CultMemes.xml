@@ -36,6 +36,11 @@
                 <li>PMM_MutagenicsColonistsAndGuiltyOnly</li>
                 <li>PMM_MutagenicsWillingColonistsOnly</li>
             </li>
+            <li>
+                <!-- environmental mutation -->
+                <li>PMM_EvMutationNeutral</li>
+                <li>PMM_EvMutationLiked</li>
+            </li>
         </requireOne>
 
 
@@ -61,7 +66,7 @@
         <iconPath>UI/Structures/Animist</iconPath>
         <worshipRoomLabel>temple</worshipRoomLabel>
         <randomizationSelectionWeightFactor>2</randomizationSelectionWeightFactor>
-        <deityCount>0~1</deityCount>
+        <deityCount>0~0</deityCount> <!-- needs dietyNameMakerOverride and dietyTypeMakerOverride if we want to have a diety-->
         <generalRules>
             <rulesStrings>
                 <li>memeLeaderNoun->curate</li>
