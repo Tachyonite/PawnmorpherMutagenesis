@@ -58,7 +58,11 @@
             <xs:element name="visible" type="xs:boolean" minOccurs="0" />
             <xs:element name="listedForRoles" type="xs:boolean" minOccurs="0" />
             <xs:element name="takeNameFrom" type="xs:string" minOccurs="0" />
-            <xs:element name="alsoAdds" type="xs:string" minOccurs="0" />
+            <xs:element name="alsoAdds" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>ritual precept def added when this precept is added. Must be a Ritual and not a 'normal' precept</xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:element name="maxCount" type="xs:int" minOccurs="0" />
             <xs:element name="exclusionTags" type="ListOfStrings" minOccurs="0" />
 
