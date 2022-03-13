@@ -30,17 +30,36 @@
             <li>PMM_Mutagenesis</li>
             <li>AnimalPersonhood</li>
         </associatedMemes>
+        <comps>
+            <li Class="PawnmorpherMutagenesis.PreceptComps.UnwillingTo_Mutate">
+                <eventDef>ApplyMutagenicsOn</eventDef>
+                <allowGuilty>true</allowGuilty>
+            </li>
+            <li Class="PawnmorpherMutagenesis.PreceptComps.SelfTookMemoryThought_AppliedMutagen">
+                <thought>PMM_GavePawnMutation_Bad</thought>
+            </li>
+        </comps>
     </PreceptDef>
 
     <PreceptDef ParentName="PMM_MutagenicsUsagePreceptBase">
         <defName>PMM_Disliked</defName>
         <label>disliked</label>
         <impact>Medium</impact>
+        <comps>
+            <li Class="PawnmorpherMutagenesis.PreceptComps.SelfTookMemoryThought_AppliedMutagen">
+                <thought>PMM_GavePawnMutation_Bad</thought>
+            </li>
+        </comps>
     </PreceptDef>
     <PreceptDef ParentName="PMM_MutagenicsUsagePreceptBase">
         <defName>PMM_Prohibited</defName>
         <label>prohibited</label>
         <impact>High</impact>
+        <comps>
+            <li Class="PawnmorpherMutagenesis.PreceptComps.UnwillingTo_Mutate">
+                <eventDef>ApplyMutagenicsOn</eventDef>
+            </li>
+        </comps>
     </PreceptDef>
     
 </Defs>

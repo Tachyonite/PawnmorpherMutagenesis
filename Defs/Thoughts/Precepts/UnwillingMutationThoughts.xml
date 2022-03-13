@@ -1,0 +1,27 @@
+<Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Schemas/ThoughtDef.xsd">
+    <ThoughtDef>
+        <defName>PMM_GavePawnMutation_Bad</defName>
+        <thoughtClass>Thought_Memory</thoughtClass>
+        <stages>
+            <li>
+                <label>Unwilling</label>
+                <baseMoodEffect>-10</baseMoodEffect>
+                <description>TODO</description>
+            </li>
+            <!--uncomment the bollow lines to have seperate thoughts for applying mutations on unwilling Guilty pawns and willing pawns respectivly 
+                if left commented, those actions will have no thoughts on them  
+            <li>
+                <label>Guilty</label>
+                <baseMoodEffect>-10</baseMoodEffect>
+                <description>TODO</description>
+            </li>
+            <li>
+                <label>Willing</label>
+                <baseMoodEffect>0</baseMoodEffect>
+                <description>TODO</description>
+                <visible>true</visible>
+            </li>
+        -->
+        </stages>
+    </ThoughtDef>
+</Defs>
