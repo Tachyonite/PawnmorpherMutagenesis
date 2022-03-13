@@ -33,8 +33,7 @@
             <li>
                 <!-- mutagenics -->
                 <li>PMM_MutagenicsUnlimited</li>
-                <li>PMM_MutagenicsColonistsAndGuiltyOnly</li>
-                <li>PMM_MutagenicsWillingColonistsOnly</li>
+                <li>PMM_MutagenicsGuiltyOnly</li>
             </li>
             <li>
                 <!-- environmental mutation -->

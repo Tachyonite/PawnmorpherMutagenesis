@@ -8,27 +8,39 @@
         <label>Unlimited</label>
         <countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
         <impact>Low</impact>
+        <conflictingMemes>
+            <li>HumanPrimacy</li>
+            <li>FleshPurity</li>
+            <li>Transhumanist</li>
+        </conflictingMemes>
+        <associatedMemes>
+            <li>NaturePrimacy</li>
+            <li>PMM_Mutagenesis</li>
+            <li>AnimalPersonhood</li>
+        </associatedMemes>
     </PreceptDef>
 
     <PreceptDef ParentName="PMM_MutagenicsUsagePreceptBase">
-        <defName>PMM_MutagenicsWillingColonistsOnly</defName>
-        <label>Willing Colonists Only</label>
-        <impact>Medium</impact>
-    </PreceptDef>
-    <PreceptDef ParentName="PMM_MutagenicsUsagePreceptBase">
-        <defName>PMM_MutagenicsColonistsOnly</defName>
-        <label>Colonists Only</label>
-        <impact>Medium</impact>
-    </PreceptDef>
-    <PreceptDef ParentName="PMM_MutagenicsUsagePreceptBase">
-        <defName>PMM_MutagenicsColonistsAndGuiltyOnly</defName>
-        <label>Colonists And Guilty Only</label>
-        <impact>Medium</impact>
+        <defName>PMM_MutagenicsGuiltyOnly</defName>
+        <label>gulity only</label>
+        <countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
+        <impact>Low</impact>
+        <associatedMemes>
+            <li>NaturePrimacy</li>
+            <li>PMM_Mutagenesis</li>
+            <li>AnimalPersonhood</li>
+        </associatedMemes>
     </PreceptDef>
 
     <PreceptDef ParentName="PMM_MutagenicsUsagePreceptBase">
-        <defName>PMM_MutagenicsBanned</defName>
-        <label>Banned</label>
+        <defName>PMM_Disliked</defName>
+        <label>disliked</label>
+        <impact>Medium</impact>
+    </PreceptDef>
+    <PreceptDef ParentName="PMM_MutagenicsUsagePreceptBase">
+        <defName>PMM_Prohibited</defName>
+        <label>prohibited</label>
         <impact>High</impact>
     </PreceptDef>
+    
 </Defs>

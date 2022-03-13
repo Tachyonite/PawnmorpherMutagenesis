@@ -8,7 +8,7 @@
 
     <IssueDef>
         <defName>PMM_MutagenicsUsage</defName>
-        <label>Mutagenics Usage</label>
+        <label>Unwilling Mutation</label>
         <description>TODO</description>
         <iconPath>UI/Precepts/TransformationPrecept</iconPath>
     </IssueDef>
