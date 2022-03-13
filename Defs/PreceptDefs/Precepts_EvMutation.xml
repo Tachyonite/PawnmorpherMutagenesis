@@ -18,6 +18,16 @@
                 <eventDef>CreateMutagenicWeapon</eventDef>
             </li>
         </comps>
+        <associatedMemes>
+            <li>HumanPrimacy</li>
+            <li>FleshPurity</li>
+            <li>Transhumanist</li>
+        </associatedMemes>
+        <conflictingMemes>
+            <li>NaturePrimacy</li>
+            <li>PMM_Mutagenesis</li>
+            <li>AnimalPersonhood</li>
+        </conflictingMemes>
     </PreceptDef>
 
     <PreceptDef ParentName="PMM_EvMutationPrecept">
@@ -38,6 +48,16 @@
                 <eventDef>CreateMutagenicWeapon</eventDef>
             </li>
         </comps>
+        <associatedMemes>
+            <li>HumanPrimacy</li>
+            <li>FleshPurity</li>
+            <li>Transhumanist</li>
+        </associatedMemes>
+        <conflictingMemes>
+            <li>NaturePrimacy</li>
+            <li>PMM_Mutagenesis</li>
+            <li>AnimalPersonhood</li>
+        </conflictingMemes>
     </PreceptDef>
 
     <PreceptDef ParentName="PMM_EvMutationPrecept">
@@ -58,6 +78,16 @@
                 <thought>PMM_UsingMutagenicWeaponGood</thought>
             </li>
         </comps>
+        <conflictingMemes>
+            <li>HumanPrimacy</li>
+            <li>FleshPurity</li>
+            <li>Transhumanist</li>
+        </conflictingMemes>
+        <associatedMemes>
+            <li>NaturePrimacy</li>
+            <li>PMM_Mutagenesis</li>
+            <li>AnimalPersonhood</li>
+        </associatedMemes>
     </PreceptDef>
 
 </Defs>
