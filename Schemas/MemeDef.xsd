@@ -15,7 +15,6 @@
     </xs:element>
 
     <xs:complexType name="MemeDef">
-
         <xs:all>
             <xs:element name="defName" type="xs:string" minOccurs="0" />
             <xs:element name="label" type="xs:string" minOccurs="0" />
@@ -49,12 +48,38 @@
 
             <xs:element name="randomizationSelectionWeightFactor" type="xs:float" minOccurs="0" />
             <xs:element name="requireAnyRitualSeat" type="ListOfStrings" minOccurs="0" />
-            <xs:element name="deityCount" type="IntRange" minOccurs="0" />
+            <xs:element name="deityCount" type="IntRange" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                range defining the number of dieties this meme can generate, if nonzero dietyNameMakerOverride and dietyTypeMakerOverride must be defined 
+            </xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:element name="allowedDuringTutorial" type="xs:boolean" minOccurs="0" />
-            <xs:element name="generalRules" type="RulePack" minOccurs="0" />
+            <xs:element name="generalRules" type="RulePack" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                    general list of rules for the meme, some of the rules required are 
+                    memeLeaderNoun 
+                    memeLeaderAdjective
+                    memeHyphenPrefix
+                    memeMoralist
+                </xs:documentation>
+                </xs:annotation>
+            </xs:element>
 
-            <xs:element name="descriptionMaker" type="IdeoDescriptionMaker" minOccurs="0" />
-            <xs:element name="deityNameMakerOverride" type="xs:string" minOccurs="0" />
+            <xs:element name="descriptionMaker" type="IdeoDescriptionMaker" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                rule pack for defining the type of dieties. the rule r_dietyType must be defined  
+            </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="deityNameMakerOverride" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>rule pack def for generating the name of a diety. must have r_dietyName defined</xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:element name="deityTypeMakerOverride" type="xs:string" minOccurs="0" />
             <xs:element name="allowSymbolsFromDeity" type="xs:string" minOccurs="0" />
             <xs:element name="symbolPackOverride" type="xs:string" minOccurs="0" />
