@@ -6,7 +6,7 @@
     <xs:include schemaLocation="include/CommonComplex.xsd" />
 
 
-    <xs:element name="Defs">
+    <xs:element name="Defs" abstract="true">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="MemeGroupDef" type="MemeGroupDef" minOccurs="1" maxOccurs="unbounded" />
