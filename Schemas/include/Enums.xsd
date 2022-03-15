@@ -190,4 +190,5 @@
             <xs:enumeration value="Structure" />
         </xs:restriction>
     </xs:simpleType>
+
 </xs:schema>

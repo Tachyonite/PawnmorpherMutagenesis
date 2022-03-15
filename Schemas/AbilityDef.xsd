@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="include/SimpleTypes.xsd" />
+    <xs:include schemaLocation="include/SimpleCurve.xsd" />
+    <xs:include schemaLocation="include/Enums.xsd" />
+    <xs:include schemaLocation="include/CommonComplex.xsd" />
+
+    <xs:element name="Defs">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="AbilityDef" type="AbilityDef" minOccurs="0" maxOccurs="unbounded" />
+
+            </xs:sequence>
+
+        </xs:complexType>
+
+    </xs:element>
+
+    <xs:complexType name="AbilityDef">
+
+        <xs:all>
+            <xs:element name="defName" type="xs:string" minOccurs="0" />
+            <xs:element name="label" type="xs:string" minOccurs="0" />
+            <xs:element name="description" type="xs:string" minOccurs="0" />
+            <xs:element name="abilityClass" type="xs:string" minOccurs="0" />
+
+            <xs:element name="gizmoClass" type="xs:string" minOccurs="0" />
+            <xs:element name="comps" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="li">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:any processContents="lax" maxOccurs="unbounded" />
+                                </xs:sequence>
+                                <xs:attribute name="Class" use="required" />
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="category" type="xs:string" minOccurs="0" />
+            <xs:element name="statBases" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:any processContents="lax" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="verbProerties" type="VerbProperties" minOccurs="0" />
+            <xs:element name="hotKey" type="xs:string" minOccurs="0" />
+            <xs:element name="jobDef" type="xs:string" minOccurs="0" />
+            <xs:element name="warmupMote" type="xs:string" minOccurs="0" />
+            <xs:element name="emittedFleck" type="xs:string" minOccurs="0" />
+
+            <xs:element name="emissionInterval" type="xs:int" minOccurs="0" />
+            <xs:element name="warmupMoteSocialSymbol" type="xs:string" minOccurs="0" />
+
+            <xs:element name="warmupStartSound" type="xs:string" minOccurs="0" />
+            <xs:element name="warmupSound" type="xs:string" minOccurs="0" />
+            <xs:element name="warmupPreEndSound" type="xs:string" minOccurs="0" />
+
+            <xs:element name="warmupPreEndSoundSeconds" type="xs:float" minOccurs="0" />
+            <xs:element name="moteDrawOffset" type="Vector3" minOccurs="0" />
+            <xs:element name="moteOffsetAmountTowardsTarget" type="xs:float" minOccurs="0" />
+            <xs:element name="canUseAoeToGetTargets" minOccurs="0" type="xs:boolean" />
+            <xs:element name="targetRequired" minOccurs="0" type="xs:boolean" />
+            <xs:element name="targetWorldCell" minOccurs="0" type="xs:boolean" />
+            <xs:element name="level" minOccurs="0" type="xs:int" />
+            <xs:element name="cooldownTicksRange" minOccurs="0" type="IntRange" />
+            <xs:element name="groupDef" minOccurs="0" type="xs:string" />
+            <xs:element name="overrideGroupCooldown" type="xs:boolean" minOccurs="0" />
+            <xs:element name="requiredMemes" type="ListOfStrings" minOccurs="0" />
+            <xs:element name="sendLetterOnCooldownComplete" type="xs:boolean" minOccurs="0" />
+            <xs:element name="displayGizmoWhileUndrafted" type="xs:boolean" minOccurs="0" />
+            <xs:element name="disableGizmoWhileUndrafted" type="xs:boolean" minOccurs="0" />
+            <xs:element name="writeCombatLog" type="xs:boolean" minOccurs="0" />
+            <xs:element name="stunTargetWhileCasting" type="xs:boolean" minOccurs="0" />
+            <xs:element name="showPsycastEffects" type="xs:boolean" minOccurs="0" />
+            <xs:element name="showCastingProgressBar" type="xs:boolean" minOccurs="0" />
+            <xs:element name="detectionChanceOverride" type="xs:float" minOccurs="0" />
+            <xs:element name="uiOrder" type="xs:float" minOccurs="0" />
+
+            <xs:element name="confirmationDialogText" type="xs:string" minOccurs="0" />
+            <xs:element name="iconPath" type="xs:string" minOccurs="0" />
+
+        </xs:all>
+        <xs:attribute name="Name" type="xs:string" use="optional" />
+        <xs:attribute name="ParentName" type="xs:string" use="optional" />
+        <xs:attribute name="Abstract" type="xs:boolean" use="optional" />
+
+    </xs:complexType>
+
+</xs:schema>

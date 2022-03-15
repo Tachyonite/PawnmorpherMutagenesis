@@ -239,4 +239,140 @@
 
         </xs:all>
     </xs:complexType>
+    <xs:simpleType name="VerbCategories">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Undefined" />
+            <xs:enumeration value="BeatFire" />
+            <xs:enumeration value="Ignite" />
+            <xs:enumeration value="Misc" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="TargetingParams">
+        <xs:all>
+            <xs:element name="canTargetLocations" type="xs:boolean" minOccurs="0" />
+            <xs:element name="canTargetSelf" type="xs:boolean" minOccurs="0" />
+            <xs:element name="canTargetPawns" type="xs:boolean" minOccurs="0" />
+            <xs:element name="canTargetFires" type="xs:boolean" minOccurs="0" />
+            <xs:element name="canTargetBuildings" type="xs:boolean" minOccurs="0" />
+            <xs:element name="canTargetItems" type="xs:boolean" minOccurs="0" />
+            <xs:element name="canTargetAnimals" type="xs:boolean" minOccurs="0" />
+            <xs:element name="canTargetHumans" type="xs:boolean" minOccurs="0" />
+            <xs:element name="canTargetMechs" type="xs:boolean" minOccurs="0" />
+            <xs:element name="canTargetPlants" type="xs:boolean" minOccurs="0" />
+            <xs:element name="onlyTargetFlammables" type="xs:boolean" minOccurs="0" />
+            <xs:element name="mustBeSelectable" type="xs:boolean" minOccurs="0" />
+            <xs:element name="neverTargetDoors" type="xs:boolean" minOccurs="0" />
+            <xs:element name="neverTargetIncapacitated" type="xs:boolean" minOccurs="0" />
+            <xs:element name="neverTargetHostileFaction" type="xs:boolean" minOccurs="0" />
+            <xs:element name="onlyTargetSameIdeo" type="xs:boolean" minOccurs="0" />
+            <xs:element name="onlyTargetThingsAffectingRegions" type="xs:boolean" minOccurs="0" />
+            <xs:element name="onlyTargetDamagedThings" type="xs:boolean" minOccurs="0" />
+            <xs:element name="mapObjectTargetsMustBeAutoAttackable" type="xs:boolean" minOccurs="0" />
+            <xs:element name="onlyTargetIncapacitatedPawns" type="xs:boolean" minOccurs="0" />
+            <xs:element name="onlyTargetColonistsOrPrisoners" type="xs:boolean" minOccurs="0" />
+            <xs:element name="onlyTargetColonistsOrPrisonersOrSlaves" type="xs:boolean" minOccurs="0" />
+            <xs:element name="onlyTargetColonistsOrPrisonersOrSlavesAllowMinorMentalBreaks" type="xs:boolean" minOccurs="0" />
+            <xs:element name="onlyTargetControlledPawns" type="xs:boolean" minOccurs="0" />
+            <xs:element name="onlyTargetPrisonersOfColony" type="xs:boolean" minOccurs="0" />
+            <xs:element name="onlyTargetPsychicSensitive" type="xs:boolean" minOccurs="0" />
+            <xs:element name="onlyTargetAnimaTrees" type="xs:boolean" minOccurs="0" />
+        </xs:all>
+    </xs:complexType>
+
+    <xs:complexType name="ExtraDamage">
+        <xs:all>
+            <xs:element name="def" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>damage def</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="amount" type="xs:float" />
+            <xs:element name="armorPenetration" type="xs:float" minOccurs="0" />
+            <xs:element name="chance" type="xs:float" minOccurs="0" />
+        </xs:all>
+    </xs:complexType>
+
+    <xs:complexType name="SurpriseAttackProps">
+        <xs:all>
+            <xs:element name="extraMeleeDamages">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="li" type="ExtraDamage" minOccurs="1" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:simpleType name="Intelligence">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Animal" />
+            <xs:enumeration value="ToolUser" />
+            <xs:enumeration value="Humanlike" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="VerbProperties">
+        <xs:all>
+            <xs:element name="category" type="VerbCategories" />
+            <xs:element name="verbClass" type="xs:string" />
+            <xs:element name="label" type="xs:string" />
+            <xs:element name="isPrimary" type="xs:boolean" minOccurs="0" />
+            <xs:element name="violent" type="xs:boolean" minOccurs="0" />
+            <xs:element name="minRange" type="xs:float" minOccurs="0" />
+            <xs:element name="range" type="xs:float" minOccurs="0" />
+            <xs:element name="burstShotCount" type="xs:int" minOccurs="0" />
+            <xs:element name="ticksBetweenBurstShots" type="xs:int" minOccurs="0" />
+            <xs:element name="noiseRadius" type="xs:float" minOccurs="0" />
+            <xs:element name="hasStandardCommand" type="xs:boolean" minOccurs="0" />
+            <xs:element name="targetable" type="xs:boolean" minOccurs="0" />
+            <xs:element name="nonInterruptingSelfCase" type="xs:boolean" minOccurs="0" />
+            <xs:element name="tagetParams" type="TargetingParams" minOccurs="0" />
+
+            <xs:element name="requireLineOfSight" type="xs:boolean" minOccurs="0" />
+            <xs:element name="mustCastOnOpenGround" type="xs:boolean" minOccurs="0" />
+            <xs:element name="forceNormalTimeSpeed" type="xs:boolean" minOccurs="0" />
+            <xs:element name="onlyManualCast" type="xs:boolean" minOccurs="0" />
+            <xs:element name="stopBurstWithoutLos" type="xs:boolean" minOccurs="0" />
+
+            <xs:element name="surpriseAttack" type="SurpriseAttackProps" minOccurs="0" />
+            <xs:element name="commonality" type="xs:float" minOccurs="0" />
+            <xs:element name="minIntelligence" type="Intelligence" minOccurs="0" />
+            <xs:element name="consumeFuelPerShot" type="xs:float" minOccurs="0" />
+            <xs:element name="stunTargetOnCastStart" type="xs:boolean" minOccurs="0" />
+            <xs:element name="warmupTime" type="xs:float" minOccurs="0" />
+            <xs:element name="defaultCooldownTime" type="xs:float" minOccurs="0" />
+            <xs:element name="commandIcon" type="xs:float" minOccurs="0" />
+            <xs:element name="soundCast" type="xs:string" minOccurs="0" />
+            <xs:element name="soundCastTail" type="xs:string" minOccurs="0" />
+            <xs:element name="soundAiming" type="xs:string" minOccurs="0" />
+            <xs:element name="muzzleFlashScale" type="xs:float" minOccurs="0" />
+            <xs:element name="impactMote" type="xs:string" minOccurs="0" />
+            <xs:element name="impactFleck" type="xs:string" minOccurs="0" />
+            <xs:element name="drawAimPie" type="xs:boolean" minOccurs="0" />
+            <xs:element name="drawHighlightWithLineOfSight" type="xs:boolean" minOccurs="0" />
+            <xs:element name="linkedBodyPartsGroup" type="xs:string" minOccurs="0" />
+            <xs:element name="ensureLinkedBodyPartsGroupAlwaysUsable" type="xs:string" minOccurs="0" />
+            <xs:element name="meleeDamageDef" type="xs:string" minOccurs="0" />
+            <xs:element name="meleeDamageBaseAmount" type="xs:float" minOccurs="0" />
+            <xs:element name="meleeArmorPenetrationBase" type="xs:float" minOccurs="0" />
+
+            <xs:element name="ai_IsWeapon" type="xs:boolean" minOccurs="0" />
+            <xs:element name="ai_IsBuildingDestroyer" type="xs:boolean" minOccurs="0" />
+            <xs:element name="ai_AvoidFriendlyFireRadius" type="xs:float" minOccurs="0" />
+
+            <xs:element name="defaultProjectile" type="xs:string" minOccurs="0" />
+            <xs:element name="accuracyTouch" type="xs:float" minOccurs="0" />
+            <xs:element name="accuracyShort" type="xs:float" minOccurs="0" />
+            <xs:element name="accuracyMedium" type="xs:float" minOccurs="0" />
+            <xs:element name="accuracyLong" type="xs:float" minOccurs="0" />
+
+            <xs:element name="spawnDef" type="xs:string" minOccurs="0" />
+            <xs:element name="colonyWideTaleDef" type="xs:string" minOccurs="0" />
+            <xs:element name="bodypartTagTarget" type="xs:string" minOccurs="0" />
+            <xs:element name="rangedFireRulepack" type="xs:string" minOccurs="0" />
+
+        </xs:all>
+    </xs:complexType>
 </xs:schema>
