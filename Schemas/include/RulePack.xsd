@@ -15,6 +15,12 @@
     <xs:complexType name="RulePack">
         <xs:sequence>
             <xs:element name="rulesStrings" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        a list of raw strings to define the rule pack. rule strings are a rule name followed by raw text or other parameterized rules in brackets   
+                        defined ruleName -> [otherRuleName] raw text 
+                    </xs:documentation>
+                </xs:annotation>
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="li" type="xs:string" minOccurs="1" maxOccurs="unbounded" />
@@ -36,6 +42,11 @@
                 </xs:complexType>
             </xs:element>
             <xs:element name="include" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>
+                        list of other RulePackDefs to include in this rule pack 
+                    </xs:documentation>
+                </xs:annotation>
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="li" type="xs:string" minOccurs="1" maxOccurs="unbounded" />
