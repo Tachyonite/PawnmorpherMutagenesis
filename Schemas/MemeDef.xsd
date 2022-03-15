@@ -23,7 +23,13 @@
             <xs:element name="iconPath" type="xs:string" minOccurs="0" />
             <xs:element name="renderOrder" type="xs:int" minOccurs="0" />
             <xs:element name="impact" type="xs:int" minOccurs="0" />
-            <xs:element name="category" type="MemeCategory" minOccurs="0" />
+            <xs:element name="category" type="MemeCategory" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                        the category of this meme. Structural Memes define how an ideology is structred as well as aesthectics, but should not have a gameplay impact. Normal memes define mechanics and approved/dissaproved precepts 
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:element name="groupDef" type="xs:string" minOccurs="0" />
 
             <xs:element name="exclusionTags" type="ListOfStrings" minOccurs="0" />
@@ -71,8 +77,8 @@
             <xs:element name="descriptionMaker" type="IdeoDescriptionMaker" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>
-                rule pack for defining the type of dieties. the rule r_dietyType must be defined  
-            </xs:documentation>
+                        set of rules for making the description of the ideology with this meme in it. 
+                    </xs:documentation>
                 </xs:annotation>
             </xs:element>
             <xs:element name="deityNameMakerOverride" type="xs:string" minOccurs="0">
@@ -80,11 +86,15 @@
                     <xs:documentation>rule pack def for generating the name of a diety. must have r_dietyName defined</xs:documentation>
                 </xs:annotation>
             </xs:element>
-            <xs:element name="deityTypeMakerOverride" type="xs:string" minOccurs="0" />
+            <xs:element name="deityTypeMakerOverride" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>rule pack for defining the type of dieties. the rule r_dietyType must be defined</xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:element name="allowSymbolsFromDeity" type="xs:string" minOccurs="0" />
             <xs:element name="symbolPackOverride" type="xs:string" minOccurs="0" />
 
-            <xs:element name="symbolPacks"  minOccurs="0" >
+            <xs:element name="symbolPacks" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="li" type="IdeoSymbolPack" minOccurs="1" maxOccurs="unbounded" />
@@ -117,14 +127,14 @@
 
             <xs:element name="veneratedAnimalsCountOffset" type="xs:int" minOccurs="0" />
             <xs:element name="veneratedAnimalsCountOverride" type="xs:int" minOccurs="0" />
-            
-            
-            <xs:element name="styleItemTags" minOccurs="0" > 
-            <xs:complexType>
-                <xs:sequence>
-                    <xs:element name="li" type="StyleItemTagWeighted" maxOccurs="unbounded" />
-                </xs:sequence>
-            </xs:complexType>
+
+
+            <xs:element name="styleItemTags" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="li" type="StyleItemTagWeighted" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
             </xs:element>
 
             <xs:element name="worshipRoomLabel" type="xs:string" minOccurs="0" />
@@ -132,8 +142,8 @@
             <xs:element name="startingResearchProjects" type="ListOfStrings" minOccurs="0" />
             <xs:element name="addDesignators" type="ListOfStrings" minOccurs="0" />
             <xs:element name="addDesignatorGroups" type="ListOfStrings" minOccurs="0" />
-            
-            <xs:element name="apparelRequirements"  minOccurs="0">
+
+            <xs:element name="apparelRequirements" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="li" type="PreceptApparelRequirement" maxOccurs="unbounded" />
@@ -156,7 +166,7 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            
+
             <xs:element name="preventApparelRequirements" type="xs:boolean" minOccurs="0" />
         </xs:all>
         <xs:attribute name="Name" type="xs:string" use="optional" />
@@ -203,7 +213,14 @@
                 </xs:complexType>
             </xs:element>
 
-            <xs:element name="rules" type="RulePack" minOccurs="0" />
+            <xs:element name="rules" type="RulePack" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                    set of rules that help define the description of the overall ideology. 
+                    rules include setup, story, lession. the full set are those defined in structural memes IdeoStoryPatternDef
+                </xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:element name="constants" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>

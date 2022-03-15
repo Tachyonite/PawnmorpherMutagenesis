@@ -6,10 +6,8 @@
         <description>TODO</description>
         <groupDef>PMM_Mutagenic</groupDef>
         <impact>2</impact>
-
         <!-- TODO, replace this with custom graphics -->
         <iconPath>UI/Memes/AnimalPersonhood</iconPath>
-
         <requireOne>
             <li>
                 <li>PM_MutationsNeutral</li>
