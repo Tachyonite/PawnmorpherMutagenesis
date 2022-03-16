@@ -78,7 +78,7 @@
             <xs:element name="nameMaker" type="xs:string" minOccurs="0">
                 <xs:annotation>
                     <xs:documentation>
-                        RulePackDef for generating a name for the instantated Precept. Required for role precepts.
+                        RulePackDef for generating a name for the instantated Precept. Required for role or ritual precepts.
                         r_roleName must be defined  
                     </xs:documentation>
                 </xs:annotation>
@@ -117,13 +117,20 @@
             </xs:element>
 
             <xs:element name="leaderRole" type="WorkTags" minOccurs="0" />
-            <xs:element name="roleRequiredWorkTags" type="WorkTags" minOccurs="0" />
-            <xs:element name="roleRequiredWorkTagAny" type="WorkTags" minOccurs="0" />
-
-            <xs:element name="roleRequirements" minOccurs="0">
+            <xs:element name="roleRequiredWorkTags" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="li" type="PreceptApparelRequirement" />
+                        <xs:element name="li" type="WorkTags" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="roleRequiredWorkTagAny" type="WorkTags" minOccurs="0" />
+
+            <xs:element name="roleApparelRequirements" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="li" type="PreceptApparelRequirement" maxOccurs="unbounded" />
+
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -145,7 +152,13 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="roleTags" type="ListOfStrings" minOccurs="0" />
+            <xs:element name="roleTags" type="ListOfStrings" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                    list of string tags that are used to assign special positions in rituals 
+                </xs:documentation>
+                </xs:annotation>
+            </xs:element>
 
             <xs:element name="iconPath" type="xs:string" minOccurs="0" />
 
@@ -212,6 +225,7 @@
                 </xs:annotation>
             </xs:element>
 
+
         </xs:all>
         <xs:attribute name="Name" type="xs:string" use="optional" />
         <xs:attribute name="ParentName" type="xs:string" use="optional" />
@@ -249,6 +263,7 @@
             <xs:element name="anyMemeRequired" type="ListOfStrings" minOccurs="0" />
             <xs:element name="requirement" type="ApparelRequirement" minOccurs="0" />
         </xs:all>
+        <xs:attribute name="MayRequire" type="xs:string" use="optional" />
     </xs:complexType>
 
     <xs:element name="RoleEffect">
