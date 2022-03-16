@@ -10,7 +10,7 @@
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="AbilityDef" type="AbilityDef" minOccurs="0" maxOccurs="unbounded" />
-
+                <xs:element name="AbilityGroupDef" type="AbilityGroupDef" minOccurs="0" maxOccurs="unbounded" />
             </xs:sequence>
 
         </xs:complexType>
@@ -29,7 +29,7 @@
             <xs:element name="comps" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="li">
+                        <xs:element name="li" minOccurs="1" maxOccurs="unbounded" nillable="true">
                             <xs:complexType>
                                 <xs:sequence>
                                     <xs:any processContents="lax" maxOccurs="unbounded" />
@@ -50,7 +50,7 @@
                 </xs:complexType>
             </xs:element>
 
-            <xs:element name="verbProerties" type="VerbProperties" minOccurs="0" />
+            <xs:element name="verbProperties" type="VerbProperties" minOccurs="0" />
             <xs:element name="hotKey" type="xs:string" minOccurs="0" />
             <xs:element name="jobDef" type="xs:string" minOccurs="0" />
             <xs:element name="warmupMote" type="xs:string" minOccurs="0" />
@@ -94,4 +94,15 @@
 
     </xs:complexType>
 
+    <xs:complexType name="AbilityGroupDef">
+        <xs:all>
+            <xs:element name="defName" type="xs:string" minOccurs="0" />
+            <xs:element name="label" type="xs:string" minOccurs="0" />
+            <xs:element name="description" type="xs:string" minOccurs="0" />
+            <xs:element name="cooldownTicks" type="xs:float" minOccurs="0" />
+        </xs:all>
+        <xs:attribute name="Name" type="xs:string" use="optional" />
+        <xs:attribute name="ParentName" type="xs:string" use="optional" />
+        <xs:attribute name="Abstract" type="xs:boolean" use="optional" />
+    </xs:complexType>
 </xs:schema>

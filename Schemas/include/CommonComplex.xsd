@@ -315,9 +315,9 @@
 
     <xs:complexType name="VerbProperties">
         <xs:all>
-            <xs:element name="category" type="VerbCategories" />
-            <xs:element name="verbClass" type="xs:string" />
-            <xs:element name="label" type="xs:string" />
+            <xs:element name="category" type="VerbCategories" minOccurs="0" />
+            <xs:element name="verbClass" type="xs:string" minOccurs="0" />
+            <xs:element name="label" type="xs:string" minOccurs="0" />
             <xs:element name="isPrimary" type="xs:boolean" minOccurs="0" />
             <xs:element name="violent" type="xs:boolean" minOccurs="0" />
             <xs:element name="minRange" type="xs:float" minOccurs="0" />
@@ -328,7 +328,7 @@
             <xs:element name="hasStandardCommand" type="xs:boolean" minOccurs="0" />
             <xs:element name="targetable" type="xs:boolean" minOccurs="0" />
             <xs:element name="nonInterruptingSelfCase" type="xs:boolean" minOccurs="0" />
-            <xs:element name="tagetParams" type="TargetingParams" minOccurs="0" />
+            <xs:element name="targetParams" type="TargetingParams" minOccurs="0" />
 
             <xs:element name="requireLineOfSight" type="xs:boolean" minOccurs="0" />
             <xs:element name="mustCastOnOpenGround" type="xs:boolean" minOccurs="0" />
