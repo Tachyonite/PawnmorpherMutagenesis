@@ -64,31 +64,18 @@
 
     <xs:complexType name="RitualRole">
         <xs:sequence>
-            <xs:element name="label" type="xs:string" minOccurs="1" />
-            <xs:element name="categoryLabel" type="xs:string" minOccurs="0" />
-            <xs:element name="missingDesc" type="xs:string" minOccurs="0" />
-            <xs:element name="noCandidatesGizmoDesc" type="xs:string" minOccurs="0" />
-            <xs:element name="id" type="xs:string" minOccurs="1" />
-            <xs:element name="precept" type="xs:string" minOccurs="1" />
-            <xs:element name="required" type="xs:boolean" minOccurs="0" />
-            <xs:element name="maxCount" type="xs:int" minOccurs="0" />
-            <xs:element name="substitutable" type="xs:boolean" minOccurs="0" />
-            <xs:element name="ignoreBleeding" type="xs:boolean" minOccurs="0" />
-            <xs:element name="countsAsParticipant" type="xs:boolean" minOccurs="0" />
-            <xs:element name="addToLord" type="xs:boolean" minOccurs="0" />
-            <xs:element name="allowNonAggroMentalState" type="xs:boolean" minOccurs="0" />
-            <xs:element name="defaultForSelectedColonist" type="xs:boolean" minOccurs="0" />
-            <xs:element name="allowOtherIdeos" type="xs:boolean" minOccurs="0" />
-            <xs:any />
+            <xs:any processContents="lax" maxOccurs="unbounded" />
         </xs:sequence>
         <xs:attribute name="Class" type="CSType" use="required" />
     </xs:complexType>
 
     <xs:complexType name="RitualStage">
-        <xs:all>
+        <xs:sequence>
             <xs:element name="parent" type="xs:string" minOccurs="0" />
             <xs:element name="defaultDuty" type="xs:string" minOccurs="0" />
-
+            <xs:element name="allowedSpectateSidesOverride" type="SpectateRectSide" minOccurs="0" />
+            <xs:element name="spectateDistanceOverride" type="IntRange" minOccurs="0" />
+            <xs:element name="spectatorsRequired" type="xs:boolean" minOccurs="0" />
             <xs:element name="endTriggers" minOccurs="1">
                 <xs:complexType>
                     <xs:sequence>
@@ -111,7 +98,9 @@
             <xs:element name="interruptedAction" type="AbstractType" minOccurs="0" />
             <xs:element name="pawnLeaveAction" type="AbstractType" minOccurs="0" />
             <xs:element name="spectatorFilter" type="RitualSpectorFilter" minOccurs="0" />
-        </xs:all>
+            <xs:any maxOccurs="unbounded" processContents="lax" />
+        </xs:sequence>
+        <xs:attribute name="Class" type="CSType" use="optional" />
     </xs:complexType>
 
     <xs:complexType name="AbstractType">

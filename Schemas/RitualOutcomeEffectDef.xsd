@@ -48,11 +48,24 @@
                         <xs:element name="li" maxOccurs="unbounded">
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element name="label" type="xs:string" minOccurs="0" />
-                                    <xs:element name="labelAbstract" type="xs:string" minOccurs="0" />
+                                    <xs:element name="label" type="xs:string" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>
+                                            label of what the outcome is or what this comp does. you can use {PAWN_labelShort} to refer to the pawn of the given roleID  
+                                        </xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
+                                    <xs:element name="labelAbstract" type="xs:string" minOccurs="0">
+                                        <xs:annotation>
+                                            <xs:documentation>
+                                            label of what the outcome is or what this, should not refer to any specific pawn but speak in abstract terms like 'Leader's ability to'
+                                        </xs:documentation>
+                                        </xs:annotation>
+                                    </xs:element>
                                     <xs:element name="qualityOffset" type="xs:float" minOccurs="0" />
-                                    <xs:any minOccurs="0" />
+                                    <xs:any minOccurs="0" processContents="lax" maxOccurs="unbounded" />
                                 </xs:sequence>
+                                <xs:attribute name="Class" type="CSType" use="required" />
                             </xs:complexType>
                         </xs:element>
                     </xs:sequence>
@@ -71,11 +84,29 @@
     <xs:complexType name="OutcomeChance">
         <xs:all>
             <xs:element name="label" type="xs:string" minOccurs="0" />
-            <xs:element name="description" type="xs:string" minOccurs="0" />
+            <xs:element name="description" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                    description of what this outcome does, can use {$ROLDID_labelShort} to refer to a specific roll or {PAWN_labelShort} to refer to the effected pawn regardless of role 
+                </xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:element name="potentialExtraOutcomeDesc" type="xs:string" minOccurs="0" />
-            <xs:element name="chance" type="xs:float" minOccurs="0" />
+            <xs:element name="chance" type="xs:float" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                    the chance of this outcome given a neutral result of the ritual 
+                </xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:element name="memory" type="xs:string" minOccurs="0" />
-            <xs:element name="positivityIndex" type="xs:int" minOccurs="0" />
+            <xs:element name="positivityIndex" type="xs:int" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>
+                    index that referes to how positive this event is, postive values are good, negative bad, 0 neutral 
+                </xs:documentation>
+                </xs:annotation>
+            </xs:element>
             <xs:element name="roleIdsNotGainingMemory" type="ListOfStrings" minOccurs="0" />
             <xs:element name="ideoCertaintyOffset" type="xs:float" minOccurs="0" />
         </xs:all>
