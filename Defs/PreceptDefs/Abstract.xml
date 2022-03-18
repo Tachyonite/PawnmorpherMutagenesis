@@ -1,0 +1,8 @@
+<Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Schemas/PreceptDef.xsd">
+    <PreceptDef Abstract="true" Name="PMM_RitualBase">
+        <issue>Ritual</issue>
+        <preceptClass>Precept_Ritual</preceptClass>
+        <visible>false</visible>
+        <countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
+    </PreceptDef>
+</Defs>
