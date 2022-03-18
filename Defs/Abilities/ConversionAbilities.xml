@@ -1,8 +1,8 @@
 <Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Schemas/AbilityDef.xsd">
     <AbilityDef>
         <defName>PMM_Convert</defName>
-        <label>convert</label>
-        <description>Attempt to convert someone to the speaker's ideoligion. This will reduce the target's certainty in their own beliefs. The certainty reduction depends on the speaker's negotiation ability.</description>
+        <label>mutagenic convert</label>
+        <description>TODO</description>
         <groupDef>PMM_MutagenesisGroup</groupDef>
         <iconPath>UI/Abilities/Convert</iconPath>
         <warmupMoteSocialSymbol>Things/Mote/SpeechSymbols/Convert</warmupMoteSocialSymbol>
@@ -15,21 +15,10 @@
         <disableGizmoWhileUndrafted>false</disableGizmoWhileUndrafted>
         <uiOrder>1</uiOrder>
         <comps>
-            <li Class="CompProperties_AbilityConvert">
-                <!--TODO replace this, leaving for reference for now -->
-                <successMessage>{INITIATOR_labelShort} has converted {RECIPIENT_labelShort} to {IDEO}.</successMessage>
-                <failMessage>{INITIATOR_labelShort} failed to convert {RECIPIENT_labelShort}. {RECIPIENT_labelShort} was upset by the attempt, but {RECIPIENT_possessive} certainty fell from {CERTAINTYBEFORE} to {CERTAINTYAFTER}.</failMessage>
-                <failedThoughtInitiator>FailedConvertAbilityInitiator</failedThoughtInitiator>
-                <failedThoughtRecipient>FailedConvertAbilityRecipient</failedThoughtRecipient>
-                <convertPowerFactor>2</convertPowerFactor>
-                <sound>MoralistAbility_Resolve</sound>
+            <li Class="CompProperties_AbilityStartConversion">
+                <ritualDef>PMM_MutagenesisCoversion</ritualDef>
+                <targetRoleId>convertee</targetRoleId>
             </li>
-            <li Class="CompProperties_AbilityMustBeCapableOf">
-                <workTags>
-                    <li>Social</li>
-                </workTags>
-            </li>
-            <li Class="CompProperties_AbilityShowTargetIdeoCertainty" xsi:nil="true" />
         </comps>
         <verbProperties>
             <verbClass>Verb_CastAbilityTouch</verbClass>
@@ -41,6 +30,9 @@
                 <neverTargetHostileFaction>true</neverTargetHostileFaction>
             </targetParams>
         </verbProperties>
+        <requiredMemes>
+            <li>PMM_Mutagenesis</li>
+        </requiredMemes>
     </AbilityDef>
 
 

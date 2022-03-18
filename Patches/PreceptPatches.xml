@@ -13,6 +13,31 @@
                     <li>PMM_Mutagenesis</li>
                 </value>
             </li>
+
         </operations>
     </Operation>
+
+    <Operation Class="PatchOperationAdd">
+        <xpath>Defs/PreceptDef[defName="IdeoRole_Moralist"]/gratedAbilities</xpath>
+        <value>
+            <li>PMM_Convert</li>
+        </value>
+    </Operation>
+
+    <Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+                <xpath>Defs/AbilityDef[defName="ConversionRitual"]/comps</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[defName="Human"]</xpath>
+                <value>
+                    <comps />
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
 </Patch>
