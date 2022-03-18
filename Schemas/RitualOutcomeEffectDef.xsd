@@ -88,6 +88,7 @@
                 <xs:annotation>
                     <xs:documentation>
                     description of what this outcome does, can use {$ROLDID_labelShort} to refer to a specific roll or {PAWN_labelShort} to refer to the effected pawn regardless of role 
+                    use {0} to refer to the ritual itself 
                 </xs:documentation>
                 </xs:annotation>
             </xs:element>

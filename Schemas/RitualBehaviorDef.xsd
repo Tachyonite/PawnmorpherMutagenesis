@@ -26,6 +26,7 @@
                     <xs:sequence>
                         <xs:element name="li" type="RitualRole" maxOccurs="unbounded" minOccurs="1" />
                     </xs:sequence>
+                    <xs:attribute name="Inherit" type="xs:boolean" use="optional" />
                 </xs:complexType>
             </xs:element>
 
@@ -38,8 +39,8 @@
             </xs:element>
 
             <xs:element name="durationTicks" type="IntRange" minOccurs="0" />
-            <xs:element name="preceptRequirements" type="AbstractType" minOccurs="0" />
-            <xs:element name="cancellationTriggers" type="AbstractType" minOccurs="0" />
+            <xs:element name="preceptRequirements" type="ListOfAbstractType" minOccurs="0" />
+            <xs:element name="cancellationTriggers" type="ListOfAbstractType" minOccurs="0" />
 
 
             <xs:element name="useVisualEffectsFromRoleIdIdeo" type="xs:string" minOccurs="0" />

@@ -313,6 +313,19 @@
         </xs:restriction>
     </xs:simpleType>
 
+    <xs:complexType name="ListOfAbstractType">
+        <xs:sequence>
+            <xs:element name="li" minOccurs="1" maxOccurs="unbounded" nillable="true">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:any processContents="lax" maxOccurs="unbounded" />
+                    </xs:sequence>
+                    <xs:attribute name="Class" type="xs:string" use="required" />
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="VerbProperties">
         <xs:all>
             <xs:element name="category" type="VerbCategories" minOccurs="0" />
