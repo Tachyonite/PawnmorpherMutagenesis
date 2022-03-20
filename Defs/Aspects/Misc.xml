@@ -1,0 +1,10 @@
+<Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Schemas/AspectDef.xsd">
+
+    <Pawnmorph.AspectDef>
+        <defName>PMM_ConversionAspect</defName>
+        <label>TODO</label>
+        <aspectType>PawnmorpherMutagenesis.Aspects.</aspectType>
+        <description>TODO</description>
+        <transferToAnimal>true</transferToAnimal>
+    </Pawnmorph.AspectDef>
+</Defs>

@@ -61,7 +61,8 @@
                 <description>TODO</description>
                 <positivityIndex>-1</positivityIndex>
             </li>
-            <li>
+            <li> <!-- formatting, {CONVERTEE} converted pawn, {ANIMAL} animal they tf'd into, {MORPH} for the morph the turned into {RITUAL} for the name of the ritual  -->
+                <!-- former human -->
                 <label>Effective</label>
                 <chance>0.6</chance>
                 <ideoCertaintyOffset>-0.3</ideoCertaintyOffset>
@@ -70,6 +71,7 @@
                 <positivityIndex>1</positivityIndex>
             </li>
             <li>
+                <!-- morph  -->
                 <label>Masterful</label>
                 <chance>0.2</chance>
                 <ideoCertaintyOffset>-1</ideoCertaintyOffset>

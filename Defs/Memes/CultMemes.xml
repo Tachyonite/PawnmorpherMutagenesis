@@ -8,6 +8,7 @@
         <impact>2</impact>
         <!-- TODO, replace this with custom graphics -->
         <iconPath>UI/Memes/AnimalPersonhood</iconPath>
+        
         <requireOne>
             <li>
                 <li>PM_MutationsNeutral</li>
@@ -52,18 +53,21 @@
         </disagreeableTraits>
     </MemeDef>
 
-    <MemeDef >
+    <MemeDef>
+
         <defName>PMM_Metamorphic</defName>
         <label>metamorphic</label>
         <description>A close-knit cult of devout followers who believe that a nature spirit controls the planet, changing and molding those who believe into loyal followers. They believe that by changing themselves, they can inherit the world.</description>
         <category>Structure</category>
         <impact>0</impact>
 
+        
         <!-- below this is copied from Animism, these should be changed -->
         <iconPath>UI/Structures/Animist</iconPath>
         <worshipRoomLabel>temple</worshipRoomLabel>
         <randomizationSelectionWeightFactor>2</randomizationSelectionWeightFactor>
         <deityCount>0~0</deityCount> <!-- needs dietyNameMakerOverride and dietyTypeMakerOverride if we want to have a diety-->
+
         <generalRules>
             <rulesStrings>
                 <li>memeLeaderNoun->curate</li>

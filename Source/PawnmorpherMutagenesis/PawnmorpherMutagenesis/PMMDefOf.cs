@@ -2,6 +2,7 @@
 // last updated 03/13/2022  8:53 AM
 
 using JetBrains.Annotations;
+using Pawnmorph;
 using RimWorld;
 
 namespace PawnmorpherMutagenesis
@@ -22,6 +23,17 @@ namespace PawnmorpherMutagenesis
             public static PreceptDef PMM_MorphingLoved;
             public static PreceptDef PMM_MorphingRequired;
             public static PreceptDef PM_MutationsLoved; 
+        }
+
+        [DefOf]
+        public static class AspectDefOf
+        {
+            static AspectDefOf()
+            {
+                DefOfHelper.EnsureInitializedInCtor(typeof(AspectDefOf));
+            }
+
+            public static AspectDef PMM_ConversionAspect; 
         }
     }
 }
