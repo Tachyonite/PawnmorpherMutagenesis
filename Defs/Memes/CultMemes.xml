@@ -3,10 +3,9 @@
     <MemeDef>
         <defName>PMM_Mutagenesis</defName>
         <label>mutagenesis</label>
-        <description>TODO mutagenesis meme</description>
+        <description>The advent of mutagens has fundamentally changed the world. We will make it everything we do. Change will become us and spread via our hand. We are the agents of change, and humanity will become something greater by our dominion.</description>
         <groupDef>PMM_Mutagenic</groupDef>
-        <impact>2</impact>
-        <!-- TODO, replace this with custom graphics -->
+        <impact>3</impact>
         <iconPath>UI/Memes/Mutagenesis</iconPath>
         
         <requireOne>
@@ -66,7 +65,7 @@
         <iconPath>UI/Structures/Metamorphic</iconPath>
         <worshipRoomLabel>temple</worshipRoomLabel>
         <randomizationSelectionWeightFactor>2</randomizationSelectionWeightFactor>
-        <deityCount>0~0</deityCount> <!-- needs dietyNameMakerOverride and dietyTypeMakerOverride if we want to have a diety-->
+        <deityCount>1</deityCount> <!-- needs dietyNameMakerOverride and dietyTypeMakerOverride if we want to have a diety-->
 
         <generalRules>
             <rulesStrings>
@@ -84,7 +83,7 @@
         <descriptionMaker>
             <patterns>
                 <li>
-                    <def>AnimistDescription</def>
+                    <def>EtherineDescription</def>
                 </li>
             </patterns>
             <constants>
@@ -117,11 +116,11 @@
 
     <!-- copy of IdeoStoryPatternDef for Animist, this is for reference only  
     <IdeoStoryPatternDef>
-        <defName>AnimistDescription</defName>
+        <defName>EtherineDescription</defName>
         <segments>
-            <li>animistBasis</li>
-            <li>animistFact</li>
-            <li>animistProphecy</li>
+            <li>etherineBasis</li>
+            <li>etherineFact</li>
+            <li>etherineProphecy</li>
         </segments>
         <rules>
             <include>
@@ -129,64 +128,53 @@
             </include>
             <rulesStrings>
                 generic basis 
-                <li>animistBasis   ->The universe is an endless cycle of creation and destruction managed by spirits in aspects of the world around us.</li>
-                <li>animistBasis   ->A parallel universe of spirits lies next to our own. A seemingly inanimate object in this universe corresponds to an animated spirit in the other.</li>
+                <li>etherineBasis   ->Everything is ruled by change and mutation. Nothing is constant, and the cycles of life only serve to fuel evolution.</li>
+                <li>etherineBasis   ->There is change all around us, and we are like clay for the great potter of [deity0_name], who molds and shapes all.</li>
+                <li>etherineBasis   ->[deity0_name] is a powerful entity of no certain form, that seeks to return all humanity to a more natural state.</li>
+                <li>etherineBasis   ->There are none but [deity0_name], who is the true master of all creatures great and small.</li>
 
                 generic fact
-                <li>animistFact    ->Each spirit has an essential nature, and seeks to influence the world. Sometimes this influence is helpful, and  sometimes it is harmful.</li>
+                <li>etherineFact    ->Every human is influenced by [deity0_name] whether they know it or not, and they must change their ways or be changed.</li>
+                <li>etherineFact    ->All Men are compelled to return to a wild state, civilisation is merely a thin veneer over the animal that resides within.</li>
+                <li>etherineFact    ->Those who resist the call of the wild are unholy and must be brought into the fold by other means.</li>
+                <li>etherineFact    ->All mutagen is merely an extension of [deity0_name]'s will. Spreading the gospel of change is to please [deity0_name].</li>
 
                 generic prophecy
-                <li>animistProphecy->[itIsSaid] that the spirit of the great [relic0_name] will one day grant its wielder power over all spirits.</li>
-                <li>animistProphecy->[itIsSaid] that a sleeping traveler from the stars will crash to the earth, and the spirit of the crater will wake the traveller who will raise the last tribe.</li>
-
-                pieces
+                <li>etherineProphecy->[itIsSaid] that [relic0_name] will one day become part of the mutagenesis engine, and transform all humans into a more natural form.</li>
+                <li>etherineProphecy->[itIsSaid] that all humans will soon bow to the transformative might of [deity0_name].</li>
+                <li>etherineProphecy->[itIsSaid] that [deity0_name] will manifest permanently, in the form of a [veneratedAnimal0_name] and reclaim the world as [etherinePronoun] own.</li>
+                <li>etherineProphecy->[itIsSaid] that we will be [deity0_name]'s chosen people and bring about [etherineEvent].</li>
+                <li>etherineProphecy->[itIsSaid] that [etherineEvent] is coming, and we must speak of its arrival.</li>
+                <li>etherineProphecy->[itIsSaid] that [etherineEvent] is soon at hand. Those who do not know of it will not be granted sapience.</li>
+				
+				pieces
+				<li>etherineEvent->The Great Unification</li>
+				<li>etherineEvent->The Great Transformation</li>
+				<li>etherineEvent->The Mutapocalypse</li>
+				<li>etherineEvent->The [deity0_name]formation</li>
+				<li>etherineEvent->The Ecobinding</li>
+				<li>etherineEvent->The Change Of All Things</li>
+				<li>etherineEvent->The Ultimate Form</li>
+				<li>etherineEvent->The Omnimutant</li>
+				<li>etherineEvent->The Mutalith</li>
+				<li>etherineEvent->The True Chaoform</li>
+				<li>etherineEvent->The Prime Mutagen</li>
+				<li>etherinePronoun->his</li>
+				<li>etherinePronoun->her</li>
+				<li>etherinePronoun->their</li>
+				<li>etherinePronoun->its</li>
                 <li>itIsSaid->It is said</li>
                 <li>itIsSaid->It is prophesied</li>
                 <li>itIsSaid->An ancient text says</li>
                 <li>itIsSaid->Our book says</li>
-                <li>itIsSaid->Our sages say</li>
+                <li>itIsSaid->The murmurings of a mutanite pillar told us</li>
+                <li>itIsSaid->It has been whispered in the shadows of our chambers</li>
+                <li>itIsSaid->It is known</li>
+                <li>itIsSaid->All who follow us know</li>
+                <li>itIsSaid->Our mutapriests say</li>
                 <li>itIsSaid->We know</li>
 
             </rulesStrings>
         </rules>
     </IdeoStoryPatternDef>
-    -->
-
-    <!-- 
-        Christian Diety namers/Type makers for reference 
-    <RulePackDef>
-        <defName>NamerDeityChristian</defName>
-        <include>
-            <li>GlobalUtility</li>
-        </include>
-        <rulePack>
-            <rulesStrings>
-                <li>r_deityName(p=3)->God</li>
-                <li>r_deityName->Christ-Lord</li>
-                <li>r_deityName->Christ</li>
-                <li>r_deityName->[color] Jesus</li>
-                <li>r_deityName->[color] Christ</li>
-            </rulesStrings>
-        </rulePack>
-    </RulePackDef>
-
-    <RulePackDef>
-        <defName>DietyTypeMakerAbrahamic</defName>
-        <rulePack>
-            <rulesStrings>
-                <li>r_deityType->Creator of [all]</li>
-                <li>r_deityType->[adj] god</li>
-
-                <li>all->everything</li>
-                <li>all->all</li>
-                <li>all->the universe</li>
-
-                <li>adj->all-powerful</li>
-                <li>adj->omnipotent</li>
-                <li>adj->universal</li>
-            </rulesStrings>
-        </rulePack>
-    </RulePackDef>
--->
-
 </Defs>
