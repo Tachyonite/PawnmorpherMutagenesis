@@ -1,7 +1,7 @@
 <Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Schemas/RitualOutcomeEffectDef.xsd">
     <RitualOutcomeEffectDef Name="TrialOutcomeBase">
         <defName>PMM_ConversionEffect</defName>
-        <description>TODO Conversion Effect</description>
+        <description>TODO</description>
         <workerClass>PawnmorpherMutagenesis.Rituals.OutcomeEffectWorker_MutagenicConversion</workerClass>
         <startingQuality>0.5</startingQuality>
         <minQuality>0.1</minQuality>
@@ -51,14 +51,14 @@
                 <label>Terrible</label>
                 <chance>0.05</chance>
                 <ideoCertaintyOffset>0.2</ideoCertaintyOffset>
-                <description>TODO outcome terrible</description>
+                <description>TODO</description>
                 <positivityIndex>-2</positivityIndex>
             </li>
             <li>
                 <label>Ineffective</label>
                 <chance>0.15</chance>
                 <ideoCertaintyOffset>0.12</ideoCertaintyOffset>
-                <description>TODO outcome ineffective</description>
+                <description>TODO</description>
                 <positivityIndex>-1</positivityIndex>
             </li>
             <li> <!-- formatting, {CONVERTEE} converted pawn, {ANIMAL} animal they tf'd into, {MORPH} for the morph the turned into {RITUAL} for the name of the ritual  -->
@@ -67,7 +67,7 @@
                 <chance>0.6</chance>
                 <ideoCertaintyOffset>-0.3</ideoCertaintyOffset>
                 <memory>EffectiveConversion</memory> <!-- memory is given to all those in attendance -->
-                <description>TODO Outcome feral</description>
+                <description>TODO</description>
                 <positivityIndex>1</positivityIndex>
             </li>
             <li>
@@ -76,7 +76,7 @@
                 <chance>0.2</chance>
                 <ideoCertaintyOffset>-1</ideoCertaintyOffset>
                 <memory>MasterfulConversion</memory>
-                <description>TODO outcome morph</description>
+                <description>TODO</description>
                 <positivityIndex>2</positivityIndex>
             </li>
         </outcomeChances>

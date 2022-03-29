@@ -1,6 +1,6 @@
 <Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Schemas/RitualBehaviorDef.xsd">
     <RitualBehaviorDef>
-        <defName>PMM_MutagenesisConversion</defName>
+        <defName>PMM_MutagenesisCoversion</defName>
         <workerClass>PawnmorpherMutagenesis.Rituals.Worker_MutagenicConversion</workerClass>
         <durationTicks>5000</durationTicks>
         <preceptRequirements>

@@ -1,10 +1,10 @@
 <Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Schemas/RitualPatternDef.xsd">
     <RitualPatternDef>
-        <defName>PMM_MutagenesisConversion</defName>
+        <defName>PMM_ConversionRitual</defName>
         <ritualBehavior>Conversion</ritualBehavior>
         <ritualTargetFilter>AltarOrRitualSpot</ritualTargetFilter>
         <ritualObligationTargetFilter>RitualSpotOrAltar</ritualObligationTargetFilter>
-        <ritualExplanation>TODO Conversion ritual</ritualExplanation>
+        <ritualExplanation>TODO</ritualExplanation>
         <ritualOutcomeEffect>PMM_ConversionEffect</ritualOutcomeEffect>
         <alwaysStartAnytime>true</alwaysStartAnytime>
     </RitualPatternDef>

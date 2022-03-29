@@ -7,7 +7,7 @@
         <stages>
             <li>
                 <label>not morph (desired)</label>
-                <description>I'd like to be a morph, if at all possible.</description>
+                <description>TODO</description>
                 <baseMoodEffect>-5</baseMoodEffect>
             </li>
         </stages>
@@ -33,7 +33,7 @@
         <stages>
             <li>
                 <label>not morph (required)</label>
-                <description>I'm not a morph, and I have to be.</description>
+                <description>TODO</description>
                 <baseMoodEffect>-10</baseMoodEffect>
             </li>
         </stages>

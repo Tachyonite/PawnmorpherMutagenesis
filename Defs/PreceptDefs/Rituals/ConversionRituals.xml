@@ -1,11 +1,11 @@
 <Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Schemas/PreceptDef.xsd">
     <PreceptDef ParentName="PMM_RitualBase">
-        <defName>PMM_MutagenesisConversion</defName>
-        <label>transformative ritual</label>
+        <defName>PMM_Conversion</defName>
+        <label>conversion ritual</label>
         <description>TODO</description>
         <issue>Ritual</issue>
         <preceptClass>Precept_Ritual</preceptClass>
-        <ritualPatternBase>PMM_MutagenesisConversion</ritualPatternBase>
+        <ritualPatternBase>PMM_MutagenesisCoversion</ritualPatternBase>
         <visible>false</visible>
         <countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
         <selectionWeight>1.0</selectionWeight>

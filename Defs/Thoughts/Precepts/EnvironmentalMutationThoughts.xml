@@ -4,9 +4,9 @@
         <workerClass>PawnmorpherMutagenesis.Thoughts.Precept.Worker_HasMutagenicWeapon</workerClass>
         <stages>
             <li>
-                <label>using mutagenic weapon</label>
+                <label>TODO</label>
                 <baseMoodEffect>-10</baseMoodEffect>
-                <description>Using these weapons is cruel and unusual.</description>
+                <description>TODO</description>
             </li>
         </stages>
     </ThoughtDef>
@@ -17,9 +17,9 @@
         <workerClass>PawnmorpherMutagenesis.Thoughts.Precept.Worker_HasMutagenicWeapon</workerClass>
         <stages>
             <li>
-                <label>using mutagenic weapon</label>
+                <label>TODO</label>
                 <baseMoodEffect>5</baseMoodEffect>
-                <description>Using these weapons is preferable to killing people, at least they still get to live.</description>
+                <description>TODO</description>
             </li>
         </stages>
     </ThoughtDef>
@@ -31,8 +31,8 @@
         <stages>
             <li>
                 <baseMoodEffect>-1</baseMoodEffect>
-                <description>These plants are distorted and strange, we shouldn't be growing them.</description>
-                <label>planted mutagenic crop</label>
+                <description>TODO</description>
+                <label>TODO</label>
             </li>
         </stages>
     </ThoughtDef>
@@ -44,8 +44,8 @@
         <stages>
             <li>
                 <baseMoodEffect>-1</baseMoodEffect>
-                <description>These should not be used, though they make a good deterrent.</description>
-                <label>created mutagenic weapon</label>
+                <description>TODO</description>
+                <label>TODO</label>
             </li>
         </stages>
     </ThoughtDef>
