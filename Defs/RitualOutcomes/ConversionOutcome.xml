@@ -51,14 +51,14 @@
                 <label>Terrible</label>
                 <chance>0.05</chance>
                 <ideoCertaintyOffset>0.2</ideoCertaintyOffset>
-                <description>terrible outcome</description>
+                <description>{CONVERTER_nameDef} fumbled over their words, the mutanite pillar was dim, and {CONVERTEE_nameDef} was highly skeptical. If anything, this failure has only reinforced {CONVERTEE_possessive}'s original beliefs.</description>
                 <positivityIndex>-2</positivityIndex>
             </li>
             <li>
                 <label>Ineffective</label>
                 <chance>0.15</chance>
                 <ideoCertaintyOffset>0.12</ideoCertaintyOffset>
-                <description>ineffective outcome</description>
+                <description>{CONVERTER_nameDef} attempted to establish a connection between {CONVERTEE_nameDef} and the mutanite pillar, but it was silent. This setback has slightly reinforced {CONVERTEE_possessive} original beliefs.</description>
                 <positivityIndex>-1</positivityIndex>
             </li>
             <li> <!-- formatting, {CONVERTEE} converted pawn, {ANIMAL} animal they tf'd into, {MORPH} for the morph the turned into {RITUAL} for the name of the ritual  -->
@@ -67,7 +67,7 @@
                 <chance>0.6</chance>
                 <ideoCertaintyOffset>-0.3</ideoCertaintyOffset>
                 <memory>EffectiveConversion</memory> <!-- memory is given to all those in attendance -->
-                <description>effective outcome</description>
+                <description>The mutanite pillar hummed with change, and converted {CONVERTEE_nameDef} into an {ANIMAL} that will soon join the ideoligion.</description>
                 <positivityIndex>1</positivityIndex>
             </li>
             <li>
@@ -76,7 +76,7 @@
                 <chance>0.2</chance>
                 <ideoCertaintyOffset>-1</ideoCertaintyOffset>
                 <memory>MasterfulConversion</memory>
-                <description>masterful outcome</description>
+                <description>The mutanite pillar glows brilliantly, burning with glittering green. The perfectly-executed {RITUAL} has converted {CONVERTEE_nameDef} into a {MORPH} of your ideoligion.</description>
                 <positivityIndex>2</positivityIndex>
             </li>
         </outcomeChances>
