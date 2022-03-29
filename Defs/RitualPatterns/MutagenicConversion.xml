@@ -4,7 +4,7 @@
         <ritualBehavior>Conversion</ritualBehavior>
         <ritualTargetFilter>AltarOrRitualSpot</ritualTargetFilter>
         <ritualObligationTargetFilter>RitualSpotOrAltar</ritualObligationTargetFilter>
-        <ritualExplanation>TODO ritual explanation</ritualExplanation>
+        <ritualExplanation>Attempt to convert a pawn to your ideoligion by showing them the power of mutagens. Requires a mutanite pillar, and converts the pawn into an animal or morph of your ideoligion.</ritualExplanation>
         <ritualOutcomeEffect>PMM_ConversionEffect</ritualOutcomeEffect>
         <alwaysStartAnytime>true</alwaysStartAnytime>
     </RitualPatternDef>
