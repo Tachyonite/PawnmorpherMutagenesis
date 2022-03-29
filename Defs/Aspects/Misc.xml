@@ -3,8 +3,14 @@
     <Pawnmorph.AspectDef>
         <defName>PMM_ConversionAspect</defName>
         <label>TODO</label>
-        <aspectType>PawnmorpherMutagenesis.Aspects.</aspectType>
+        <aspectType>PawnmorpherMutagenesis.Aspects.Conversion</aspectType>
         <description>TODO</description>
         <transferToAnimal>true</transferToAnimal>
+		<stages>
+			<li>
+				<label>TODO conversion aspect</label>
+				<description>TODO.</description>
+			</li>
+		</stages>
     </Pawnmorph.AspectDef>
 </Defs>
