@@ -5,7 +5,7 @@
         <description>TODO</description>
         <issue>Ritual</issue>
         <preceptClass>Precept_Ritual</preceptClass>
-        <ritualPatternBase>PMM_MutagenesisCoversion</ritualPatternBase>
+        <ritualPatternBase>PMM_MutagenesisConversion</ritualPatternBase>
         <visible>false</visible>
         <countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
         <selectionWeight>1.0</selectionWeight>

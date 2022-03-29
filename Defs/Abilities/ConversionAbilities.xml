@@ -16,7 +16,7 @@
         <uiOrder>1</uiOrder>
         <comps>
             <li Class="CompProperties_AbilityStartConversion">
-                <ritualDef>PMM_MutagenesisCoversion</ritualDef>
+                <ritualDef>PMM_Conversion</ritualDef>
                 <targetRoleId>convertee</targetRoleId>
             </li>
         </comps>
