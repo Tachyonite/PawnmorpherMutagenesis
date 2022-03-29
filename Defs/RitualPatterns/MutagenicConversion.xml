@@ -4,7 +4,7 @@
         <ritualBehavior>Conversion</ritualBehavior>
         <ritualTargetFilter>AltarOrRitualSpot</ritualTargetFilter>
         <ritualObligationTargetFilter>RitualSpotOrAltar</ritualObligationTargetFilter>
-        <ritualExplanation>TODO</ritualExplanation>
+        <ritualExplanation>TODO ritual explanation</ritualExplanation>
         <ritualOutcomeEffect>PMM_ConversionEffect</ritualOutcomeEffect>
         <alwaysStartAnytime>true</alwaysStartAnytime>
     </RitualPatternDef>

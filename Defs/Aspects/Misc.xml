@@ -2,7 +2,7 @@
 
     <Pawnmorph.AspectDef>
         <defName>PMM_ConversionAspect</defName>
-        <label>TODO</label>
+        <label>TODO aspect</label>
         <aspectType>PawnmorpherMutagenesis.Aspects.Conversion</aspectType>
         <description>TODO</description>
         <transferToAnimal>true</transferToAnimal>

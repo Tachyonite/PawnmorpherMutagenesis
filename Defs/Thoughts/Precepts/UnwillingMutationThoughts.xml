@@ -4,9 +4,9 @@
         <thoughtClass>Thought_Memory</thoughtClass>
         <stages>
             <li>
-                <label>Unwilling</label>
+                <label>Unwilling mutation</label>
                 <baseMoodEffect>-10</baseMoodEffect>
-                <description>TODO</description>
+                <description>I was given a mutation against my will, this is not what I stand for!</description>
             </li>
             <!--uncomment the bollow lines to have seperate thoughts for applying mutations on unwilling Guilty pawns and willing pawns respectivly 
                 if left commented, those actions will have no thoughts on them  

@@ -2,7 +2,7 @@
     <AbilityDef>
         <defName>PMM_Convert</defName>
         <label>mutagenic convert</label>
-        <description>TODO</description>
+        <description>TODO convert ability</description>
         <groupDef>PMM_MutagenesisGroup</groupDef>
         <iconPath>UI/Abilities/Convert</iconPath>
         <warmupMoteSocialSymbol>Things/Mote/SpeechSymbols/Convert</warmupMoteSocialSymbol>

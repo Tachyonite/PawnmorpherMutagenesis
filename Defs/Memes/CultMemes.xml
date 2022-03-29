@@ -3,7 +3,7 @@
     <MemeDef>
         <defName>PMM_Mutagenesis</defName>
         <label>mutagenesis</label>
-        <description>TODO</description>
+        <description>TODO mutagenesis meme</description>
         <groupDef>PMM_Mutagenic</groupDef>
         <impact>2</impact>
         <!-- TODO, replace this with custom graphics -->

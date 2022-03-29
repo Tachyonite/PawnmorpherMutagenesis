@@ -13,8 +13,8 @@
         <stages>
             <li>
                 <baseMoodEffect>-1</baseMoodEffect>
-                <description>TODO</description>
-                <label>TODO</label>
+                <description>I'm a human in a culture that says I should be an animal.</description>
+                <label>morph required</label>
             </li>
         </stages>
     </ThoughtDef>
@@ -23,9 +23,9 @@
         <defName>PMM_IsMorph_MorphRequired</defName>
         <stages>
             <li>
-                <baseMoodEffect>-1</baseMoodEffect>
-                <description>TODO</description>
-                <label>TODO</label>
+                <baseMoodEffect>0</baseMoodEffect>
+                <description>I'm a morph, and that's the way it should be.</description>
+                <label>morph required</label>
             </li>
         </stages>
     </ThoughtDef>
@@ -35,8 +35,8 @@
         <stages>
             <li>
                 <baseMoodEffect>-2</baseMoodEffect>
-                <description>TODO</description>
-                <label>TODO</label>
+                <description>I'm a morph in a culture that hates me for what I am.</description>
+                <label>outsider</label>
             </li>
         </stages>
     </ThoughtDef>
