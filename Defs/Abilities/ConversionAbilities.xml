@@ -2,7 +2,7 @@
     <AbilityDef>
         <defName>PMM_Convert</defName>
         <label>mutagenic convert</label>
-        <description>TODO</description>
+        <description>TODO mutagenic convert</description>
         <groupDef>PMM_MutagenesisGroup</groupDef>
         <iconPath>UI/Abilities/Convert</iconPath>
         <warmupMoteSocialSymbol>Things/Mote/SpeechSymbols/Convert</warmupMoteSocialSymbol>
@@ -16,7 +16,7 @@
         <uiOrder>1</uiOrder>
         <comps>
             <li Class="CompProperties_AbilityStartConversion">
-                <ritualDef>PMM_MutagenesisCoversion</ritualDef>
+                <ritualDef>PMM_MutagenesisConversion</ritualDef>
                 <targetRoleId>convertee</targetRoleId>
             </li>
         </comps>

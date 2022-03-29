@@ -2,7 +2,7 @@
     <IssueDef>
         <defName>PMM_Morphs</defName>
         <label>Morphs</label>
-        <description>transforming humans into animal hybrids</description>
+        <description>Transforming humans into animal hybrids</description>
         <iconPath>UI/Precepts/TransformationPrecept</iconPath>
     </IssueDef>
 

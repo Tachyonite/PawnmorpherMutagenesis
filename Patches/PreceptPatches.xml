@@ -18,7 +18,7 @@
     </Operation>
 
     <Operation Class="PatchOperationAdd">
-        <xpath>Defs/PreceptDef[defName="IdeoRole_Moralist"]/gratedAbilities</xpath>
+        <xpath>Defs/PreceptDef[defName="IdeoRole_Moralist"]/grantedAbilities</xpath>
         <value>
             <li>PMM_Convert</li>
         </value>
