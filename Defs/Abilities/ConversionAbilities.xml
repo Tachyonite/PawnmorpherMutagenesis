@@ -1,8 +1,8 @@
 <Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Schemas/AbilityDef.xsd">
     <AbilityDef>
         <defName>PMM_Convert</defName>
-        <label>mutagenic convert</label>
-        <description>TODO convert ability</description>
+        <label>mutaconvert</label>
+        <description>Attempts to convert a pawn to your ideoligion via mutagenic infusion. A good result makes them a sapient animal, a masterful result makes them a morph. Requires a mutanite pillar.</description>
         <groupDef>PMM_MutagenesisGroup</groupDef>
         <iconPath>UI/Abilities/Convert</iconPath>
         <warmupMoteSocialSymbol>Things/Mote/SpeechSymbols/Convert</warmupMoteSocialSymbol>
