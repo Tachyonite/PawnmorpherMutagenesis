@@ -7,7 +7,7 @@
         <groupDef>PMM_Mutagenic</groupDef>
         <impact>2</impact>
         <!-- TODO, replace this with custom graphics -->
-        <iconPath>UI/Memes/AnimalPersonhood</iconPath>
+        <iconPath>UI/Memes/Mutagenesis</iconPath>
         
         <requireOne>
             <li>
@@ -63,7 +63,7 @@
 
         
         <!-- below this is copied from Animism, these should be changed -->
-        <iconPath>UI/Structures/Animist</iconPath>
+        <iconPath>UI/Structures/Metamorphic</iconPath>
         <worshipRoomLabel>temple</worshipRoomLabel>
         <randomizationSelectionWeightFactor>2</randomizationSelectionWeightFactor>
         <deityCount>0~0</deityCount> <!-- needs dietyNameMakerOverride and dietyTypeMakerOverride if we want to have a diety-->
