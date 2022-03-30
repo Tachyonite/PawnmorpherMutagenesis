@@ -21,7 +21,12 @@ namespace PawnmorpherMutagenesis.Rituals
         private const string RITUAL_FORMAT = "RITUAL"; //format id for the name of the ritual 
         private const string MORPH_FORMAT = "MORPH"; //format id for the morph they turned into 
         private const string ANIMAL_FORMAT = "ANIMAL";  //format id for the animal they turned into 
-		public override void Apply(float progress, Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual)
+
+        public OutcomeEffectWorker_MutagenicConversion(RitualOutcomeEffectDef def)
+        : base(def)
+        {
+        }
+        public override void Apply(float progress, Dictionary<Pawn, int> totalPresence, LordJob_Ritual jobRitual)
         {
             float quality = GetQuality(jobRitual, progress);
             OutcomeChance outcome = GetOutcome(quality, jobRitual);
