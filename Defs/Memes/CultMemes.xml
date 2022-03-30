@@ -39,8 +39,64 @@
                 <li>PMM_EvMutationLiked</li>
             </li>
         </requireOne>
-
-
+		<generalRules>
+		<rulesStrings>
+			<li>memeAdjective->mutagenic</li>
+			<li>memeAdjective->change</li>
+			<li>memeAdjective->transformative</li>
+			<li>memeCreed->laboratory</li>
+			<li>memeCreed->society</li>
+			<li>memeCreed->association</li>
+			<li>memeCreed->chamber</li>
+			<li>memeHyphenPrefix->muta</li>
+			<li>memeHyphenPrefix->morpho</li>
+			<li>memeHyphenPrefix->ani</li>
+			<li>memeHyphenPrefix->poly</li>
+			<li>memeHyphenPrefix->shape</li>
+			<li>memeConcept->technology</li>
+			<li>memeConcept->metamorphosis</li>
+			<li>memeConcept->change</li>
+			<li>memeConcept->mutation</li>
+			<li>memeConcept->transformation</li>
+			<li>memeConcept->exomutation</li>
+			<li>memeConcept->enhancement</li>
+			<li>memeLeaderNoun->chairman</li>
+			<li>memeLeaderNoun->director</li>
+			<li>memeLeaderNoun->overseer</li>
+			<li>memeLeaderAdjective->muta</li>
+			<li>memeLeaderAdjective->morpho</li>
+			<li>memeMoralist->scientist</li>
+			<li>memeMoralist->mutagenecist</li>
+			<li>memeMoralist->transformist</li>
+			<li>memeMoralist->changer</li>
+		</rulesStrings>
+		</generalRules>
+		<descriptionMaker>
+		  <rules>
+			<rulesStrings>
+			  <!-- theist myth -->
+			  <li>creation(tag=meme_Mutagenesis)        ->[deity0_name] granted us the knowledge of mutagenics, that we may use it to improve and remake ourselves in [deity0_possessive] perfect image.</li>
+			  <li>episode(uses=1,tag=meme_Mutagenesis)  ->Human mutagenecists studied the works of [deity0_name], which pleased [deity0_objective].</li>
+			  <!-- theist founder -->
+			  <li>intro(tag=meme_Mutagenesis)           ->On the [place_summary] [place_name], the [memberNamePlural] found the words of [deity0_name] whispering to them through a mutanite pillar.</li>
+			  <li>conflict(tag=meme_Mutagenesis)        ->A body-purist [foeLeader] envied the exotic forms of the [memberNamePlural], and [foeLeader_possessive] [foeSoldiers] destroyed their chambers with [place_personalWeapon]s.</li>
+			  <li>founderJoin(tag=meme_Mutagenesis)     ->A cunning [place_job] named [founderName] devised a special mutagen, giving it to the [memberNamePlural].</li>
+			  <li>victory(tag=meme_Mutagenesis)         ->[founderName] received divine mutagenic knowledge from [deity0_name], and used it to enhance the bodies and minds of the [memberNamePlural] so they could defeat the [foeSoldiers].</li>
+			  <!-- ideological founder -->
+			  <li>setup(tag=meme_Mutagenesis)           ->[founderName] was a muta-scientist in the early days of human planetary colonization. Seeing the bureaucratic restrictions of the common colonies, [founder_pronoun] took a small ship to found [founder_possessive] own movement.</li>
+			  <li>story(uses=1,tag=meme_Mutagenesis)    ->[founderName] assembled a team of great scientists and inventors to re-shape humanity.</li>
+			  <!-- archist -->
+			  <li>archistBasis(tag=meme_Mutagenesis)    ->Archotechs created the mutagenic mechanite so we could be reshaped and grow beyond our human forms.</li>
+			  <li>archistFact(tag=meme_Mutagenesis)     ->Mutagenic technology allows humans to become closer to these archotechs, by using their technology.</li>
+			  <li>archistProphecy(tag=meme_Mutagenesis) ->[inTheEnd], the archotechs will depart. Only those who are sufficiently mutated will be allowed to go with them.</li>
+			  <!-- animist -->
+			  <li>animistBasis(tag=meme_Mutagenesis)    ->The spirit world drives every action in the universe, and it is only by learning and controlling the laws of the universe that we can integrate with it.</li>
+			  <li>animistFact(tag=meme_Mutagenesis)     ->Changing the body via mutagenics allows animal spirits to enter the body, giving new perspective on life.</li>
+			  <li>animistFact(tag=meme_Mutagenesis)     ->When a person becomes an animal, their spirit melds with an animal's. This is what causes instinct, though one must be careful to balance this facet of themselves.</li>
+			  <li>animistProphecy(tag=meme_Mutagenesis) ->[itIsSaid] that one day the wielder of the [relic0_name] will unite all people with an animal that chooses them, and the world will return to nature.</li>
+			</rulesStrings>
+		  </rules>
+		</descriptionMaker>
         <agreeableTraits>
             <li>MutationAffinity</li>
         </agreeableTraits>
@@ -56,30 +112,45 @@
 
         <defName>PMM_Metamorphic</defName>
         <label>metamorphic</label>
-        <description>A close-knit cult of devout followers who believe that a nature spirit controls the planet, changing and molding those who believe into loyal followers. They believe that by changing themselves, they can inherit the world.</description>
+        <description>A close-knit cult of devout followers who believe that the world is under the sway of a mutagenic deity, changing and molding those who believe into loyal followers. They believe that by morphing themselves, they can inherit the world.</description>
         <category>Structure</category>
         <impact>0</impact>
 
         
         <!-- below this is copied from Animism, these should be changed -->
         <iconPath>UI/Structures/Metamorphic</iconPath>
-        <worshipRoomLabel>temple</worshipRoomLabel>
-        <randomizationSelectionWeightFactor>2</randomizationSelectionWeightFactor>
-        <deityCount>1</deityCount> <!-- needs dietyNameMakerOverride and dietyTypeMakerOverride if we want to have a diety-->
+        <worshipRoomLabel>chamber</worshipRoomLabel>
+        <randomizationSelectionWeightFactor>1</randomizationSelectionWeightFactor>
+        <deityCount>1</deityCount>
 
         <generalRules>
             <rulesStrings>
-                <li>memeLeaderNoun->curate</li>
+				<li>r_ideoName(p=99)->[globalAdjective] [packIdeoName]</li>
+				<li>r_ideoName(p=99)->[memeAdjective] [packIdeoName]</li>
+				<li>r_ideoName(p=99)->[packAdjective] [packIdeoName]</li>
+				<li>r_ideoName(p=99)->[packIdeoName]</li>
+                <li>memeLeaderNoun->orator</li>
                 <li>memeLeaderNoun->speaker</li>
-                <li>memeLeaderAdjective->universe</li>
-                <li>memeLeaderAdjective->spirit</li>
-                <li>memeLeaderAdjective->anima</li>
-                <li>memeHyphenPrefix->ani</li>
+                <li>memeLeaderAdjective->change</li>
+                <li>memeLeaderAdjective->meld</li>
+                <li>memeLeaderAdjective->warp</li>
+                <li>memeLeaderAdjective->transmuto</li>
+                <li>memeLeaderAdjective->shift</li>
+                <li>memeLeaderAdjective->shape</li>
+				<li>memeLeaderAdjective->muta</li>
+				<li>memeLeaderAdjective->Ether's</li>
+                <li>memeHyphenPrefix->muta</li>
                 <li>memeMoralist->shaman</li>
                 <li>memeMoralist->priest</li>
                 <li>memeMoralist->elder</li>
+				<li>memeMoralist->cleric</li>
+				<li>memeMoralist->preacher</li>
+				<li></li>
             </rulesStrings>
         </generalRules>
+		<fixedDeityNameTypes>
+			<li><name>Ether</name><type>Entity of Change</type></li>
+		</fixedDeityNameTypes>
         <descriptionMaker>
             <patterns>
                 <li>
@@ -114,8 +185,7 @@
         </thingStyleCategories>
     </MemeDef>
 
-    <!-- copy of IdeoStoryPatternDef for Animist, this is for reference only  
-    <IdeoStoryPatternDef>
+  <IdeoStoryPatternDef>
         <defName>EtherineDescription</defName>
         <segments>
             <li>etherineBasis</li>
@@ -127,27 +197,23 @@
                 <li>IdeoDescriptionGlobal</li>
             </include>
             <rulesStrings>
-                generic basis 
                 <li>etherineBasis   ->Everything is ruled by change and mutation. Nothing is constant, and the cycles of life only serve to fuel evolution.</li>
                 <li>etherineBasis   ->There is change all around us, and we are like clay for the great potter of [deity0_name], who molds and shapes all.</li>
                 <li>etherineBasis   ->[deity0_name] is a powerful entity of no certain form, that seeks to return all humanity to a more natural state.</li>
                 <li>etherineBasis   ->There are none but [deity0_name], who is the true master of all creatures great and small.</li>
 
-                generic fact
                 <li>etherineFact    ->Every human is influenced by [deity0_name] whether they know it or not, and they must change their ways or be changed.</li>
                 <li>etherineFact    ->All Men are compelled to return to a wild state, civilisation is merely a thin veneer over the animal that resides within.</li>
                 <li>etherineFact    ->Those who resist the call of the wild are unholy and must be brought into the fold by other means.</li>
-                <li>etherineFact    ->All mutagen is merely an extension of [deity0_name]'s will. Spreading the gospel of change is to please [deity0_name].</li>
+                <li>etherineFact    ->All mutagen is merely an extension of [deity0_name]'s will. Spreading the gospel of change is to please [deity_0_possessive].</li>
 
-                generic prophecy
                 <li>etherineProphecy->[itIsSaid] that [relic0_name] will one day become part of the mutagenesis engine, and transform all humans into a more natural form.</li>
                 <li>etherineProphecy->[itIsSaid] that all humans will soon bow to the transformative might of [deity0_name].</li>
-                <li>etherineProphecy->[itIsSaid] that [deity0_name] will manifest permanently, in the form of a [veneratedAnimal0_name] and reclaim the world as [etherinePronoun] own.</li>
+                <li>etherineProphecy->[itIsSaid] that [deity0_name] will manifest permanently, in the form of a [veneratedOrAnyAnimal] and reclaim the world as [deity_0_possessive] own.</li>
                 <li>etherineProphecy->[itIsSaid] that we will be [deity0_name]'s chosen people and bring about [etherineEvent].</li>
                 <li>etherineProphecy->[itIsSaid] that [etherineEvent] is coming, and we must speak of its arrival.</li>
                 <li>etherineProphecy->[itIsSaid] that [etherineEvent] is soon at hand. Those who do not know of it will not be granted sapience.</li>
 				
-				pieces
 				<li>etherineEvent->The Great Unification</li>
 				<li>etherineEvent->The Great Transformation</li>
 				<li>etherineEvent->The Mutapocalypse</li>
@@ -159,22 +225,15 @@
 				<li>etherineEvent->The Mutalith</li>
 				<li>etherineEvent->The True Chaoform</li>
 				<li>etherineEvent->The Prime Mutagen</li>
-				<li>etherinePronoun->his</li>
-				<li>etherinePronoun->her</li>
-				<li>etherinePronoun->their</li>
-				<li>etherinePronoun->its</li>
-                <li>itIsSaid->It is said</li>
-                <li>itIsSaid->It is prophesied</li>
-                <li>itIsSaid->An ancient text says</li>
-                <li>itIsSaid->Our book says</li>
+				
                 <li>itIsSaid->The murmurings of a mutanite pillar told us</li>
                 <li>itIsSaid->It has been whispered in the shadows of our chambers</li>
                 <li>itIsSaid->It is known</li>
                 <li>itIsSaid->All who follow us know</li>
                 <li>itIsSaid->Our mutapriests say</li>
-                <li>itIsSaid->We know</li>
 
             </rulesStrings>
         </rules>
     </IdeoStoryPatternDef>
+	
 </Defs>
