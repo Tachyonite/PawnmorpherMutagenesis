@@ -1,5 +1,4 @@
 <Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Schemas/MemeDef.xsd">
-
     <MemeDef>
         <defName>PMM_Mutagenesis</defName>
         <label>mutagenesis</label>
@@ -7,7 +6,6 @@
         <groupDef>PMM_Mutagenic</groupDef>
         <impact>3</impact>
         <iconPath>UI/Memes/Mutagenesis</iconPath>
-        
         <requireOne>
             <li>
                 <li>PM_MutationsNeutral</li>
@@ -115,68 +113,55 @@
         <description>A close-knit cult of devout followers who believe that the world is under the sway of a mutagenic deity, changing and molding those who believe into loyal followers. They believe that by morphing themselves, they can inherit the world.</description>
         <category>Structure</category>
         <impact>0</impact>
-
-        
-        <!-- below this is copied from Animism, these should be changed -->
         <iconPath>UI/Structures/Metamorphic</iconPath>
         <worshipRoomLabel>chamber</worshipRoomLabel>
         <randomizationSelectionWeightFactor>1</randomizationSelectionWeightFactor>
         <deityCount>1</deityCount>
-
-        <generalRules>
-            <rulesStrings>
-				<li>r_ideoName(p=99)->[globalAdjective] [packIdeoName]</li>
-				<li>r_ideoName(p=99)->[memeAdjective] [packIdeoName]</li>
-				<li>r_ideoName(p=99)->[packAdjective] [packIdeoName]</li>
-				<li>r_ideoName(p=99)->[packIdeoName]</li>
-                <li>memeLeaderNoun->orator</li>
-                <li>memeLeaderNoun->speaker</li>
-                <li>memeLeaderAdjective->change</li>
-                <li>memeLeaderAdjective->meld</li>
-                <li>memeLeaderAdjective->warp</li>
-                <li>memeLeaderAdjective->transmuto</li>
-                <li>memeLeaderAdjective->shift</li>
-                <li>memeLeaderAdjective->shape</li>
-				<li>memeLeaderAdjective->muta</li>
-				<li>memeLeaderAdjective->Ether's</li>
-                <li>memeHyphenPrefix->muta</li>
-                <li>memeMoralist->shaman</li>
-                <li>memeMoralist->priest</li>
-                <li>memeMoralist->elder</li>
-				<li>memeMoralist->cleric</li>
-				<li>memeMoralist->preacher</li>
-				<li></li>
-            </rulesStrings>
-        </generalRules>
+		<generalRules>
+		  <rulesStrings>
+			<li>r_ideoName(p=99)->[globalAdjective] [packIdeoName]</li>
+			<li>r_ideoName(p=99)->[memeAdjective] [packIdeoName]</li>
+			<li>r_ideoName(p=99)->[packAdjective] [packIdeoName]</li>
+			<li>r_ideoName(p=99)->[packIdeoName]</li>
+			<li>memeLeaderNoun->mutator</li>
+			<li>memeLeaderNoun->orator</li>
+			<li>memeLeaderNoun->leader</li>
+			<li>memeLeaderNoun->exactor</li>
+			<li>memeLeaderNoun->proctor</li>
+			<li>memeLeaderNoun->overseer</li>
+			<li>memeLeaderNoun->avatar</li>
+			<li>memeLeaderAdjective->high</li>
+			<li>memeLeaderAdjective->ether</li>
+			<li>memeLeaderAdjective->grand</li>
+			<li>memeLeaderAdjective->chief</li>
+			<li>memeLeaderAdjective->supreme</li>
+			<li>memeLeaderAdjective->change</li>
+			<li>memeMoralist->metamorphum</li>
+			<li>memeMoralist->transfigura</li>
+			<li>memeMoralist->priest</li>
+			<li>memeMoralist->worthy</li>
+			<li>memeMoralist->aspirant</li>
+			<li>memeMoralist->resonator</li>
+			<li>memeMoralist->potentate</li>
+			<li>memeMoralist->elder</li>
+		  </rulesStrings>
+		</generalRules>
+		<descriptionMaker>
+		  <patterns>
+			<li><def>EtherineDescription</def></li>
+		  </patterns>
+		  <constants>
+			<li><key>structure_metamorphic</key><value>true</value></li>
+		  </constants>
+		</descriptionMaker>
+		<symbolPacks>
+		  <li><ideoName>Etherine</ideoName><adjective>Ethereal</adjective><member>Etherite</member><prefix>true</prefix></li>
+		</symbolPacks>
 		<fixedDeityNameTypes>
-			<li><name>Ether</name><type>Entity of Change</type></li>
+		  <li><name>Ether</name><type>Entity of Change</type></li>
+		  <li><name>Ether</name><type>Entity of Mutation</type></li>
+		  <li><name>Ether</name><type>Shapeless Being</type></li>
 		</fixedDeityNameTypes>
-        <descriptionMaker>
-            <patterns>
-                <li>
-                    <def>EtherineDescription</def>
-                </li>
-            </patterns>
-            <constants>
-                <!-- not sure what this is used for -->
-                <li>
-                    <key>structure_animist</key>
-                    <value>true</value>
-                </li>
-            </constants>
-        </descriptionMaker>
-        <symbolPacks>
-            <li>
-                <theme>animism</theme>
-                <adjective>animist</adjective>
-                <member>animist</member>
-            </li>
-            <li>
-                <theme>spiritism</theme>
-                <adjective>spiritist</adjective>
-                <member>spiritist</member>
-            </li>
-        </symbolPacks>
         <thingStyleCategories>
             <li>
                 <category>Animalist</category>
@@ -184,6 +169,28 @@
             </li>
         </thingStyleCategories>
     </MemeDef>
+	
+	<RulePackDef>
+		<defName>NamerDeityEtherine</defName>
+		<include>
+		  <li>GlobalUtility</li>
+		</include>
+		<rulePack>
+		  <rulesStrings>
+			<li>r_deityName(p=3)->Ether</li>
+		  </rulesStrings>
+		</rulePack>
+	</RulePackDef>
+
+	<RulePackDef>
+		<defName>DeityTypeMakerEtherine</defName>
+		<rulePack>
+		  <rulesStrings>
+			<li>r_deityType->Entity of Change</li>
+			<li>r_deityType->Entity of Mutation</li>
+		  </rulesStrings>
+		</rulePack>
+	</RulePackDef>
 
   <IdeoStoryPatternDef>
         <defName>EtherineDescription</defName>
@@ -197,22 +204,22 @@
                 <li>IdeoDescriptionGlobal</li>
             </include>
             <rulesStrings>
-                <li>etherineBasis   ->Everything is ruled by change and mutation. Nothing is constant, and the cycles of life only serve to fuel evolution.</li>
-                <li>etherineBasis   ->There is change all around us, and we are like clay for the great potter of [deity0_name], who molds and shapes all.</li>
-                <li>etherineBasis   ->[deity0_name] is a powerful entity of no certain form, that seeks to return all humanity to a more natural state.</li>
-                <li>etherineBasis   ->There are none but [deity0_name], who is the true master of all creatures great and small.</li>
+                <li>etherineBasis->Everything is ruled by change and mutation. Nothing is constant, and the cycles of life only serve to fuel evolution.</li>
+                <li>etherineBasis->There is change all around us, and we are like clay for the great potter of [deity0_name], who molds and shapes all.</li>
+                <li>etherineBasis->[deity0_name] is a powerful entity of no certain form, that seeks to return all humanity to a more natural state.</li>
+                <li>etherineBasis->There are none but [deity0_name], who is the true master of all creatures great and small.</li>
 
-                <li>etherineFact    ->Every human is influenced by [deity0_name] whether they know it or not, and they must change their ways or be changed.</li>
-                <li>etherineFact    ->All Men are compelled to return to a wild state, civilisation is merely a thin veneer over the animal that resides within.</li>
-                <li>etherineFact    ->Those who resist the call of the wild are unholy and must be brought into the fold by other means.</li>
-                <li>etherineFact    ->All mutagen is merely an extension of [deity0_name]'s will. Spreading the gospel of change is to please [deity_0_possessive].</li>
+                <li>etherineFact->Every human is influenced by [deity0_name] whether they know it or not, and they must change their ways or be changed.</li>
+                <li>etherineFact->All Men are compelled to return to a wild state, civilisation is merely a thin veneer over the animal that resides within.</li>
+                <li>etherineFact->Those who resist the call of the wild are unholy and must be brought into the fold by other means.</li>
+                <li>etherineFact->All mutagen is merely an extension of [deity0_name]'s will. Spreading the gospel of change is to please [deity0_possessive].</li>
 
-                <li>etherineProphecy->[itIsSaid] that [relic0_name] will one day become part of the mutagenesis engine, and transform all humans into a more natural form.</li>
-                <li>etherineProphecy->[itIsSaid] that all humans will soon bow to the transformative might of [deity0_name].</li>
-                <li>etherineProphecy->[itIsSaid] that [deity0_name] will manifest permanently, in the form of a [veneratedOrAnyAnimal] and reclaim the world as [deity_0_possessive] own.</li>
-                <li>etherineProphecy->[itIsSaid] that we will be [deity0_name]'s chosen people and bring about [etherineEvent].</li>
-                <li>etherineProphecy->[itIsSaid] that [etherineEvent] is coming, and we must speak of its arrival.</li>
-                <li>etherineProphecy->[itIsSaid] that [etherineEvent] is soon at hand. Those who do not know of it will not be granted sapience.</li>
+                <li>etherineProphecy->[itIsSaidMuta] that [relic0_name] will one day become part of the mutagenesis engine, and transform all humans into a more natural form.</li>
+                <li>etherineProphecy->[itIsSaidMuta] that all humans will soon bow to the transformative might of [deity0_name].</li>
+                <li>etherineProphecy->[itIsSaidMuta] that [deity0_name] will manifest permanently, in the form of a [veneratedOrAnyAnimal] and reclaim the world as [deity0_possessive] own.</li>
+                <li>etherineProphecy->[itIsSaidMuta] that we will be [deity0_name]'s chosen people and bring about [etherineEvent].</li>
+                <li>etherineProphecy->[itIsSaidMuta] that [etherineEvent] is coming, and we must speak of its arrival.</li>
+                <li>etherineProphecy->[itIsSaidMuta] that [etherineEvent] is soon at hand. Those who do not know of it will not be granted sapience.</li>
 				
 				<li>etherineEvent->The Great Unification</li>
 				<li>etherineEvent->The Great Transformation</li>
@@ -226,11 +233,19 @@
 				<li>etherineEvent->The True Chaoform</li>
 				<li>etherineEvent->The Prime Mutagen</li>
 				
-                <li>itIsSaid->The murmurings of a mutanite pillar told us</li>
-                <li>itIsSaid->It has been whispered in the shadows of our chambers</li>
-                <li>itIsSaid->It is known</li>
-                <li>itIsSaid->All who follow us know</li>
-                <li>itIsSaid->Our mutapriests say</li>
+                <li>itIsSaidMuta->The murmurings of a mutanite pillar told us</li>
+                <li>itIsSaidMuta->It has been whispered in the shadows of our chambers</li>
+                <li>itIsSaidMuta->It is known</li>
+                <li>itIsSaidMuta->All who follow us know</li>
+                <li>itIsSaidMuta->It is said</li>
+                <li>itIsSaidMuta->In our holy texts it is said</li>
+                <li>itIsSaidMuta->Our ancient texts say</li>
+                <li>itIsSaidMuta->A recovered datalog said</li>
+                <li>itIsSaidMuta->A prophet said</li>
+                <li>itIsSaidMuta->Hushed whispers say</li>
+
+				<li>veneratedOrAnyAnimal(priority=10)->[veneratedAnimal]</li>
+				<li>veneratedOrAnyAnimal->[Animal]</li>
 
             </rulesStrings>
         </rules>
