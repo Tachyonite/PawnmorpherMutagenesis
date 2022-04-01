@@ -1,0 +1,59 @@
+<Defs>
+
+  <ThingDef Name="PMM_BodyPartMutagenicBase" ParentName="BodyPartBase" Abstract="True">
+    <techLevel>Spacer</techLevel>
+    <thingCategories>
+      <li>BodyPartsBionic</li>
+    </thingCategories>
+    <graphicData>
+      <texPath>Things/Item/Health/HealthItem</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>0.80</drawSize>
+      <color>(189,169,118)</color>
+    </graphicData>
+    <tradeTags>
+      <li>Bionic</li>
+    </tradeTags>
+    <techHediffsTags>
+      <li>Advanced</li>
+    </techHediffsTags>
+    <statBases>
+      <WorkToMake>26000</WorkToMake>
+    </statBases>
+    <recipeMaker>
+      <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+      <workSkill>Crafting</workSkill>
+      <effectWorking>Smith</effectWorking>
+      <soundWorking>Recipe_Smith</soundWorking>
+      <unfinishedThingDef>UnfinishedHealthItemBionic</unfinishedThingDef>
+      <skillRequirements>
+        <Crafting>8</Crafting>
+      </skillRequirements>
+      <researchPrerequisite>Bionics</researchPrerequisite>
+      <recipeUsers>
+        <li>FabricationBench</li>
+      </recipeUsers>
+    </recipeMaker>
+  </ThingDef>
+  
+  <ThingDef ParentName="PMM_BodyPartMutagenicBase">
+    <defName>PMM_TestImplant</defName>
+    <label>test implant</label>
+    <description>An advanced artificial eye. With its biogel nerve-link, internal signal pre-processor, and wide-spectrum sensors, it is better than a biological eye in almost every way. A lattice-dust healing system allows it to recover from damage.</description>
+    <descriptionHyperlinks><RecipeDef>InstallBionicEye</RecipeDef></descriptionHyperlinks>
+    <costList>
+      <Plasteel>15</Plasteel>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <thingSetMakerTags><li>RewardStandardMidFreq</li></thingSetMakerTags>
+    <statBases>
+      <Mass>0.3</Mass>
+    </statBases>
+	<modExtensions>
+		<li Class="PawnmorpherMutagenesis.DefExtensions.RoleRestrictions">
+			<role>PMM_IdeoRole_Mutachemist</role>
+		</li>
+	</modExtensions>
+  </ThingDef>
+
+</Defs>
