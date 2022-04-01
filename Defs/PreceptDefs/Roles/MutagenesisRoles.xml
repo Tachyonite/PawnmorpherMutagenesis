@@ -1,1 +1,52 @@
-<Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Schemas/PreceptDef.xsd"></Defs>
+<Defs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Schemas/PreceptDef.xsd">
+
+  <PreceptDef ParentName="PreceptRoleMultiBase">
+    <defName>PMM_IdeoRole_Mutachemist</defName>
+    <label>mutachemist</label>
+    <description>A special ideoligious status that enables a pawn to create highly specialised and advanced mutagenic injectors and enhancements. Nobody else will be able to make these items.</description>
+    <iconPath>UI/Roles/Mutachemist</iconPath>
+    <nameMaker>PMM_NamerRoleMutachemist</nameMaker>
+    <roleRequirements>
+      <li Class="RoleRequirement_MinSkillAny">
+        <skills>
+          <Intellectual>6</Intellectual>
+          <Crafting>4</Crafting>
+        </skills>
+      </li>
+    </roleRequirements>
+    <roleRequiredWorkTagAny>
+      <li>Intellectual</li>
+    </roleRequiredWorkTagAny>
+    <roleTags><li>Mutachemist</li></roleTags>
+    <requiredMemes>
+      <li>PMM_Mutagenesis</li>
+    </requiredMemes>
+    <displayOrderInImpact>2</displayOrderInImpact>
+    <roleDisabledWorkTags>
+      <li>ManualDumb</li>
+      <li>Animals</li>
+      <li>Cooking</li>
+      <li>PlantWork</li>
+      <li>Mining</li>
+    </roleDisabledWorkTags>
+  </PreceptDef>
+  
+  <RulePackDef>
+    <defName>PMM_NamerRoleMutachemist</defName>
+    <include><li>NamerRoleSpecialistUtility</li></include>
+    <rulePack>
+      <rulesStrings>
+        <li>firstPart->muta</li>
+        <li>firstPart->morpho</li>
+        <li>firstPart->poly</li>
+        <li>firstPart->exo</li>
+        <li>firstPart->ether</li>
+        <li>firstPart->change</li>
+        <li>firstPart->shape</li>
+        <li>firstPart->shift</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+
+</Defs>
