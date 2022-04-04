@@ -13,13 +13,25 @@
     <!-- Pawnmorpher ideos -->
 	
    <IdeoPresetDef>
-    <defName>Sheep_Lovers</defName>
-    <label>sheep lovers</label>
+    <defName>Mutagenic_Proselyters</defName>
+    <label>mutagenic proselyters</label>
     <description>I am sorry Iron.</description>
     <categoryDef>Pawnmorpher</categoryDef>
     <memes>
-      <li>NaturePrimacy</li>
+      <li>Proselytizer</li>
+      <li>PMM_Mutagenesis</li>
+    </memes>
+  </IdeoPresetDef>
+	
+   <IdeoPresetDef>
+    <defName>True_Feral_People</defName>
+    <label>true feral people</label>
+    <description>We are animals and animals are us...literally.\n\nUnlocks animal and plants specialist roles. Increases taming abilities of every member. Cutting trees and slaughtering animals are unacceptable. These people can connect more deeply with the Gauranlen trees. They also really really like mutagen, and probably want to turn themselves into animals.</description>
+    <categoryDef>Pawnmorpher</categoryDef>
+    <memes>
       <li>AnimalPersonhood</li>
+      <li>NaturePrimacy</li>
+	  <li>PMM_Mutagenesis</li>
     </memes>
   </IdeoPresetDef>
   

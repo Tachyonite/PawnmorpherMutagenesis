@@ -7,7 +7,7 @@
     <PreceptDef ParentName="PMM_FormerHumanPrecept">
         <defName>PMM_PerpetualTransformation</defName>
         <label>Perpetual Transformation</label>
-        <description>TODO</description>
+        <description>Why only try one form when the world is full of various animals to become? The pain of change eases once you embrace it.</description>
         <impact>High</impact>
         <conflictingMemes>
             <li>HumanPrimacy</li>

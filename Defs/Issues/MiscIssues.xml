@@ -3,21 +3,28 @@
         <defName>PMM_Morphs</defName>
         <label>Morphs</label>
         <description>transforming humans into animal hybrids</description>
-        <iconPath>UI/Precepts/TransformationPrecept</iconPath>
+        <iconPath>UI/Precepts/Morphs</iconPath>
     </IssueDef>
 
     <IssueDef>
         <defName>PMM_MutagenicsUsage</defName>
-        <label>Unwilling Mutation</label>
-        <description>TODO</description>
-        <iconPath>UI/Precepts/TransformationPrecept</iconPath>
+        <label>Unwilling mutation</label>
+        <description>mutating people against their will</description>
+        <iconPath>UI/Precepts/UnwillingMutation</iconPath>
     </IssueDef>
 
     <IssueDef>
         <defName>PMM_EnvironmentalMutation</defName>
-        <label>Environmental Mutation</label>
-        <description>TODO</description>
-        <iconPath>UI/Precepts/TransformationPrecept</iconPath>
+        <label>Environmental mutation</label>
+        <description>spreading mutagenic contamination into the environment, and using mutagenic weapons</description>
+        <iconPath>UI/Precepts/EnvironmentalMutation</iconPath>
+    </IssueDef>
+	
+    <IssueDef>
+        <defName>PMM_MorphSlavert</defName>
+        <label>Morph slavery</label>
+        <description>the act of enslaving morphs</description>
+        <iconPath>UI/Precepts/MorphSlavery</iconPath>
     </IssueDef>
     <!-- 
     <IssueDef>

@@ -14,7 +14,7 @@
             <li>
                 <baseMoodEffect>-1</baseMoodEffect>
                 <description>I'm a human in a culture that says I should be an animal.</description>
-                <label>morph required</label>
+                <label>morph required (human)</label>
             </li>
         </stages>
     </ThoughtDef>
@@ -25,7 +25,7 @@
             <li>
                 <baseMoodEffect>0</baseMoodEffect>
                 <description>I'm a morph, and that's the way it should be.</description>
-                <label>morph required</label>
+                <label>morph required (morph)</label>
             </li>
         </stages>
     </ThoughtDef>

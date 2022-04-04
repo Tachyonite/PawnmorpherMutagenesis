@@ -8,7 +8,7 @@
     <PreceptDef ParentName="PMM_EvMutationPrecept">
         <defName>PMM_EvMutationProhibited</defName>
         <label>prohibited</label>
-        <description>TODO</description>
+        <description>Nobody should ever defile the environment by making mutagenic weaponry or tainting the earth with mutagen.</description>
         <impact>High</impact>
         <comps>
             <li Class="PreceptComp_UnwillingToDo">
@@ -33,7 +33,7 @@
     <PreceptDef ParentName="PMM_EvMutationPrecept">
         <defName>PMM_EvMutationDisliked</defName>
         <label>disliked</label>
-        <description>TODO</description>
+        <description>It's a bad idea to pollute the ground with mutagens.</description>
         <impact>Medium</impact>
         <comps>
             <li Class="PreceptComp_SituationalThought">
@@ -63,7 +63,7 @@
     <PreceptDef ParentName="PMM_EvMutationPrecept">
         <defName>PMM_EvMutationNeutral</defName>
         <label>neutral</label>
-        <description>TODO</description>
+        <description>Mutagens are, for better or for worse, part of the environment. </description>
         <impact>Low</impact>
         <countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
     </PreceptDef>
@@ -71,7 +71,7 @@
     <PreceptDef ParentName="PMM_EvMutationPrecept">
         <defName>PMM_EvMutationLiked</defName>
         <label>liked</label>
-        <description>TODO</description>
+        <description>The environment is a product of all its parts. Mutagens are the catalyst to change it to better suit our needs.</description>
         <impact>Low</impact>
         <comps>
             <li Class="PreceptComp_SituationalThought">
