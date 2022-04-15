@@ -23,7 +23,7 @@ namespace PawnmorpherMutagenesis.HPatches
             RoleRestrictions extension = __instance.recipe.GetModExtension<RoleRestrictions>();
             if (extension == null)
             {
-                extension = __instance.recipe.ProducedThingDef.GetModExtension<RoleRestrictions>();
+                extension = __instance.recipe.ProducedThingDef?.GetModExtension<RoleRestrictions>();
                 if (extension == null)
                 {
                     return;
