@@ -77,6 +77,12 @@
         </xs:restriction>
     </xs:simpleType>
 
+    <xs:complexType name="WorkTagsAny">
+        <xs:sequence>
+            <xs:element name="li" type="WorkTags" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:simpleType name="QualityCategory">
         <xs:restriction base="xs:string">
             <xs:enumeration value="Awful" />

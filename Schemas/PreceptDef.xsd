@@ -124,7 +124,7 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element name="roleRequiredWorkTagAny" type="WorkTags" minOccurs="0" />
+            <xs:element name="roleRequiredWorkTagAny" type="WorkTagsAny" minOccurs="0" />
 
             <xs:element name="roleApparelRequirements" minOccurs="0">
                 <xs:complexType>
@@ -178,6 +178,7 @@
             <xs:element name="useChoicesFromBuildingDefs" type="xs:boolean" minOccurs="0" />
             <xs:element name="displayOrderInImpact" type="xs:int" minOccurs="0" />
             <xs:element name="displayOrderInIssue" type="xs:int" minOccurs="0" />
+            <xs:element name="roleDisabledWorkTags" type="WorkTagsAny" minOccurs="0" />
 
             <xs:element name="proselytizes" type="xs:boolean" minOccurs="0" />
             <xs:element name="requiredScars" type="xs:int" minOccurs="0" />
@@ -235,7 +236,7 @@
     <xs:complexType name="RoleRequirement">
         <xs:sequence>
             <xs:element name="label" type="xs:string" minOccurs="0" maxOccurs="1" />
-            <xs:any />
+            <xs:any processContents="lax" />
         </xs:sequence>
         <xs:attribute name="Class" type="CSType" use="required" />
     </xs:complexType>
