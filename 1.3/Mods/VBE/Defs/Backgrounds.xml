@@ -1,0 +1,9 @@
+<Defs>
+	<VBE.BackgroundImageDef>
+		<defName>PMM_Background</defName>
+		<label>mutagenic cult</label>
+		<description>Embrace your fate...</description>
+		<path>Backgrounds/PMM_BG</path>
+		<iconPath>UI/MutagenicHazard</iconPath>
+	</VBE.BackgroundImageDef>
+</Defs>
